@@ -330,58 +330,105 @@ footer{background:#0b1529;padding:40px 56px;display:flex;align-items:center;just
 
 <!-- PRISLISTA -->
 <section style="padding:88px 56px;background:var(--frost)" id="priser">
-  <div style="max-width:1020px;margin:0 auto">
-    <div class="section-label" data-sv="Priser" data-en="Pricing" data-ar="الأسعار">Priser</div>
-    <div class="section-title" data-sv="Enkla & transparenta paket" data-en="Simple & transparent packages" data-ar="باقات بسيطة وشفافة">Enkla & transparenta paket</div>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+  <div style="max-width:1100px;margin:0 auto">
+    <div class="section-label">Priser</div>
+    <div class="section-title">Enkla &amp; transparenta paket</div>
 
-      <div style="background:var(--white);border:1px solid var(--pale);padding:40px 32px;position:relative">
-        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--navy);margin-bottom:8px" data-sv="Bas" data-en="Basic" data-ar="الأساسية">Bas</div>
-        <div style="font-size:13px;color:var(--silver);margin-bottom:24px" data-sv="Perfekt för enskild firma" data-en="Perfect for sole traders" data-ar="مثالي للعاملين لحسابهم الخاص">Perfekt för enskild firma</div>
-        <div style="font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--navy);line-height:1">995<span style="font-size:16px;font-weight:400;color:var(--silver)"> kr/mån</span></div>
-        <div style="height:1px;background:var(--pale);margin:24px 0"></div>
-        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px">
-          <div style="font-size:14px;color:#4a5a7a;display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">✓</span><span data-sv="Löpande bokföring" data-en="Ongoing bookkeeping" data-ar="المحاسبة الجارية">Löpande bokföring</span></div>
-          <div style="font-size:14px;color:#4a5a7a;display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">✓</span><span data-sv="Momsredovisning" data-en="VAT reporting" data-ar="تقرير ضريبة القيمة المضافة">Momsredovisning</span></div>
-          <div style="font-size:14px;color:#4a5a7a;display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">✓</span><span data-sv="Inkomstdeklaration" data-en="Income tax return" data-ar="الإقرار الضريبي">Inkomstdeklaration</span></div>
-          <div style="font-size:14px;color:#4a5a7a;display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">✓</span><span data-sv="E-post support" data-en="Email support" data-ar="دعم البريد الإلكتروني">E-post support</span></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-bottom:20px">
+
+      <!-- BAS med tab -->
+      <div style="background:var(--white);border:1px solid var(--pale);padding:32px;position:relative">
+        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--navy);margin-bottom:16px">Bas</div>
+        <div style="display:flex;gap:0;margin-bottom:20px;border:1px solid var(--pale);overflow:hidden">
+          <button onclick="switchBas('ef')" id="tab-ef" style="flex:1;padding:8px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;border:none;cursor:pointer;background:var(--navy);color:white">Enskild firma</button>
+          <button onclick="switchBas('ab')" id="tab-ab" style="flex:1;padding:8px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;border:none;cursor:pointer;background:var(--frost);color:var(--silver)">Aktiebolag</button>
         </div>
-        <button onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})" style="width:100%;background:var(--frost);color:var(--navy);padding:13px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;border:1px solid var(--pale);cursor:pointer;transition:all .2s" data-sv="Kom igång" data-en="Get started" data-ar="ابدأ الآن">Kom igång</button>
+        <div id="bas-ef">
+          <div style="font-size:13px;color:var(--silver);margin-bottom:16px">Perfekt för enskild firma</div>
+          <div style="font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:20px">995<span style="font-size:15px;font-weight:400;color:var(--silver)"> kr/mån</span></div>
+          <div style="height:1px;background:var(--pale);margin-bottom:20px"></div>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px">
+            <div style="font-size:14px;color:#4a5a7a;display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">&#10003;</span>Löpande bokföring</div>
+            <div style="font-size:14px;color:#4a5a7a;display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">&#10003;</span>Momsredovisning</div>
+            <div style="font-size:14px;color:#4a5a7a;display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">&#10003;</span>Inkomstdeklaration</div>
+            <div style="font-size:14px;color:#4a5a7a;display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">&#10003;</span>E-post support</div>
+          </div>
+        </div>
+        <div id="bas-ab" style="display:none">
+          <div style="font-size:13px;color:var(--silver);margin-bottom:16px">Perfekt för aktiebolag</div>
+          <div style="font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:20px">1 250<span style="font-size:15px;font-weight:400;color:var(--silver)"> kr/mån</span></div>
+          <div style="height:1px;background:var(--pale);margin-bottom:20px"></div>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px">
+            <div style="font-size:14px;color:#4a5a7a;display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">&#10003;</span>Löpande bokföring</div>
+            <div style="font-size:14px;color:#4a5a7a;display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">&#10003;</span>Momsredovisning</div>
+            <div style="font-size:14px;color:#4a5a7a;display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">&#10003;</span>Inkomstdeklaration</div>
+            <div style="font-size:14px;color:#4a5a7a;display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">&#10003;</span>E-post support</div>
+          </div>
+        </div>
+        <button onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})" style="width:100%;background:var(--frost);color:var(--navy);padding:13px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;border:1px solid var(--pale);cursor:pointer">Kom igång</button>
       </div>
 
-      <div style="background:var(--navy);padding:40px 32px;position:relative;transform:scale(1.03)">
-        <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--ink);font-size:11px;font-weight:700;padding:4px 16px;letter-spacing:1px;white-space:nowrap" data-sv="POPULÄRAST" data-en="MOST POPULAR" data-ar="الأكثر شعبية">POPULÄRAST</div>
-        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--white);margin-bottom:8px" data-sv="Standard" data-en="Standard" data-ar="القياسية">Standard</div>
-        <div style="font-size:13px;color:var(--silver);margin-bottom:24px" data-sv="Perfekt för aktiebolag" data-en="Perfect for limited companies" data-ar="مثالي للشركات المحدودة">Perfekt för aktiebolag</div>
-        <div style="font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--white);line-height:1">1 995<span style="font-size:16px;font-weight:400;color:var(--silver)"> kr/mån</span></div>
-        <div style="height:1px;background:rgba(255,255,255,.1);margin:24px 0"></div>
-        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px">
-          <div style="font-size:14px;color:rgba(255,255,255,.75);display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">✓</span><span data-sv="Allt i Bas" data-en="Everything in Basic" data-ar="كل شيء في الأساسية">Allt i Bas</span></div>
-          <div style="font-size:14px;color:rgba(255,255,255,.75);display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">✓</span><span data-sv="Årsredovisning" data-en="Annual report" data-ar="التقرير السنوي">Årsredovisning</span></div>
-          <div style="font-size:14px;color:rgba(255,255,255,.75);display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">✓</span><span data-sv="Lönehantering (upp till 3)" data-en="Payroll (up to 3)" data-ar="إدارة الرواتب (حتى 3)">Lönehantering (upp till 3)</span></div>
-          <div style="font-size:14px;color:rgba(255,255,255,.75);display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">✓</span><span data-sv="Skatterådgivning" data-en="Tax advisory" data-ar="الاستشارات الضريبية">Skatterådgivning</span></div>
-          <div style="font-size:14px;color:rgba(255,255,255,.75);display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">✓</span><span data-sv="Telefon & e-post support" data-en="Phone & email support" data-ar="دعم هاتفي وبريد إلكتروني">Telefon & e-post support</span></div>
+      <!-- STANDARD -->
+      <div style="background:var(--navy);padding:32px;position:relative;transform:scale(1.03)">
+        <div style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--gold);color:var(--ink);font-size:11px;font-weight:700;padding:4px 16px;letter-spacing:1px;white-space:nowrap">POPULÄRAST</div>
+        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--white);margin-bottom:8px">Standard – Aktiebolag</div>
+        <div style="font-size:13px;color:var(--silver);margin-bottom:16px">Perfekt för aktiebolag</div>
+        <div style="font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:var(--white);line-height:1;margin-bottom:20px">1 995<span style="font-size:15px;font-weight:400;color:var(--silver)"> kr/mån</span></div>
+        <div style="height:1px;background:rgba(255,255,255,.1);margin-bottom:20px"></div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px">
+          <div style="font-size:14px;color:rgba(255,255,255,.75);display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">&#10003;</span>Allt i Bas (Aktiebolag)</div>
+          <div style="font-size:14px;color:rgba(255,255,255,.75);display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">&#10003;</span>Lönehantering (upp till 3)</div>
+          <div style="font-size:14px;color:rgba(255,255,255,.75);display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">&#10003;</span>Skatterådgivning</div>
+          <div style="font-size:14px;color:rgba(255,255,255,.75);display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">&#10003;</span>Telefon &amp; e-post support</div>
+          <div style="font-size:14px;color:rgba(255,255,255,.75);display:flex;flex-direction:column;gap:6px">
+            <div style="display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">&#10003;</span>Årsredovisning / Årsbokslut</div>
+            <div style="padding-left:22px;font-size:13px;color:rgba(255,255,255,.45);line-height:1.6">· Du sköter det själv – ingår<br>· Vill du ha hjälp? Tillägg: 3 000–3 500 kr</div>
+          </div>
         </div>
-        <button onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})" style="width:100%;background:var(--gold);color:var(--ink);padding:13px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;border:none;cursor:pointer;transition:opacity .2s" data-sv="Kom igång" data-en="Get started" data-ar="ابدأ الآن">Kom igång</button>
+        <button onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})" style="width:100%;background:var(--gold);color:var(--ink);padding:13px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;border:none;cursor:pointer">Kom igång</button>
       </div>
 
-      <div style="background:var(--white);border:1px solid var(--pale);padding:40px 32px;position:relative">
-        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--navy);margin-bottom:8px" data-sv="Premium" data-en="Premium" data-ar="المتميزة">Premium</div>
-        <div style="font-size:13px;color:var(--silver);margin-bottom:24px" data-sv="För växande företag" data-en="For growing businesses" data-ar="للشركات النامية">För växande företag</div>
-        <div style="font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--navy);line-height:1">3 495<span style="font-size:16px;font-weight:400;color:var(--silver)"> kr/mån</span></div>
-        <div style="height:1px;background:var(--pale);margin:24px 0"></div>
-        <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:32px">
-          <div style="font-size:14px;color:#4a5a7a;display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">✓</span><span data-sv="Allt i Standard" data-en="Everything in Standard" data-ar="كل شيء في القياسية">Allt i Standard</span></div>
-          <div style="font-size:14px;color:#4a5a7a;display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">✓</span><span data-sv="Obegränsad lönehantering" data-en="Unlimited payroll" data-ar="إدارة رواتب غير محدودة">Obegränsad lönehantering</span></div>
-          <div style="font-size:14px;color:#4a5a7a;display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">✓</span><span data-sv="Ansökningar & kontrakt" data-en="Applications & contracts" data-ar="الطلبات والعقود">Ansökningar & kontrakt</span></div>
-          <div style="font-size:14px;color:#4a5a7a;display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">✓</span><span data-sv="Ekonomisk rådgivning" data-en="Financial advisory" data-ar="الاستشارات المالية">Ekonomisk rådgivning</span></div>
-          <div style="font-size:14px;color:#4a5a7a;display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">✓</span><span data-sv="Dedikerad kontaktperson" data-en="Dedicated contact person" data-ar="شخص اتصال مخصص">Dedikerad kontaktperson</span></div>
+      <!-- PREMIUM -->
+      <div style="background:var(--white);border:1px solid var(--pale);padding:32px">
+        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--navy);margin-bottom:8px">Premium</div>
+        <div style="font-size:13px;color:var(--silver);margin-bottom:16px">För växande företag</div>
+        <div style="font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:20px">3 495<span style="font-size:15px;font-weight:400;color:var(--silver)"> kr/mån</span></div>
+        <div style="height:1px;background:var(--pale);margin-bottom:20px"></div>
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:28px">
+          <div style="font-size:14px;color:#4a5a7a;display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">&#10003;</span>Allt i Standard</div>
+          <div style="font-size:14px;color:#4a5a7a;display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">&#10003;</span>Obegränsad lönehantering</div>
+          <div style="font-size:14px;color:#4a5a7a;display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">&#10003;</span>Ansökningar &amp; kontrakt</div>
+          <div style="font-size:14px;color:#4a5a7a;display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">&#10003;</span>Ekonomisk rådgivning</div>
+          <div style="font-size:14px;color:#4a5a7a;display:flex;gap:10px"><span style="color:var(--gold);font-weight:700">&#10003;</span>Dedikerad kontaktperson</div>
         </div>
-        <button onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})" style="width:100%;background:var(--frost);color:var(--navy);padding:13px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;border:1px solid var(--pale);cursor:pointer" data-sv="Kom igång" data-en="Get started" data-ar="ابدأ الآن">Kom igång</button>
+        <button onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})" style="width:100%;background:var(--frost);color:var(--navy);padding:13px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;border:1px solid var(--pale);cursor:pointer">Kom igång</button>
       </div>
 
     </div>
-    <p style="text-align:center;margin-top:28px;font-size:13px;color:var(--silver)" data-sv="Alla priser är exkl. moms. Kontakta oss för skräddarsydd offert." data-en="All prices excl. VAT. Contact us for a tailored quote." data-ar="جميع الأسعار لا تشمل ضريبة القيمة المضافة. اتصل بنا للحصول على عرض مخصص.">Alla priser är exkl. moms. Kontakta oss för skräddarsydd offert.</p>
+
+    <!-- BOKSLUT - bred rad -->
+    <div style="background:var(--navy);padding:36px 40px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:32px;border-top:3px solid var(--gold)">
+      <div>
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:12px">
+          <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--white)">Bokslut</div>
+          <div style="background:var(--gold);color:var(--ink);font-size:10px;font-weight:700;padding:3px 10px;letter-spacing:1px">ENGÅNGSPRIS</div>
+        </div>
+        <p style="font-size:14px;color:rgba(255,255,255,.6);line-height:1.65;max-width:600px">Vi upprättar ditt bokslut professionellt och korrekt — oavsett om du har ett aktiebolag eller enskild firma. Allt levereras klart för inlämning till Bolagsverket och Skatteverket.</p>
+        <div style="display:flex;gap:20px;margin-top:16px;flex-wrap:wrap">
+          <div style="font-size:13px;color:rgba(255,255,255,.5);display:flex;gap:8px"><span style="color:var(--gold)">&#10003;</span>Upprättning av bokslut</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.5);display:flex;gap:8px"><span style="color:var(--gold)">&#10003;</span>Årsredovisning</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.5);display:flex;gap:8px"><span style="color:var(--gold)">&#10003;</span>Inlämning till Bolagsverket</div>
+          <div style="font-size:13px;color:rgba(255,255,255,.5);display:flex;gap:8px"><span style="color:var(--gold)">&#10003;</span>Skattedeklaration</div>
+        </div>
+      </div>
+      <div style="text-align:center;flex-shrink:0">
+        <div style="font-family:'Playfair Display',serif;font-size:48px;font-weight:700;color:var(--white);line-height:1">3 500<span style="font-size:16px;font-weight:400;color:var(--silver)"> kr</span></div>
+        <div style="font-size:12px;color:rgba(255,255,255,.4);margin-bottom:16px">per bokslut, exkl. moms</div>
+        <button onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})" style="background:var(--gold);color:var(--ink);padding:13px 28px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;border:none;cursor:pointer;white-space:nowrap">Beställ bokslut</button>
+      </div>
+    </div>
+
+    <p style="text-align:center;margin-top:24px;font-size:13px;color:var(--silver)">Alla priser är exkl. moms. Kontakta oss för skräddarsydd offert.</p>
   </div>
 </section>
 
@@ -605,6 +652,22 @@ function sendEmail(e) {
 }
 
 let currentLang = 'sv';
+
+function switchBas(type) {
+  const ef = document.getElementById('bas-ef');
+  const ab = document.getElementById('bas-ab');
+  const tabEf = document.getElementById('tab-ef');
+  const tabAb = document.getElementById('tab-ab');
+  if (type === 'ef') {
+    ef.style.display = 'block'; ab.style.display = 'none';
+    tabEf.style.background = 'var(--navy)'; tabEf.style.color = 'white';
+    tabAb.style.background = 'var(--frost)'; tabAb.style.color = 'var(--silver)';
+  } else {
+    ef.style.display = 'none'; ab.style.display = 'block';
+    tabAb.style.background = 'var(--navy)'; tabAb.style.color = 'white';
+    tabEf.style.background = 'var(--frost)'; tabEf.style.color = 'var(--silver)';
+  }
+}
 
 function toggleFaq(btn) {
   const answer = btn.nextElementSibling;
