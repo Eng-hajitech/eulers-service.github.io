@@ -166,6 +166,7 @@ footer{background:#0b1529;padding:40px 56px;display:flex;align-items:center;just
     <a href="#tjanster" data-sv="Tjänster" data-en="Services" data-ar="الخدمات">Tjänster</a>
     <a href="#om-oss" data-sv="Om oss" data-en="About us" data-ar="من نحن">Om oss</a>
     <a href="#hur" data-sv="Så fungerar det" data-en="How it works" data-ar="كيف يعمل">Så fungerar det</a>
+    <a href="#kalkylator" data-sv="Räkna ut lön efter skatt" data-en="Calculate salary" data-ar="احسب الراتب" style="color:var(--gold);font-weight:600">Räkna ut lön efter skatt</a>
     <a href="#kontakt" data-sv="Kontakt" data-en="Contact" data-ar="اتصل بنا">Kontakt</a>
   </div>
   <div class="nav-right">
@@ -185,6 +186,7 @@ footer{background:#0b1529;padding:40px 56px;display:flex;align-items:center;just
   <a href="#tjanster" data-sv="Tjänster" data-en="Services" data-ar="الخدمات" onclick="toggleMenu()">Tjänster</a>
   <a href="#om-oss" data-sv="Om oss" data-en="About us" data-ar="من نحن" onclick="toggleMenu()">Om oss</a>
   <a href="#hur" data-sv="Så fungerar det" data-en="How it works" data-ar="كيف يعمل" onclick="toggleMenu()">Så fungerar det</a>
+  <a href="#kalkylator" data-sv="Räkna ut lön efter skatt" data-en="Calculate salary" data-ar="احسب الراتب" onclick="toggleMenu()" style="color:var(--gold);font-weight:600">Räkna ut lön efter skatt</a>
   <a href="#kontakt" data-sv="Kontakt" data-en="Contact" data-ar="اتصل بنا" onclick="toggleMenu()">Kontakt</a>
   <button class="mob-book" onclick="toggleMenu();document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})" data-sv="Boka möte" data-en="Book meeting" data-ar="احجز اجتماعاً">Boka möte</button>
   <div class="mobile-lang">
@@ -505,6 +507,122 @@ footer{background:#0b1529;padding:40px 56px;display:flex;align-items:center;just
   </div>
 </section>
 
+<!-- LÖNEKALKYLATOR -->
+<section style="padding:88px 56px;background:var(--navy)" id="kalkylator">
+  <div style="max-width:1020px;margin:0 auto">
+    <div style="font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:rgba(200,169,110,.8);margin-bottom:14px;text-align:center">Gratis verktyg</div>
+    <div style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--white);text-align:center;margin-bottom:12px">Lönekalkylator</div>
+    <p style="text-align:center;color:rgba(255,255,255,.55);font-size:15px;margin-bottom:52px">Räkna ut din lön efter skatt — snabbt och enkelt</p>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start">
+
+      <!-- VÄNSTER: INMATNING -->
+      <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:40px">
+        <div style="display:flex;flex-direction:column;gap:24px">
+
+          <div>
+            <label style="display:block;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--silver);margin-bottom:10px">Bruttolön (kr/mån)</label>
+            <input id="k-brutto" type="number" value="30000" min="0" max="200000" oninput="calcLon()"
+              style="width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:white;padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:18px;font-weight:600;outline:none">
+            <input type="range" id="k-brutto-slider" min="0" max="150000" step="500" value="30000" oninput="syncSlider('brutto')"
+              style="width:100%;margin-top:10px;accent-color:var(--gold)">
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,.3);margin-top:4px"><span>0 kr</span><span>150 000 kr</span></div>
+          </div>
+
+          <div>
+            <label style="display:block;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--silver);margin-bottom:10px">Kommunalskatt</label>
+            <select id="k-kommun" onchange="calcLon()"
+              style="width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:white;padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:15px;outline:none;cursor:pointer">
+              <option value="29.83" style="background:#152248">Umeå — 29,83%</option>
+              <option value="30.38" style="background:#152248">Stockholm — 30,38%</option>
+              <option value="31.43" style="background:#152248">Göteborg — 31,43%</option>
+              <option value="32.19" style="background:#152248">Malmö — 32,19%</option>
+              <option value="30.14" style="background:#152248">Uppsala — 30,14%</option>
+              <option value="30.62" style="background:#152248">Linköping — 30,62%</option>
+              <option value="31.65" style="background:#152248">Örebro — 31,65%</option>
+              <option value="32.55" style="background:#152248">Västerås — 32,55%</option>
+              <option value="31.22" style="background:#152248">Helsingborg — 31,22%</option>
+              <option value="31.48" style="background:#152248">Norrköping — 31,48%</option>
+              <option value="31.00" style="background:#152248">Annan (31%)</option>
+            </select>
+          </div>
+
+          <div>
+            <label style="display:block;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--silver);margin-bottom:10px">Tjänstepension (% av brutto)</label>
+            <div style="display:flex;gap:12px;align-items:center">
+              <input type="range" id="k-pension" min="0" max="10" step="0.5" value="4.5" oninput="calcLon()"
+                style="flex:1;accent-color:var(--gold)">
+              <span id="k-pension-val" style="color:white;font-weight:600;min-width:40px">4,5%</span>
+            </div>
+          </div>
+
+          <div style="display:flex;align-items:center;gap:12px">
+            <input type="checkbox" id="k-jonavdrag" onchange="calcLon()" style="width:18px;height:18px;accent-color:var(--gold)">
+            <label for="k-jonavdrag" style="color:rgba(255,255,255,.7);font-size:14px;cursor:pointer">Jobbskatteavdrag (standard)</label>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- HÖGER: RESULTAT -->
+      <div style="display:flex;flex-direction:column;gap:16px">
+
+        <div style="background:var(--gold);padding:32px;text-align:center">
+          <div style="font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(11,21,41,.6);margin-bottom:8px">Lön efter skatt</div>
+          <div id="k-netto" style="font-family:'Playfair Display',serif;font-size:52px;font-weight:700;color:var(--ink);line-height:1">21 384</div>
+          <div style="font-size:14px;color:rgba(11,21,41,.5);margin-top:4px">kr / månad</div>
+        </div>
+
+        <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:24px;display:flex;flex-direction:column;gap:14px">
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:14px;color:rgba(255,255,255,.6)">Bruttolön</span>
+            <span id="k-r-brutto" style="font-size:15px;font-weight:600;color:white">30 000 kr</span>
+          </div>
+          <div style="height:1px;background:rgba(255,255,255,.06)"></div>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:14px;color:rgba(255,255,255,.6)">Kommunalskatt</span>
+            <span id="k-r-komskatt" style="font-size:15px;font-weight:600;color:#e57373">− 8 949 kr</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:14px;color:rgba(255,255,255,.6)">Jobbskatteavdrag</span>
+            <span id="k-r-jsa" style="font-size:15px;font-weight:600;color:#81c784">+ 0 kr</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:14px;color:rgba(255,255,255,.6)">Statlig skatt</span>
+            <span id="k-r-statlig" style="font-size:15px;font-weight:600;color:#e57373">− 0 kr</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:14px;color:rgba(255,255,255,.6)">Tjänstepension (avsatt)</span>
+            <span id="k-r-pension" style="font-size:15px;font-weight:600;color:var(--silver)">− 1 350 kr</span>
+          </div>
+          <div style="height:1px;background:rgba(255,255,255,.06)"></div>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:14px;font-weight:600;color:white">Nettolön</span>
+            <span id="k-r-netto" style="font-size:16px;font-weight:700;color:var(--gold)">21 384 kr</span>
+          </div>
+          <div style="height:1px;background:rgba(255,255,255,.06)"></div>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:13px;color:rgba(255,255,255,.4)">Arbetsgivaravgift (31,42%)</span>
+            <span id="k-r-aga" style="font-size:13px;color:rgba(255,255,255,.4)">9 426 kr</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:13px;color:rgba(255,255,255,.4)">Total kostnad för arbetsgivare</span>
+            <span id="k-r-tot" style="font-size:13px;color:rgba(255,255,255,.4)">39 426 kr</span>
+          </div>
+        </div>
+
+        <div style="background:rgba(200,169,110,.1);border:1px solid rgba(200,169,110,.2);padding:18px 20px">
+          <p style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.6">Behöver du hjälp med lönehantering? Vårt <strong style="color:var(--gold)">Standard-paket</strong> inkluderar lönehantering upp till 3 anställda.</p>
+          <button onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})" style="margin-top:12px;background:var(--gold);color:var(--ink);border:none;padding:9px 18px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer">Kontakta oss</button>
+        </div>
+
+      </div>
+    </div>
+
+    <p style="text-align:center;margin-top:28px;font-size:12px;color:rgba(255,255,255,.25)">Kalkylatorn är ett estimat baserat på 2026 års skatteregler. Kontakta oss för exakt beräkning.</p>
+  </div>
+</section>
+
 <!-- BLOGG / TIPS -->
 <section style="padding:88px 56px;background:var(--white)" id="tips">
   <div style="max-width:1020px;margin:0 auto">
@@ -809,6 +927,77 @@ function sendEmail(e) {
 }
 
 let currentLang = 'sv';
+
+function calcLon() {
+  const brutto = parseFloat(document.getElementById('k-brutto').value) || 0;
+  const kommSkattPct = parseFloat(document.getElementById('k-kommun').value) / 100;
+  const pensionPct = parseFloat(document.getElementById('k-pension').value) / 100;
+  const jonAvdrag = document.getElementById('k-jonavdrag').checked;
+
+  document.getElementById('k-pension-val').textContent = (pensionPct * 100).toFixed(1).replace('.',',') + '%';
+  document.getElementById('k-brutto-slider').value = brutto;
+
+  // Grundavdrag (förenklat 2026)
+  let grundavdrag = 0;
+  if (brutto <= 11300) grundavdrag = brutto;
+  else if (brutto <= 37800) grundavdrag = 11300 + (brutto - 11300) * 0.2;
+  else if (brutto <= 123400) grundavdrag = 17200;
+  else grundavdrag = Math.max(17200 - (brutto - 123400) * 0.1, 13900);
+
+  // Jobbskatteavdrag (förenklat)
+  let jsa = 0;
+  if (jonAvdrag) {
+    const inkomst = brutto * 12;
+    if (inkomst <= 135000) jsa = inkomst * 0.202;
+    else if (inkomst <= 500000) jsa = 27270 + (inkomst - 135000) * 0.128;
+    else jsa = Math.max(74050 - (inkomst - 500000) * 0.03, 0);
+    jsa = jsa / 12;
+  }
+
+  // Skattepliktig inkomst
+  const beskattningsbar = Math.max(brutto - grundavdrag / 12, 0);
+
+  // Kommunalskatt
+  const komSkatt = beskattningsbar * kommSkattPct;
+
+  // Statlig skatt (över ca 54 750 kr/mån 2026)
+  let statlig = 0;
+  if (brutto > 54750) statlig = (brutto - 54750) * 0.20;
+
+  // Pension
+  const pension = brutto * pensionPct;
+
+  // Netto
+  const netto = Math.round(brutto - komSkatt + jsa - statlig);
+  const nettoMedPension = Math.round(netto - pension);
+
+  // Arbetsgivaravgift
+  const aga = Math.round(brutto * 0.3142);
+  const totKostnad = brutto + aga;
+
+  const fmt = n => Math.round(n).toLocaleString('sv-SE');
+
+  document.getElementById('k-netto').textContent = fmt(nettoMedPension);
+  document.getElementById('k-r-brutto').textContent = fmt(brutto) + ' kr';
+  document.getElementById('k-r-komskatt').textContent = '− ' + fmt(komSkatt) + ' kr';
+  document.getElementById('k-r-jsa').textContent = jsa > 0 ? '+ ' + fmt(jsa) + ' kr' : '+ 0 kr';
+  document.getElementById('k-r-statlig').textContent = statlig > 0 ? '− ' + fmt(statlig) + ' kr' : '− 0 kr';
+  document.getElementById('k-r-pension').textContent = '− ' + fmt(pension) + ' kr';
+  document.getElementById('k-r-netto').textContent = fmt(nettoMedPension) + ' kr';
+  document.getElementById('k-r-aga').textContent = fmt(aga) + ' kr';
+  document.getElementById('k-r-tot').textContent = fmt(totKostnad) + ' kr';
+}
+
+function syncSlider(field) {
+  if (field === 'brutto') {
+    const v = document.getElementById('k-brutto-slider').value;
+    document.getElementById('k-brutto').value = v;
+    calcLon();
+  }
+}
+
+// Kör kalkylatorn vid start
+document.addEventListener('DOMContentLoaded', calcLon);
 
 function openArticle(id) {
   document.querySelectorAll('.art-modal').forEach(m => m.style.display = 'none');
