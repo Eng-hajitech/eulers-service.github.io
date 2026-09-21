@@ -508,36 +508,193 @@ footer{background:#0b1529;padding:40px 56px;display:flex;align-items:center;just
 <!-- BLOGG / TIPS -->
 <section style="padding:88px 56px;background:var(--white)" id="tips">
   <div style="max-width:1020px;margin:0 auto">
-    <div class="section-label" data-sv="Kunskap & tips" data-en="Knowledge & tips" data-ar="المعرفة والنصائح">Kunskap & tips</div>
-    <div class="section-title" data-sv="Ekonomitips för dig" data-en="Financial tips for you" data-ar="نصائح مالية لك">Ekonomitips för dig</div>
+    <div class="section-label">Kunskap &amp; tips</div>
+    <div class="section-title">Ekonomitips för dig</div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
-      <div style="background:var(--frost);overflow:hidden">
+
+      <!-- ARTIKEL 1 -->
+      <div style="background:var(--frost);overflow:hidden;display:flex;flex-direction:column">
         <div style="background:var(--navy);height:6px"></div>
-        <div style="padding:32px 28px">
-          <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:12px" data-sv="Bokföring" data-en="Bookkeeping" data-ar="المحاسبة">Bokföring</div>
-          <div style="font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--navy);margin-bottom:12px;line-height:1.3" data-sv="5 saker du måste bokföra varje månad" data-en="5 things you must record every month" data-ar="5 أشياء يجب تسجيلها كل شهر">5 saker du måste bokföra varje månad</div>
-          <p style="font-size:14px;color:var(--silver);line-height:1.65" data-sv="Många företagare glömmer viktiga poster. Här är de 5 viktigaste sakerna att ha koll på varje månad för att undvika problem." data-en="Many business owners forget important items. Here are the 5 most important things to keep track of every month to avoid problems." data-ar="كثير من أصحاب الأعمال ينسون بنوداً مهمة. إليك أهم 5 أشياء يجب مراقبتها كل شهر لتجنب المشاكل.">Många företagare glömmer viktiga poster. Här är de 5 viktigaste sakerna att ha koll på varje månad för att undvika problem.</p>
+        <div style="padding:32px 28px;flex:1;display:flex;flex-direction:column">
+          <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:12px">Bokföring</div>
+          <div style="font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--navy);margin-bottom:12px;line-height:1.3">5 saker du måste bokföra varje månad</div>
+          <p style="font-size:14px;color:var(--silver);line-height:1.65;flex:1">Många företagare glömmer viktiga poster. Här är de 5 viktigaste sakerna att ha koll på varje månad för att undvika problem.</p>
+          <button onclick="openArticle('art1')" style="margin-top:20px;background:var(--navy);color:white;border:none;padding:11px 20px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;text-align:left">Läs mer →</button>
         </div>
       </div>
-      <div style="background:var(--frost);overflow:hidden">
+
+      <!-- ARTIKEL 2 -->
+      <div style="background:var(--frost);overflow:hidden;display:flex;flex-direction:column">
         <div style="background:var(--gold);height:6px"></div>
-        <div style="padding:32px 28px">
-          <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:12px" data-sv="Skatt" data-en="Tax" data-ar="الضرائب">Skatt</div>
-          <div style="font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--navy);margin-bottom:12px;line-height:1.3" data-sv="Så minskar du skatten lagligt som egenföretagare" data-en="How to legally reduce your tax as a self-employed person" data-ar="كيف تقلل ضرائبك بشكل قانوني كعامل مستقل">Så minskar du skatten lagligt som egenföretagare</div>
-          <p style="font-size:14px;color:var(--silver);line-height:1.65" data-sv="Det finns flera lagliga sätt att minska din skattebörda. Vi går igenom de vanligaste avdragen du kan använda." data-en="There are several legal ways to reduce your tax burden. We go through the most common deductions you can use." data-ar="هناك عدة طرق قانونية لتقليل عبء الضرائب. نستعرض أكثر الخصومات شيوعاً التي يمكنك استخدامها.">Det finns flera lagliga sätt att minska din skattebörda. Vi går igenom de vanligaste avdragen du kan använda.</p>
+        <div style="padding:32px 28px;flex:1;display:flex;flex-direction:column">
+          <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:12px">Skatt</div>
+          <div style="font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--navy);margin-bottom:12px;line-height:1.3">Så minskar du skatten lagligt som egenföretagare</div>
+          <p style="font-size:14px;color:var(--silver);line-height:1.65;flex:1">Det finns flera lagliga sätt att minska din skattebörda. Vi går igenom de vanligaste avdragen du kan använda.</p>
+          <button onclick="openArticle('art2')" style="margin-top:20px;background:var(--navy);color:white;border:none;padding:11px 20px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;text-align:left">Läs mer →</button>
         </div>
       </div>
-      <div style="background:var(--frost);overflow:hidden">
+
+      <!-- ARTIKEL 3 -->
+      <div style="background:var(--frost);overflow:hidden;display:flex;flex-direction:column">
         <div style="background:var(--navy);height:6px"></div>
-        <div style="padding:32px 28px">
-          <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:12px" data-sv="Trafiktillstånd" data-en="Traffic permit" data-ar="تصريح المرور">Trafiktillstånd</div>
-          <div style="font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--navy);margin-bottom:12px;line-height:1.3" data-sv="Hur ansöker man om trafiktillstånd 2026?" data-en="How to apply for a traffic permit in 2026?" data-ar="كيف تتقدم بطلب للحصول على تصريح مرور في 2026؟">Hur ansöker man om trafiktillstånd 2026?</div>
-          <p style="font-size:14px;color:var(--silver);line-height:1.65" data-sv="En steg-för-steg guide till ansökan om trafiktillstånd i Sverige. Vi hjälper dig undvika de vanligaste misstagen." data-en="A step-by-step guide to applying for a traffic permit in Sweden. We help you avoid the most common mistakes." data-ar="دليل خطوة بخطوة للتقدم بطلب للحصول على تصريح مرور في السويد. نساعدك على تجنب الأخطاء الأكثر شيوعاً.">En steg-för-steg guide till ansökan om trafiktillstånd i Sverige. Vi hjälper dig undvika de vanligaste misstagen.</p>
+        <div style="padding:32px 28px;flex:1;display:flex;flex-direction:column">
+          <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:12px">Trafiktillstånd</div>
+          <div style="font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--navy);margin-bottom:12px;line-height:1.3">Hur ansöker man om trafiktillstånd 2026?</div>
+          <p style="font-size:14px;color:var(--silver);line-height:1.65;flex:1">En steg-för-steg guide till ansökan om trafiktillstånd i Sverige. Vi hjälper dig undvika de vanligaste misstagen.</p>
+          <button onclick="openArticle('art3')" style="margin-top:20px;background:var(--navy);color:white;border:none;padding:11px 20px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;text-align:left">Läs mer →</button>
         </div>
       </div>
+
     </div>
   </div>
 </section>
+
+<!-- ARTIKEL MODALER -->
+<div id="art-overlay" onclick="closeArticle()" style="display:none;position:fixed;inset:0;background:rgba(11,21,41,.7);z-index:500;backdrop-filter:blur(3px)"></div>
+
+<div id="art1" class="art-modal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:min(720px,95vw);max-height:85vh;overflow-y:auto;background:white;z-index:501;padding:52px 48px">
+  <button onclick="closeArticle()" style="position:absolute;top:20px;right:24px;background:none;border:none;font-size:24px;cursor:pointer;color:var(--silver)">✕</button>
+  <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:12px">Bokföring</div>
+  <div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--navy);margin-bottom:12px;line-height:1.2">5 saker du måste bokföra varje månad</div>
+  <p style="font-size:15px;color:var(--silver);margin-bottom:32px;line-height:1.7;border-bottom:1px solid var(--pale);padding-bottom:24px">Många företagare glömmer viktiga poster. Här är de 5 viktigaste sakerna att ha koll på varje månad för att undvika problem.</p>
+  <div style="display:flex;flex-direction:column;gap:24px;margin-bottom:32px">
+    <div style="display:flex;gap:16px">
+      <div style="width:32px;height:32px;background:var(--navy);color:white;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;flex-shrink:0">1</div>
+      <div><div style="font-weight:600;color:var(--navy);margin-bottom:4px">Alla inkomster</div><div style="font-size:14px;color:#4a5a7a;line-height:1.65">Se till att alla fakturor och inbetalningar från kunder är registrerade.</div></div>
+    </div>
+    <div style="display:flex;gap:16px">
+      <div style="width:32px;height:32px;background:var(--navy);color:white;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;flex-shrink:0">2</div>
+      <div><div style="font-weight:600;color:var(--navy);margin-bottom:4px">Alla utgifter</div><div style="font-size:14px;color:#4a5a7a;line-height:1.65">Kvitton från inköp, resor, programvaror och tjänster måste bokföras löpande.</div></div>
+    </div>
+    <div style="display:flex;gap:16px">
+      <div style="width:32px;height:32px;background:var(--navy);color:white;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;flex-shrink:0">3</div>
+      <div><div style="font-weight:600;color:var(--navy);margin-bottom:4px">Momsredovisning</div><div style="font-size:14px;color:#4a5a7a;line-height:1.65">Om du är momsregistrerad måste du räkna ut och redovisa momsen varje månad (eller kvartal).</div></div>
+    </div>
+    <div style="display:flex;gap:16px">
+      <div style="width:32px;height:32px;background:var(--navy);color:white;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;flex-shrink:0">4</div>
+      <div><div style="font-weight:600;color:var(--navy);margin-bottom:4px">Löner och arbetsgivaravgifter</div><div style="font-size:14px;color:#4a5a7a;line-height:1.65">Om du har anställda måste löner, skatter och avgifter bokföras och betalas in i tid.</div></div>
+    </div>
+    <div style="display:flex;gap:16px">
+      <div style="width:32px;height:32px;background:var(--navy);color:white;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;flex-shrink:0">5</div>
+      <div><div style="font-weight:600;color:var(--navy);margin-bottom:4px">Avstämning av banken</div><div style="font-size:14px;color:#4a5a7a;line-height:1.65">Stäm av företagets bankkonto mot bokföringen så att inga transaktioner saknas.</div></div>
+    </div>
+  </div>
+  <div style="background:var(--frost);padding:20px 24px;border-left:3px solid var(--gold)">
+    <p style="font-size:14px;color:var(--navy);font-weight:500">Behöver du hjälp med den löpande bokföringen? Vi har paket från <strong>995 kr/mån</strong>.</p>
+    <button onclick="closeArticle();document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})" style="margin-top:12px;background:var(--navy);color:white;border:none;padding:10px 20px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer">Kontakta oss</button>
+  </div>
+</div>
+
+<div id="art2" class="art-modal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:min(720px,95vw);max-height:85vh;overflow-y:auto;background:white;z-index:501;padding:52px 48px">
+  <button onclick="closeArticle()" style="position:absolute;top:20px;right:24px;background:none;border:none;font-size:24px;cursor:pointer;color:var(--silver)">✕</button>
+  <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:12px">Skatt</div>
+  <div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--navy);margin-bottom:12px;line-height:1.2">Så minskar du skatten lagligt som egenföretagare</div>
+  <p style="font-size:15px;color:var(--silver);margin-bottom:32px;line-height:1.7;border-bottom:1px solid var(--pale);padding-bottom:24px">Det finns flera lagliga sätt att minska din skattebörda. Vi går igenom de vanligaste avdragen du kan använda.</p>
+  <div style="display:flex;flex-direction:column;gap:24px;margin-bottom:32px">
+    <div style="display:flex;gap:16px">
+      <div style="width:32px;height:32px;background:var(--gold);color:var(--ink);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;flex-shrink:0">1</div>
+      <div><div style="font-weight:600;color:var(--navy);margin-bottom:4px">Inköp av utrustning</div><div style="font-size:14px;color:#4a5a7a;line-height:1.65">Datorer, telefoner och kontorsmöbler kan du dra av (antingen direkt eller via värdeminskningsavdrag).</div></div>
+    </div>
+    <div style="display:flex;gap:16px">
+      <div style="width:32px;height:32px;background:var(--gold);color:var(--ink);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;flex-shrink:0">2</div>
+      <div><div style="font-weight:600;color:var(--navy);margin-bottom:4px">Hemmakontor</div><div style="font-size:14px;color:#4a5a7a;line-height:1.65">Om du jobbar hemifrån kan du dra av en del av hyran, elen och internet.</div></div>
+    </div>
+    <div style="display:flex;gap:16px">
+      <div style="width:32px;height:32px;background:var(--gold);color:var(--ink);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;flex-shrink:0">3</div>
+      <div><div style="font-weight:600;color:var(--navy);margin-bottom:4px">Resor och milersättning</div><div style="font-size:14px;color:#4a5a7a;line-height:1.65">Resor i tjänsten med egen bil eller kollektivtrafik är avdragsgilla.</div></div>
+    </div>
+    <div style="display:flex;gap:16px">
+      <div style="width:32px;height:32px;background:var(--gold);color:var(--ink);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;flex-shrink:0">4</div>
+      <div><div style="font-weight:600;color:var(--navy);margin-bottom:4px">Pensionssparande</div><div style="font-size:14px;color:#4a5a7a;line-height:1.65">Genom att sätta av pengar till tjänstepension kan du sänka din beskattningsbara inkomst.</div></div>
+    </div>
+    <div style="display:flex;gap:16px">
+      <div style="width:32px;height:32px;background:var(--gold);color:var(--ink);display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;flex-shrink:0">5</div>
+      <div><div style="font-weight:600;color:var(--navy);margin-bottom:4px">Ränteavdrag</div><div style="font-size:14px;color:#4a5a7a;line-height:1.65">Räntor på lån som är kopplade till verksamheten får dras av.</div></div>
+    </div>
+  </div>
+  <div style="background:var(--frost);padding:20px 24px;border-left:3px solid var(--gold)">
+    <p style="font-size:14px;color:var(--navy);font-weight:500">Vill du ha skatterådgivning? Vårt <strong>Standard-paket</strong> inkluderar detta.</p>
+    <button onclick="closeArticle();document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})" style="margin-top:12px;background:var(--navy);color:white;border:none;padding:10px 20px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer">Kontakta oss</button>
+  </div>
+</div>
+
+<div id="art3" class="art-modal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);width:min(720px,95vw);max-height:85vh;overflow-y:auto;background:white;z-index:501;padding:52px 48px">
+  <button onclick="closeArticle()" style="position:absolute;top:20px;right:24px;background:none;border:none;font-size:24px;cursor:pointer;color:var(--silver)">✕</button>
+  <div style="font-size:11px;font-weight:700;letter-spacing:2px;color:var(--gold);text-transform:uppercase;margin-bottom:12px">Trafiktillstånd</div>
+  <div style="font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--navy);margin-bottom:12px;line-height:1.2">Hur ansöker man om trafiktillstånd 2026?</div>
+  <p style="font-size:15px;color:var(--silver);margin-bottom:32px;line-height:1.7;border-bottom:1px solid var(--pale);padding-bottom:24px">En steg-för-steg guide till ansökan om trafiktillstånd i Sverige. Vi hjälper dig undvika de vanligaste misstagen.</p>
+
+  <div style="display:flex;flex-direction:column;gap:28px;margin-bottom:32px">
+    <div>
+      <div style="display:flex;gap:14px;align-items:center;margin-bottom:10px">
+        <div style="width:32px;height:32px;background:var(--navy);color:white;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;flex-shrink:0">1</div>
+        <div style="font-weight:600;color:var(--navy);">Uppfyll grundkraven</div>
+      </div>
+      <div style="padding-left:46px;font-size:14px;color:#4a5a7a;line-height:1.7">
+        <p style="margin-bottom:8px">För att ens kunna ansöka måste du och ditt företag uppfylla vissa krav:</p>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;gap:8px"><span style="color:var(--gold);font-weight:700">·</span><span><strong>Gott anseende:</strong> Du får inte ha allvarliga brottsliga eller ekonomiska anmärkningar.</span></div>
+          <div style="display:flex;gap:8px"><span style="color:var(--gold);font-weight:700">·</span><span><strong>Ekonomisk kapacitet:</strong> Företaget måste ha tillräckligt med kapital för att driva verksamheten.</span></div>
+          <div style="display:flex;gap:8px"><span style="color:var(--gold);font-weight:700">·</span><span><strong>Yrkeskompetens:</strong> Du (eller någon i företaget) måste ha klarat ett godkänt prov för yrkeskompetens.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div style="display:flex;gap:14px;align-items:center;margin-bottom:10px">
+        <div style="width:32px;height:32px;background:var(--navy);color:white;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;flex-shrink:0">2</div>
+        <div style="font-weight:600;color:var(--navy);">Förbered dokumentationen</div>
+      </div>
+      <div style="padding-left:46px;font-size:14px;color:#4a5a7a;line-height:1.7">
+        <p style="margin-bottom:8px">Innan du skickar in ansökan behöver du samla in:</p>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="display:flex;gap:8px"><span style="color:var(--gold);font-weight:700">·</span>Registreringsbevis för företaget</div>
+          <div style="display:flex;gap:8px"><span style="color:var(--gold);font-weight:700">·</span>Bevis på yrkeskompetens (intyg från Transportstyrelsen)</div>
+          <div style="display:flex;gap:8px"><span style="color:var(--gold);font-weight:700">·</span>Ekonomiska rapporter (balans- och resultaträkning)</div>
+          <div style="display:flex;gap:8px"><span style="color:var(--gold);font-weight:700">·</span>Eventuella hyresavtal för garage/parkering</div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div style="display:flex;gap:14px;align-items:center;margin-bottom:10px">
+        <div style="width:32px;height:32px;background:var(--navy);color:white;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;flex-shrink:0">3</div>
+        <div style="font-weight:600;color:var(--navy);">Skicka in ansökan</div>
+      </div>
+      <div style="padding-left:46px;font-size:14px;color:#4a5a7a;line-height:1.7">Ansökan skickas till Transportstyrelsen — digitalt via deras hemsida eller via pappersblankett. Se till att alla uppgifter är korrekta och att alla bilagor är med.</div>
+    </div>
+
+    <div>
+      <div style="display:flex;gap:14px;align-items:center;margin-bottom:10px">
+        <div style="width:32px;height:32px;background:var(--navy);color:white;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;flex-shrink:0">4</div>
+        <div style="font-weight:600;color:var(--navy);">Betala ansökningsavgiften</div>
+      </div>
+      <div style="padding-left:46px;font-size:14px;color:#4a5a7a;line-height:1.7">Transportstyrelsen tar ut en avgift för att handlägga din ansökan. Betala denna i tid, annars fördröjs processen.</div>
+    </div>
+
+    <div>
+      <div style="display:flex;gap:14px;align-items:center;margin-bottom:10px">
+        <div style="width:32px;height:32px;background:var(--navy);color:white;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;flex-shrink:0">5</div>
+        <div style="font-weight:600;color:var(--navy);">Invänta beslut och eventuell inspektion</div>
+      </div>
+      <div style="padding-left:46px;font-size:14px;color:#4a5a7a;line-height:1.7">Transportstyrelsen granskar din ansökan. I vissa fall kan de vilja göra en inspektion av ditt företag eller dina fordon innan de fattar beslut.</div>
+    </div>
+  </div>
+
+  <div style="background:var(--frost);padding:20px 24px;border-left:3px solid var(--navy);margin-bottom:24px">
+    <div style="font-weight:600;color:var(--navy);margin-bottom:10px">Vanliga misstag att undvika:</div>
+    <div style="display:flex;flex-direction:column;gap:6px;font-size:14px;color:#4a5a7a">
+      <div style="display:flex;gap:8px"><span style="color:#c0392b;font-weight:700">✕</span>Ofullständig ekonomisk dokumentation (leder till avslag)</div>
+      <div style="display:flex;gap:8px"><span style="color:#c0392b;font-weight:700">✕</span>Att skicka in ansökan innan yrkeskompetensbeviset är klart</div>
+      <div style="display:flex;gap:8px"><span style="color:#c0392b;font-weight:700">✕</span>Att missa att uppdatera företagsuppgifter om något förändras under processen</div>
+    </div>
+  </div>
+
+  <div style="background:var(--frost);padding:20px 24px;border-left:3px solid var(--gold)">
+    <p style="font-size:14px;color:var(--navy);font-weight:500">Behöver du hjälp med bokföringen eller ekonomin inför din ansökan? Vi på <strong>Eulers Service AB</strong> kan hjälpa dig.</p>
+    <button onclick="closeArticle();document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})" style="margin-top:12px;background:var(--navy);color:white;border:none;padding:10px 20px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer">Kostnadsfri konsultation</button>
+  </div>
+</div>
 
 <!-- BOOKING SECTION -->
 <section style="padding:80px 56px;background:var(--navy)" id="boka">
@@ -652,6 +809,19 @@ function sendEmail(e) {
 }
 
 let currentLang = 'sv';
+
+function openArticle(id) {
+  document.querySelectorAll('.art-modal').forEach(m => m.style.display = 'none');
+  document.getElementById('art-overlay').style.display = 'block';
+  document.getElementById(id).style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+function closeArticle() {
+  document.querySelectorAll('.art-modal').forEach(m => m.style.display = 'none');
+  document.getElementById('art-overlay').style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if(e.key === 'Escape') closeArticle(); });
 
 function switchBas(type) {
   const ef = document.getElementById('bas-ef');
