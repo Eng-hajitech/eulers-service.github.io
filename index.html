@@ -72,16 +72,17 @@ nav{background:var(--white);border-bottom:1px solid var(--pale);padding:0 56px;d
 .services-full{padding:88px 56px;background:var(--white)}
 .section-label{border-radius:999px;font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;text-align:center}
 .section-title{font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--navy);text-align:center;margin-bottom:60px}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;max-width:980px;margin:0 auto}
-.svc-card{padding:44px 32px;background:var(--frost);position:relative;border-radius:20px;transition:background .25s}
-.svc-card:hover{background:var(--navy)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1040px;margin:0 auto}
+.svc-card{padding:40px 32px;background:var(--white);position:relative;border-radius:20px;transition:all .25s;border:1px solid rgba(21,34,72,.07);box-shadow:0 2px 12px rgba(21,34,72,.05)}
+.svc-card:hover{background:linear-gradient(160deg,#0f1a3d,#1a3a7c);transform:translateY(-6px);box-shadow:0 16px 48px rgba(21,34,72,.18)}
 .svc-card:hover .svc-title{color:var(--white)}
 .svc-card:hover .svc-desc{color:rgba(255,255,255,.6)}
 .svc-card:hover .svc-num{color:rgba(255,255,255,.08)}
 .svc-card:hover .svc-icon svg{stroke:var(--gold)}
+.svc-card:hover .svc-icon{background:linear-gradient(135deg,var(--gold),#a07840)}
 .svc-num{font-family:'Playfair Display',serif;font-size:44px;font-weight:700;color:rgba(21,34,72,.07);position:absolute;top:18px;right:22px;line-height:1;transition:color .25s}
-.svc-icon{width:46px;height:46px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;border-bottom:2px solid var(--gold);padding-bottom:10px}
-.svc-icon svg{width:24px;height:24px;stroke:var(--navy);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:stroke .25s}
+.svc-icon{width:48px;height:48px;display:flex;align-items:center;justify-content:center;margin-bottom:22px;background:linear-gradient(135deg,var(--navy),#1a3a7c);border-radius:14px;box-shadow:0 4px 12px rgba(21,34,72,.2);transition:all .25s}
+.svc-icon svg{width:22px;height:22px;stroke:rgba(255,255,255,.9);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round;transition:stroke .25s}
 .svc-title{font-family:'Playfair Display',serif;font-size:17px;font-weight:700;color:var(--navy);margin-bottom:10px;transition:color .25s}
 .svc-desc{font-size:14px;color:var(--silver);line-height:1.65;transition:color .25s}
 
@@ -109,19 +110,22 @@ nav{background:var(--white);border-bottom:1px solid var(--pale);padding:0 56px;d
 .stat-box .lbl{font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--silver);margin-top:6px}
 
 /* CONTACT */
-.contact{padding:88px 56px;background:var(--white)}
-.contact-inner{max-width:680px;margin:0 auto}
+.contact{padding:88px 56px;background:linear-gradient(180deg,var(--frost) 0%,var(--white) 100%)}
+.contact-inner{max-width:720px;margin:0 auto}
 .contact .section-label,.contact .section-title{text-align:center}
-.contact-info{border-radius:20px;display:flex;justify-content:center;gap:40px;margin:32px 0;flex-wrap:wrap}
-.ci{display:flex;align-items:center;gap:14px}
-.ci-icon{width:42px;height:42px;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-info{display:flex;justify-content:center;gap:16px;margin:36px 0;flex-wrap:wrap}
+.ci{display:flex;align-items:center;gap:14px;background:var(--white);border:1px solid rgba(21,34,72,.08);border-radius:16px;padding:16px 20px;box-shadow:0 2px 12px rgba(21,34,72,.05);transition:all .2s}
+.ci:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(21,34,72,.1);border-color:rgba(21,34,72,.15)}
+.ci-icon{width:48px;height:48px;background:linear-gradient(135deg,var(--navy),#1a3a7c);border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 12px rgba(21,34,72,.18);transition:transform .2s}
+.ci:hover .ci-icon{transform:scale(1.08)}
 .ci-icon svg{width:19px;height:19px;stroke:var(--pale);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
 .ci-text span{display:block;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--silver)}
 .ci-text strong{font-size:15px;font-weight:600;color:var(--navy)}
-.contact-form{border-radius:20px;background:var(--frost);padding:48px;border:1px solid var(--pale);margin-top:40px}
+.contact-form{border-radius:24px;background:var(--white);padding:48px;border:1px solid rgba(21,34,72,.08);margin-top:40px;box-shadow:0 8px 40px rgba(21,34,72,.08)}
 input,select,textarea{border-radius:10px!important}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
-.fg{display:flex;flex-direction:column;gap:8px;margin-bottom:18px}
+.fg{display:flex;flex-direction:column;gap:6px;margin-bottom:20px}
+.fg label{font-size:12px;font-weight:600;letter-spacing:.5px;color:var(--navy);text-transform:uppercase}
 .fg label{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--navy)}
 .fg input,.fg textarea,.fg select{background:var(--white);border:1px solid var(--pale);padding:13px 16px;font-family:'DM Sans',sans-serif;font-size:15px;color:var(--ink);outline:none;transition:border-color .2s;width:100%}
 .fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--navy)}
@@ -179,7 +183,7 @@ footer{background:#0b1529;padding:40px 56px;display:flex;align-items:center;just
 
 /* MODERN ROUNDED CORNERS */
 .stat-box{border-radius:16px!important}
-.faq-item{border-radius:14px!important}
+
 .review-card,.rec-card{border-radius:16px!important}
 .price-card,.pricing-card{border-radius:20px!important}
 .article-card,.tip-card{border-radius:16px!important;overflow:hidden!important}
@@ -203,7 +207,7 @@ section.hero{background:linear-gradient(135deg,#080f22 0%,#0f1a3d 50%,#1a2d5a 10
 
 /* Service cards — elevated */
 .svc-card{box-shadow:0 2px 12px rgba(21,34,72,.06);transition:transform .25s,box-shadow .25s!important}
-.svc-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(21,34,72,.14)!important;background:var(--white)!important}
+.svc-card:hover{transform:translateY(-6px);box-shadow:0 16px 48px rgba(21,34,72,.18)!important}
 
 /* Service pills — soft card */
 .service-pill{box-shadow:0 2px 8px rgba(21,34,72,.06);transition:all .2s}
@@ -214,8 +218,7 @@ section.hero{background:linear-gradient(135deg,#080f22 0%,#0f1a3d 50%,#1a2d5a 10
 .stat-box:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(21,34,72,.12)!important}
 
 /* FAQ items */
-.faq-item{background:var(--white)!important;box-shadow:0 2px 8px rgba(21,34,72,.05)!important;border:1px solid var(--pale)!important;transition:box-shadow .2s!important}
-.faq-item:hover{box-shadow:0 8px 24px rgba(21,34,72,.1)!important}
+
 
 /* Review / rec cards */
 .review-card,.rec-card{box-shadow:0 4px 20px rgba(21,34,72,.08)!important;transition:transform .2s!important}
@@ -392,20 +395,23 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
     <div class="svc-card"><div class="svc-num">04</div><div class="svc-icon"><svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><div class="svc-title" data-sv="Lön & personaladm." data-en="Payroll & HR admin" data-ar="الرواتب وإدارة الموارد البشرية">Lön & personaladm.</div><div class="svc-desc" data-sv="Lönehantering, arbetsgivardeklarationer och kontakt med Skatteverket — vi tar hand om allt." data-en="Payroll management, employer declarations and contact with the Tax Agency — we handle it all." data-ar="إدارة الرواتب وإقرارات صاحب العمل والتواصل مع مصلحة الضرائب — نتولى كل شيء.">Lönehantering, arbetsgivardeklarationer och kontakt med Skatteverket — vi tar hand om allt.</div></div>
     <div class="svc-card"><div class="svc-num">05</div><div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="svc-title" data-sv="Ekonomisk rådgivning" data-en="Financial advisory" data-ar="الاستشارات المالية" data-so="Talada Dhaqaale" data-fr="Conseil financier" data-de="Finanzberatung" data-es="Asesoramiento financiero">Ekonomisk rådgivning</div><div class="svc-desc" data-sv="Strategisk ekonomisk rådgivning för beslutsfattare som vill växa med kontroll." data-en="Strategic financial advice for decision-makers who want to grow with confidence." data-ar="نصائح مالية استراتيجية لصناع القرار الذين يريدون النمو بثقة.">Strategisk ekonomisk rådgivning för beslutsfattare som vill växa med kontroll.</div></div>
     <div class="svc-card"><div class="svc-num">06</div><div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div><div class="svc-title" data-sv="Administration" data-en="Administration" data-ar="الإدارة">Administration</div><div class="svc-desc" data-sv="Vi hanterar administrativa uppgifter effektivt och strukturerat, så du kan fokusera på kärnverksamheten." data-en="We handle administrative tasks efficiently and systematically so you can focus on your core business." data-ar="نتولى المهام الإدارية بكفاءة ومنهجية حتى تتمكن من التركيز على جوهر عملك.">Vi hanterar administrativa uppgifter effektivt och strukturerat, så du kan fokusera på kärnverksamheten.</div></div>
-    <div class="svc-card" style="grid-column:span 3;background:#f8f5ef;border-top:3px solid var(--gold);position:relative">
-      <div style="position:absolute;top:14px;left:14px;background:var(--gold);color:var(--ink);font-size:10px;font-weight:700;letter-spacing:1px;padding:3px 8px;text-transform:uppercase" data-sv="Nytt" data-en="New" data-ar="جديد">Nytt</div>
-      <div style="font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:rgba(21,34,72,.06);position:absolute;top:16px;right:20px;line-height:1">07</div>
-      <div style="display:grid;grid-template-columns:auto 1fr;gap:32px;align-items:start;padding-top:8px">
-        <div style="width:46px;height:46px;display:flex;align-items:center;justify-content:center;border-bottom:2px solid var(--gold);padding-bottom:10px"><svg viewBox="0 0 24 24" width="24" height="24" stroke="#152248" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+    <div class="svc-card" style="grid-column:span 3;background:linear-gradient(135deg,#0f1a3d,#1a3a7c);border-radius:24px;position:relative;overflow:hidden;border:none">
+      <div style="position:absolute;inset:0;background:radial-gradient(circle at 80% 50%,rgba(200,169,110,.08) 0%,transparent 60%)"></div>
+      <div style="position:absolute;top:16px;left:20px;background:var(--gold);color:var(--ink);font-size:10px;font-weight:700;letter-spacing:1px;padding:4px 14px;border-radius:999px" data-sv="Nytt" data-en="New" data-ar="جديد">✦ Nytt</div>
+      <div style="font-family:'Playfair Display',serif;font-size:100px;font-weight:700;color:rgba(255,255,255,.03);position:absolute;top:-10px;right:20px;line-height:1;pointer-events:none">07</div>
+      <div style="display:grid;grid-template-columns:auto 1fr;gap:36px;align-items:start;padding-top:12px;position:relative;z-index:1">
+        <div style="width:56px;height:56px;display:flex;align-items:center;justify-content:center;background:rgba(200,169,110,.15);border:1px solid rgba(200,169,110,.3);border-radius:16px;flex-shrink:0">
+          <svg viewBox="0 0 24 24" width="26" height="26" stroke="var(--gold)" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
         <div>
-          <div class="svc-title" style="font-size:19px;margin-bottom:12px" data-sv="Ansökningar, trafiktillstånd & kontrakt" data-en="Applications, traffic permits & contracts" data-ar="الطلبات وتصاريح المرور والعقود">Ansökningar, trafiktillstånd & kontrakt</div>
-          <div class="svc-desc" style="font-size:14px;color:#4a5a7a;max-width:800px" data-sv="Vi hjälper dig med alla typer av ansökningar och myndighetskontakter — trafiktillstånd, tillstånd för yrkesmässig trafik, olika typer av avtal och kontrakt, samt juridiska dokument." data-en="We help you with all types of applications and government contacts — traffic permits, professional transport licences, various agreements and contracts, and legal documents." data-ar="نساعدك في جميع أنواع الطلبات والتواصل مع الجهات الحكومية — تصاريح المرور ورخص النقل المهني وأنواع العقود والاتفاقيات والوثائق القانونية.">Vi hjälper dig med alla typer av ansökningar och myndighetskontakter — trafiktillstånd, tillstånd för yrkesmässig trafik, olika typer av avtal och kontrakt, samt juridiska dokument.</div>
-          <div style="display:flex;gap:12px;margin-top:20px;flex-wrap:wrap">
-            <span style="background:var(--navy);color:white;font-size:12px;font-weight:500;padding:6px 14px" data-sv="Trafiktillstånd" data-en="Traffic permit" data-ar="تصريح المرور">Trafiktillstånd</span>
-            <span style="background:var(--navy);color:white;font-size:12px;font-weight:500;padding:6px 14px" data-sv="Yrkestrafik" data-en="Professional transport" data-ar="النقل المهني">Yrkestrafik</span>
-            <span style="background:var(--navy);color:white;font-size:12px;font-weight:500;padding:6px 14px" data-sv="Avtal & kontrakt" data-en="Agreements & contracts" data-ar="الاتفاقيات والعقود">Avtal & kontrakt</span>
-            <span style="background:var(--navy);color:white;font-size:12px;font-weight:500;padding:6px 14px" data-sv="Myndighetskontakt" data-en="Government contact" data-ar="التواصل الحكومي">Myndighetskontakt</span>
-            <span style="background:var(--navy);color:white;font-size:12px;font-weight:500;padding:6px 14px" data-sv="Juridiska dokument" data-en="Legal documents" data-ar="الوثائق القانونية">Juridiska dokument</span>
+          <div class="svc-title" style="font-size:20px;margin-bottom:10px;color:white" data-sv="Ansökningar, trafiktillstånd & kontrakt" data-en="Applications, traffic permits & contracts" data-ar="الطلبات وتصاريح المرور والعقود">Ansökningar, trafiktillstånd & kontrakt</div>
+          <div class="svc-desc" style="font-size:14px;color:rgba(255,255,255,.6);max-width:800px;line-height:1.7" data-sv="Vi hjälper dig med alla typer av ansökningar och myndighetskontakter — trafiktillstånd, tillstånd för yrkesmässig trafik, olika typer av avtal och kontrakt, samt juridiska dokument." data-en="We help you with all types of applications and government contacts — traffic permits, professional transport licences, various agreements and contracts, and legal documents." data-ar="نساعدك في جميع أنواع الطلبات والتواصل مع الجهات الحكومية — تصاريح المرور ورخص النقل المهني وأنواع العقود والاتفاقيات والوثائق القانونية.">Vi hjälper dig med alla typer av ansökningar och myndighetskontakter — trafiktillstånd, tillstånd för yrkesmässig trafik, olika typer av avtal och kontrakt, samt juridiska dokument.</div>
+          <div style="display:flex;gap:10px;margin-top:20px;flex-wrap:wrap">
+            <span style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.85);font-size:12px;font-weight:500;padding:6px 16px;border-radius:999px" data-sv="Trafiktillstånd" data-en="Traffic permit" data-ar="تصريح المرور">Trafiktillstånd</span>
+            <span style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.85);font-size:12px;font-weight:500;padding:6px 16px;border-radius:999px" data-sv="Yrkestrafik" data-en="Professional transport" data-ar="النقل المهني">Yrkestrafik</span>
+            <span style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.85);font-size:12px;font-weight:500;padding:6px 16px;border-radius:999px" data-sv="Avtal & kontrakt" data-en="Agreements & contracts" data-ar="الاتفاقيات والعقود">Avtal & kontrakt</span>
+            <span style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.85);font-size:12px;font-weight:500;padding:6px 16px;border-radius:999px" data-sv="Myndighetskontakt" data-en="Government contact" data-ar="التواصل الحكومي">Myndighetskontakt</span>
+            <span style="background:rgba(200,169,110,.2);border:1px solid rgba(200,169,110,.35);color:var(--gold);font-size:12px;font-weight:600;padding:6px 16px;border-radius:999px" data-sv="Juridiska dokument" data-en="Legal documents" data-ar="الوثائق القانونية">Juridiska dokument</span>
           </div>
         </div>
       </div>
@@ -550,29 +556,63 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 </section>
 
 <!-- RECENSIONER -->
-<section style="padding:88px 56px;background:var(--white)" id="recensioner">
+<section style="padding:88px 56px;background:linear-gradient(180deg,var(--white) 0%,var(--frost) 100%)" id="recensioner">
   <div style="max-width:1020px;margin:0 auto">
     <div class="section-label" data-sv="Vad kunderna säger" data-en="What customers say" data-ar="ما يقوله العملاء">Vad kunderna säger</div>
     <div class="section-title" data-sv="Kundrecensioner" data-en="Customer reviews" data-ar="تقييمات العملاء">Kundrecensioner</div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
-      <div style="background:var(--frost);padding:36px 28px;border-left:3px solid var(--gold)">
-        <div style="color:var(--gold);font-size:20px;margin-bottom:16px">★★★★★</div>
-        <p style="font-size:15px;color:#4a5a7a;line-height:1.7;margin-bottom:20px;font-style:italic" data-sv='"Hassan är professionell och pålitlig. Han sköter min bokföring korrekt och i tid. Rekommenderas varmt!"' data-en='"Hassan is professional and reliable. He handles my bookkeeping correctly and on time. Highly recommended!"' data-ar='"حسن محترف وموثوق. يتولى محاسبتي بشكل صحيح وفي الوقت المحدد. أوصي به بشدة!"'>"Hassan är professionell och pålitlig. Han sköter min bokföring korrekt och i tid. Rekommenderas varmt!"</p>
-        <div style="font-weight:600;color:var(--navy);font-size:14px">Ahmed M.</div>
-        <div style="font-size:12px;color:var(--silver)" data-sv="Taxiförare, Umeå" data-en="Taxi driver, Umeå" data-ar="سائق تاكسي، أوميو">Taxiförare, Umeå</div>
+
+      <!-- RECENSION 1 -->
+      <div style="background:var(--white);border:1px solid rgba(21,34,72,.08);border-radius:20px;padding:36px 28px;box-shadow:0 4px 20px rgba(21,34,72,.07);transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(21,34,72,.13)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 20px rgba(21,34,72,.07)'">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),rgba(200,169,110,.3))"></div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px">
+          <div style="color:var(--gold);font-size:18px;letter-spacing:2px">★★★★★</div>
+          <div style="width:36px;height:36px;background:linear-gradient(135deg,#f0f4fb,var(--frost));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px">💬</div>
+        </div>
+        <p style="font-size:15px;color:#4a5a7a;line-height:1.75;margin-bottom:24px;font-style:italic" data-sv='"Hassan är professionell och pålitlig. Han sköter min bokföring korrekt och i tid. Rekommenderas varmt!"' data-en='"Hassan is professional and reliable. He handles my bookkeeping correctly and on time. Highly recommended!"' data-ar='"حسن محترف وموثوق. يتولى محاسبتي بشكل صحيح وفي الوقت المحدد. أوصي به بشدة!"'>"Hassan är professionell och pålitlig. Han sköter min bokföring korrekt och i tid. Rekommenderas varmt!"</p>
+        <div style="display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--pale)">
+          <div style="width:40px;height:40px;background:linear-gradient(135deg,var(--navy),#1a3a7c);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;color:white;font-size:16px">A</div>
+          <div>
+            <div style="font-weight:700;color:var(--navy);font-size:14px">Ahmed M.</div>
+            <div style="font-size:12px;color:var(--silver)" data-sv="Taxiförare, Umeå" data-en="Taxi driver, Umeå" data-ar="سائق تاكسي، أوميو">Taxiförare, Umeå</div>
+          </div>
+        </div>
       </div>
-      <div style="background:var(--frost);padding:36px 28px;border-left:3px solid var(--gold)">
-        <div style="color:var(--gold);font-size:20px;margin-bottom:16px">★★★★★</div>
-        <p style="font-size:15px;color:#4a5a7a;line-height:1.7;margin-bottom:20px;font-style:italic" data-sv='"Hjälpte mig med trafiktillstånd och hela ansökningsprocessen. Smidig och kunnig service!"' data-en='"Helped me with the traffic permit and the entire application process. Smooth and knowledgeable service!"' data-ar='"ساعدني في الحصول على تصريح المرور وعملية التقديم بأكملها. خدمة سلسة ومعرفة!"'>"Hjälpte mig med trafiktillstånd och hela ansökningsprocessen. Smidig och kunnig service!"</p>
-        <div style="font-weight:600;color:var(--navy);font-size:14px">Fatima A.</div>
-        <div style="font-size:12px;color:var(--silver)" data-sv="Företagare, Umeå" data-en="Business owner, Umeå" data-ar="صاحبة عمل، أوميو">Företagare, Umeå</div>
+
+      <!-- RECENSION 2 -->
+      <div style="background:var(--white);border:1px solid rgba(21,34,72,.08);border-radius:20px;padding:36px 28px;box-shadow:0 4px 20px rgba(21,34,72,.07);transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(21,34,72,.13)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 20px rgba(21,34,72,.07)'">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),rgba(200,169,110,.3))"></div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px">
+          <div style="color:var(--gold);font-size:18px;letter-spacing:2px">★★★★★</div>
+          <div style="width:36px;height:36px;background:linear-gradient(135deg,#f0f4fb,var(--frost));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px">💬</div>
+        </div>
+        <p style="font-size:15px;color:#4a5a7a;line-height:1.75;margin-bottom:24px;font-style:italic" data-sv='"Hjälpte mig med trafiktillstånd och hela ansökningsprocessen. Smidig och kunnig service!"' data-en='"Helped me with the traffic permit and the entire application process. Smooth and knowledgeable service!"' data-ar='"ساعدني في الحصول على تصريح المرور وعملية التقديم بأكملها. خدمة سلسة ومعرفة!"'>"Hjälpte mig med trafiktillstånd och hela ansökningsprocessen. Smidig och kunnig service!"</p>
+        <div style="display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--pale)">
+          <div style="width:40px;height:40px;background:linear-gradient(135deg,#1a6b3c,#2d9e5a);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;color:white;font-size:16px">F</div>
+          <div>
+            <div style="font-weight:700;color:var(--navy);font-size:14px">Fatima A.</div>
+            <div style="font-size:12px;color:var(--silver)" data-sv="Företagare, Umeå" data-en="Business owner, Umeå" data-ar="صاحبة عمل، أوميو">Företagare, Umeå</div>
+          </div>
+        </div>
       </div>
-      <div style="background:var(--frost);padding:36px 28px;border-left:3px solid var(--gold)">
-        <div style="color:var(--gold);font-size:20px;margin-bottom:16px">★★★★★</div>
-        <p style="font-size:15px;color:#4a5a7a;line-height:1.7;margin-bottom:20px;font-style:italic" data-sv='"Snabb, noggrann och alltid tillgänglig. Eulers Service har gjort min ekonomi enkel att förstå."' data-en='"Fast, accurate and always available. Eulers Service has made my finances easy to understand."' data-ar='"سريع ودقيق ومتاح دائماً. جعلت Eulers Service أموالي سهلة الفهم."'>"Snabb, noggrann och alltid tillgänglig. Eulers Service har gjort min ekonomi enkel att förstå."</p>
-        <div style="font-weight:600;color:var(--navy);font-size:14px">Karim O.</div>
-        <div style="font-size:12px;color:var(--silver)" data-sv="Butiksägare, Umeå" data-en="Shop owner, Umeå" data-ar="صاحب متجر، أوميو">Butiksägare, Umeå</div>
+
+      <!-- RECENSION 3 -->
+      <div style="background:var(--white);border:1px solid rgba(21,34,72,.08);border-radius:20px;padding:36px 28px;box-shadow:0 4px 20px rgba(21,34,72,.07);transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(21,34,72,.13)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 20px rgba(21,34,72,.07)'">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),rgba(200,169,110,.3))"></div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:20px">
+          <div style="color:var(--gold);font-size:18px;letter-spacing:2px">★★★★★</div>
+          <div style="width:36px;height:36px;background:linear-gradient(135deg,#f0f4fb,var(--frost));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px">💬</div>
+        </div>
+        <p style="font-size:15px;color:#4a5a7a;line-height:1.75;margin-bottom:24px;font-style:italic" data-sv='"Snabb, noggrann och alltid tillgänglig. Eulers Service har gjort min ekonomi enkel att förstå."' data-en='"Fast, accurate and always available. Eulers Service has made my finances easy to understand."' data-ar='"سريع ودقيق ومتاح دائماً. جعلت Eulers Service أموالي سهلة الفهم."'>"Snabb, noggrann och alltid tillgänglig. Eulers Service har gjort min ekonomi enkel att förstå."</p>
+        <div style="display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid var(--pale)">
+          <div style="width:40px;height:40px;background:linear-gradient(135deg,#7c3a1a,#b55a2a);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;color:white;font-size:16px">K</div>
+          <div>
+            <div style="font-weight:700;color:var(--navy);font-size:14px">Karim O.</div>
+            <div style="font-size:12px;color:var(--silver)" data-sv="Butiksägare, Umeå" data-en="Shop owner, Umeå" data-ar="صاحب متجر، أوميو">Butiksägare, Umeå</div>
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -582,39 +622,39 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
   <div style="max-width:800px;margin:0 auto">
     <div class="section-label" style="color:rgba(200,169,110,.8)" data-sv="Vanliga frågor" data-en="FAQ" data-ar="أسئلة شائعة">Vanliga frågor</div>
     <div class="section-title" style="color:var(--white);margin-bottom:48px" data-sv="Frågor & svar" data-en="Questions & answers" data-ar="أسئلة وأجوبة">Frågor & svar</div>
-    <div style="display:flex;flex-direction:column;gap:2px" id="faqList">
+    <div style="display:flex;flex-direction:column;gap:0" id="faqList">
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
           <span data-sv="Vad kostar redovisning?" data-en="How much does accounting cost?" data-ar="كم تكلف المحاسبة؟">Vad kostar redovisning?</span>
-          <span class="faq-arrow">▼</span>
+          <span class="faq-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
         </button>
         <div class="faq-a" data-sv="Vi erbjuder paket från 995 kr/mån för enskild firma. Priset beror på företagets storlek och behov. Kontakta oss för en kostnadsfri offert." data-en="We offer packages from 995 SEK/month for sole traders. The price depends on the size and needs of the business. Contact us for a free quote." data-ar="نقدم باقات تبدأ من 995 كرونة شهرياً للعاملين لحسابهم الخاص. يعتمد السعر على حجم الشركة واحتياجاتها. اتصل بنا للحصول على عرض مجاني.">Vi erbjuder paket från 995 kr/mån för enskild firma. Priset beror på företagets storlek och behov. Kontakta oss för en kostnadsfri offert.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
           <span data-sv="Hur snabbt kan ni komma igång?" data-en="How quickly can you get started?" data-ar="كم من الوقت يستغرق البدء؟">Hur snabbt kan ni komma igång?</span>
-          <span class="faq-arrow">▼</span>
+          <span class="faq-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
         </button>
         <div class="faq-a" data-sv="Vi kan vanligtvis komma igång inom 1–3 arbetsdagar efter att vi haft ett inledande möte och fått tillgång till nödvändig information." data-en="We can usually get started within 1–3 working days after an initial meeting and receiving the necessary information." data-ar="يمكننا عادةً البدء في غضون 1-3 أيام عمل بعد الاجتماع الأولي والحصول على المعلومات اللازمة.">Vi kan vanligtvis komma igång inom 1–3 arbetsdagar efter att vi haft ett inledande möte och fått tillgång till nödvändig information.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
           <span data-sv="Hjälper ni med trafiktillstånd?" data-en="Do you help with traffic permits?" data-ar="هل تساعدون في تصاريح المرور؟">Hjälper ni med trafiktillstånd?</span>
-          <span class="faq-arrow">▼</span>
+          <span class="faq-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
         </button>
         <div class="faq-a" data-sv="Ja! Vi hjälper dig med hela ansökningsprocessen för trafiktillstånd, yrkestrafiktillstånd och andra myndighetstillstånd. Vi ser till att allt är korrekt ifyllt." data-en="Yes! We help you with the entire application process for traffic permits, professional transport licences and other government permits. We make sure everything is filled in correctly." data-ar="نعم! نساعدك في عملية التقديم بأكملها للحصول على تصاريح المرور ورخص النقل المهني وغيرها من التصاريح الحكومية.">Ja! Vi hjälper dig med hela ansökningsprocessen för trafiktillstånd, yrkestrafiktillstånd och andra myndighetstillstånd. Vi ser till att allt är korrekt ifyllt.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
           <span data-sv="Kan ni hjälpa mig på arabiska?" data-en="Can you help me in Arabic?" data-ar="هل يمكنكم مساعدتي باللغة العربية؟">Kan ni hjälpa mig på arabiska?</span>
-          <span class="faq-arrow">▼</span>
+          <span class="faq-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
         </button>
         <div class="faq-a" data-sv="Ja, vi erbjuder service på svenska, engelska och arabiska. Du kan kontakta oss på det språk du föredrar." data-en="Yes, we offer service in Swedish, English and Arabic. You can contact us in whichever language you prefer." data-ar="نعم، نقدم الخدمة باللغتين السويدية والإنجليزية والعربية. يمكنك التواصل معنا باللغة التي تفضلها.">Ja, vi erbjuder service på svenska, engelska och arabiska. Du kan kontakta oss på det språk du föredrar.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
           <span data-sv="Vad behöver jag skicka in varje månad?" data-en="What do I need to send in each month?" data-ar="ماذا أحتاج أن أرسل كل شهر؟">Vad behöver jag skicka in varje månad?</span>
-          <span class="faq-arrow">▼</span>
+          <span class="faq-arrow"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
         </button>
         <div class="faq-a" data-sv="Vanligtvis behöver du skicka in kvitton, fakturor och kontoutdrag. Vi guidar dig genom vad som behövs och gör processen så enkel som möjligt." data-en="Usually you need to send in receipts, invoices and bank statements. We guide you through what is needed and make the process as simple as possible." data-ar="عادةً تحتاج إلى إرسال الإيصالات والفواتير وكشوف الحساب البنكي. نرشدك إلى ما هو مطلوب ونجعل العملية بسيطة قدر الإمكان.">Vanligtvis behöver du skicka in kvitton, fakturor och kontoutdrag. Vi guidar dig genom vad som behövs och gör processen så enkel som möjligt.</div>
       </div>
@@ -978,13 +1018,14 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 .book-calendly:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(200,169,110,.55);opacity:.95}
 
 /* FAQ */
-.faq-item{border-radius:12px;background:rgba(255,255,255,.05);margin-bottom:2px}
-.faq-q{width:100%;background:rgba(255,255,255,.06);border:none;padding:20px 24px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:var(--white);text-align:left;transition:background .2s}
-.faq-q:hover{background:rgba(255,255,255,.1)}
-.faq-arrow{font-size:12px;color:var(--gold);transition:transform .3s;flex-shrink:0;margin-left:16px}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s;font-size:14px;color:rgba(255,255,255,.6);line-height:1.7;padding:0 24px}
-.faq-a.open{max-height:200px;padding:16px 24px 20px}
-.faq-arrow.open{transform:rotate(180deg)}
+.faq-item{border-radius:16px;background:rgba(255,255,255,.05);margin-bottom:10px;border:1px solid rgba(255,255,255,.08);overflow:hidden;transition:all .2s}
+.faq-item:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);transform:translateX(4px)}
+.faq-q{width:100%;background:transparent;border:none;padding:22px 28px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;color:var(--white);text-align:left;transition:all .2s}
+.faq-q:hover{color:var(--gold)}
+.faq-arrow{width:28px;height:28px;background:rgba(200,169,110,.15);border:1px solid rgba(200,169,110,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--gold);transition:all .3s;flex-shrink:0;margin-left:16px}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .3s;font-size:14px;color:rgba(255,255,255,.6);line-height:1.75;padding:0 28px}
+.faq-a.open{max-height:300px;padding:0 28px 24px}
+.faq-arrow.open{transform:rotate(180deg);background:rgba(200,169,110,.25);border-color:var(--gold)}
 
 /* PRICING MOBILE */
 @media(max-width:768px){
