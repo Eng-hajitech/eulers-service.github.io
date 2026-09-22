@@ -65,7 +65,7 @@ nav{background:var(--white);border-bottom:1px solid var(--pale);padding:0 56px;d
 .pill-icon svg{width:19px;height:19px;stroke:var(--pale);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
 .pill-body strong{font-size:14px;font-weight:600;color:var(--navy);display:block;margin-bottom:3px}
 .pill-body p{font-size:13px;color:var(--silver);line-height:1.5}
-.gold-bar{height:3px;background:linear-gradient(90deg,var(--navy),var(--gold),var(--navy))}
+
 
 /* SERVICES */
 .services-full{padding:88px 56px;background:var(--white)}
@@ -159,17 +159,17 @@ footer{background:#0b1529;padding:40px 56px;display:flex;align-items:center;just
 }
 
 
-.welcome-title{font-family:'Playfair Display',serif;font-size:48px;font-weight:700;color:var(--gold,#c8a96e);margin-bottom:20px;letter-spacing:1px}
-.welcome-sub{font-size:13px;font-weight:500;color:rgba(255,255,255,.5);letter-spacing:3px;text-transform:uppercase;margin-bottom:24px}
-.lang-pills{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.lang-pill{display:flex;align-items:center;gap:8px;padding:9px 18px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:999px;cursor:pointer;transition:all .2s;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;color:rgba(255,255,255,.75)}
-.lang-pill:hover{background:rgba(255,255,255,.15);border-color:rgba(255,255,255,.3);color:white;transform:translateY(-2px)}
-.lang-pill.active{background:var(--gold,#c8a96e);border-color:var(--gold,#c8a96e);color:#0f1a3d}
-.lang-pill-flag{font-size:18px;line-height:1}
-.lang-pill-label{font-size:13px}
+
+
+
+
+
+
+
+
 @media(max-width:768px){
-  .welcome-bar{padding:24px 20px 28px}
-  .welcome-title{font-size:34px}
+  
+  
 }
 
 
@@ -243,32 +243,6 @@ footer{background:#0b1529;padding:40px 56px;display:flex;align-items:center;just
   </div>
 </nav>
 
-  <div class="welcome-sub" id="welcomeSub">Välj ditt språk</div>
-  <div class="lang-pills">
-    <button class="lang-pill active" id="pill-sv" onclick="selectWelcomeLang('sv')">
-      <span class="lang-pill-label">Svenska</span>
-    </button>
-    <button class="lang-pill" id="pill-en" onclick="selectWelcomeLang('en')">
-      <span class="lang-pill-label">English</span>
-    </button>
-    <button class="lang-pill" id="pill-fr" onclick="selectWelcomeLang('fr')">
-      <span class="lang-pill-label">Français</span>
-    </button>
-    <button class="lang-pill" id="pill-de" onclick="selectWelcomeLang('de')">
-      <span class="lang-pill-label">Deutsch</span>
-    </button>
-    <button class="lang-pill" id="pill-es" onclick="selectWelcomeLang('es')">
-      <span class="lang-pill-label">Español</span>
-    </button>
-    <button class="lang-pill" id="pill-ar" onclick="selectWelcomeLang('ar')">
-      <span class="lang-pill-label">العربية</span>
-    </button>
-    <button class="lang-pill" id="pill-so" onclick="selectWelcomeLang('so')">
-      <span class="lang-pill-label">Soomaali</span>
-    </button>
-  </div>
-</div>
-
 
 <div class="mobile-menu" id="mobileMenu">
   <a href="#tjanster" data-sv="Tjänster" data-en="Services" data-ar="الخدمات" data-fr="Services" data-de="Leistungen" data-es="Servicios" data-so="Adeegyada" onclick="toggleMenu()">Tjänster</a>
@@ -294,10 +268,6 @@ footer{background:#0b1529;padding:40px 56px;display:flex;align-items:center;just
 
 <section class="hero">
   <div class="hero-left">
-    <div style="margin-bottom:12px;position:relative;z-index:1">
-      <div style="font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--gold);line-height:1.1;margin-bottom:10px" id="heroWelcome">Välkommen!</div>
-      <button onclick="openLangPopup()" style="background:none;border:none;color:rgba(255,255,255,.6);font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;padding:0;letter-spacing:1px;text-decoration:underline;text-underline-offset:3px;transition:color .2s" onmouseover="this.style.color='rgba(255,255,255,.9)'" onmouseout="this.style.color='rgba(255,255,255,.6)'" id="heroLangBtn">Välj ditt språk</button>
-    </div>
     <div class="hero-eyebrow" data-sv="Umeå · Grundat 2018" data-en="Umeå · Founded 2018" data-ar="أوميو · تأسست 2018" data-so="Umeå · Aasaasay 2018" data-fr="Umeå · Fondé en 2018" data-de="Umeå · Gegründet 2018" data-es="Umeå · Fundado en 2018">Umeå · Grundat 2018</div>
     <h1 data-sv='Din ekonomi i <em>trygga</em> händer' data-en='Your finances in <em>safe</em> hands' data-ar='أموالك في <em>أيدٍ أمينة</em>' data-so='Maaliyadaadu <em>gacmaha amaan</em> ayay ku jirtaa' data-fr='Vos finances en <em>bonnes mains</em>' data-de='Ihre Finanzen in <em>sicheren Händen</em>' data-es='Sus finanzas en <em>buenas manos</em>'>Din ekonomi i <em>trygga</em> händer</h1>
     <p data-sv="Vi erbjuder professionell redovisning, bokföring och ekonomisk rådgivning för företag i Umeå och omnejd. Låt oss sköta siffrorna — du fokuserar på din verksamhet." data-en="We offer professional accounting, bookkeeping and financial advisory for businesses in Umeå and the surrounding area. Let us handle the numbers — you focus on your business." data-ar="نقدم خدمات المحاسبة والمراجعة المالية الاحترافية للشركات في أوميو والمناطق المجاورة. دعنا نتولى الأرقام — أنت تركز على عملك." data-so="Waxaan bixinaa xisaabaadka xirfadlaha ah, buugaagta lacageed iyo talada dhaqaale ee ganacsiyada Umeå. Naga tag lambarrada — adiga xagyaada shaqada." data-fr="Nous offrons des services professionnels de comptabilité, tenue de livres et conseil financier pour les entreprises à Umeå. Laissez-nous gérer les chiffres — vous vous concentrez sur votre activité." data-de="Wir bieten professionelle Buchhaltung, Buchführung und Finanzberatung für Unternehmen in Umeå. Lassen Sie uns die Zahlen übernehmen — Sie konzentrieren sich auf Ihr Geschäft." data-es="Ofrecemos servicios profesionales de contabilidad y asesoramiento financiero para empresas en Umeå. Déjenos manejar los números — usted se concentra en su negocio.">Vi erbjuder professionell redovisning, bokföring och ekonomisk rådgivning för företag i Umeå och omnejd. Låt oss sköta siffrorna — du fokuserar på din verksamhet.</p>
@@ -323,7 +293,7 @@ footer{background:#0b1529;padding:40px 56px;display:flex;align-items:center;just
   </div>
 </section>
 
-<div class="gold-bar"></div>
+
 
 <section class="services-full" id="tjanster">
   <div class="section-label" data-sv="Vad vi erbjuder" data-en="What we offer" data-ar="ما نقدمه" data-so="Waxa aan bixino" data-fr="Ce que nous offrons" data-de="Was wir anbieten" data-es="Lo que ofrecemos">Vad vi erbjuder</div>
@@ -1118,14 +1088,8 @@ function pickLang(lang) {
   closeLangPopup();
   // Update hero welcome text and button
   const t = WELCOME_TEXTS[lang] || WELCOME_TEXTS.sv;
-  const hw = document.getElementById('heroWelcome');
-  const hb = document.getElementById('heroLangBtn');
   const pt = document.getElementById('popupTitle');
-  const ps = document.getElementById('popupSub');
-  if (hw) hw.textContent = t.welcome;
-  if (hb) hb.textContent = t.btn;
   if (pt) pt.textContent = t.title;
-  if (ps) ps.sub = t.sub;
   // Apply site language (SV, EN, AR supported)
   if (typeof setLang === 'function') setLang(lang);
   try { localStorage.setItem('eulers_lang', lang); } catch(e) {}
