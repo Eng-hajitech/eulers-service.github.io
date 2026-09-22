@@ -140,28 +140,66 @@ footer{background:#0b1529;padding:40px 56px;display:flex;align-items:center;just
 
 /* MOBILE */
 @media(max-width:768px){
-  nav{padding:0 20px;height:120px;background:var(--white)}
-  .nav-left img{height:100px}
+  nav{padding:0 20px;height:80px;background:var(--white)}
+  .nav-left img{height:60px}
   .nav-links,.nav-btn,.lang-switcher{display:none}
   .hamburger{display:flex}
-  .mobile-menu{top:120px;border-radius:0 0 20px 20px}
+  .mobile-menu{top:80px;border-radius:0 0 20px 20px}
   .hero{grid-template-columns:1fr}
-  .hero-left{padding:52px 24px}
-  .hero-left h1{font-size:32px}
+  .hero-left{padding:48px 24px}
+  .hero-left h1{font-size:30px}
   .hero-right{display:none}
-  .services-full,.process,.about-wrap,.contact{padding:56px 20px}
-  #priser,#recensioner,#faq,#tips,#boka{padding:56px 20px!important}
+  .services-full,.process,.about-wrap,.contact{padding:48px 20px}
+  #priser,#recensioner,#faq,#tips,#boka{padding:48px 20px!important}
+
+  /* Grids — en kolumn på mobil */
   .services-grid{grid-template-columns:1fr}
+  .svc-card[style*="span 3"]{grid-column:span 1!important}
+
+  /* Priskort — stapla vertikalt */
+  #priser [style*="grid-template-columns:1fr 1fr 1fr"]{
+    grid-template-columns:1fr!important;
+    gap:16px!important
+  }
+  /* Standard-kort — ta bort scale på mobil */
+  #priser [style*="transform:scale"]{
+    transform:none!important;
+    margin-top:0!important
+  }
+  /* Bokslut-kort — en kolumn */
+  #priser [style*="grid-template-columns:1fr auto"]{
+    grid-template-columns:1fr!important;
+    gap:24px!important
+  }
+
+  /* Recensioner — en kolumn */
+  #recensioner [style*="grid-template-columns:repeat(3,1fr)"]{
+    grid-template-columns:1fr!important
+  }
+
+  /* Ekonomitips — en kolumn */
+  #tips [style*="grid-template-columns:repeat(3,1fr)"]{
+    grid-template-columns:1fr!important
+  }
+
   .steps{grid-template-columns:1fr 1fr;gap:32px}
   .steps::before{display:none}
   .about{grid-template-columns:1fr;gap:36px}
-  .contact-info{flex-direction:column;align-items:flex-start;gap:20px;border-radius:20px}
+  .about-stats{grid-template-columns:1fr 1fr}
+  .contact-info{flex-direction:column;align-items:stretch;gap:12px}
+  .ci{width:100%}
   .contact-form{padding:24px 18px;border-radius:20px;overflow:hidden}
   .form-row{grid-template-columns:1fr}
   footer{padding:28px 20px;flex-direction:column;align-items:flex-start}
   .foot-info{text-align:left}
-  .svc-card[style*="span 3"]{grid-column:span 1!important}
   .wa-btn{bottom:16px;right:16px;width:52px;height:52px;border-radius:50%}
+  .section-title{font-size:28px}
+
+  /* Bokningssektion — stapla kontaktlänkar */
+  #boka [style*="display:flex;gap:16px;justify-content:center"]{
+    flex-direction:column!important;
+    align-items:stretch!important
+  }
 }
 
 
