@@ -179,39 +179,7 @@ footer{background:#0b1529;padding:40px 56px;display:flex;align-items:center;just
 <body>
 
 
-      <div class="lang-popup-sub" id="popupSub">Välj ditt språk</div>
-      
-    </div>
-    <div class="lang-popup-body">
-      <div class="lang-grid">
-        <button class="lang-btn" onclick="selectLang('sv')">
-          <div class="lang-name"><span class="lang-name-native">Svenska</span><span class="lang-name-en">Swedish</span></div>
-        </button>
-        <button class="lang-btn" onclick="selectLang('en')">
-          <div class="lang-name"><span class="lang-name-native">English</span><span class="lang-name-en">English</span></div>
-        </button>
-        <button class="lang-btn" onclick="selectLang('fr')">
-          <div class="lang-name"><span class="lang-name-native">Français</span><span class="lang-name-en">French</span></div>
-        </button>
-        <button class="lang-btn" onclick="selectLang('de')">
-          <div class="lang-name"><span class="lang-name-native">Deutsch</span><span class="lang-name-en">German</span></div>
-        </button>
-        <button class="lang-btn" onclick="selectLang('es')">
-          <div class="lang-name"><span class="lang-name-native">Español</span><span class="lang-name-en">Spanish</span></div>
-        </button>
-        <button class="lang-btn" onclick="selectLang('ar')">
-          <div class="lang-name"><span class="lang-name-native">العربية</span><span class="lang-name-en">Arabic</span></div>
-        </button>
-        <button class="lang-btn" onclick="selectLang('so')" style="grid-column:span 2">
-          <div class="lang-name"><span class="lang-name-native">Soomaali</span><span class="lang-name-en">Somali</span></div>
-        </button>
-      </div>
-    </div>
-    <div class="lang-popup-footer">
-      
-    </div>
-  </div>
-</div>
+
 
 <nav>
   <div class="nav-left"><a href="#" title="Eulers Service AB — Hem"><img src="logo.png" alt="Eulers Service AB"></a></div>
@@ -268,6 +236,7 @@ footer{background:#0b1529;padding:40px 56px;display:flex;align-items:center;just
 
 <section class="hero">
   <div class="hero-left">
+    <div style="font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--gold);line-height:1.1;margin-bottom:16px" id="heroWelcome">Välkommen!</div>
     <div class="hero-eyebrow" data-sv="Umeå · Grundat 2018" data-en="Umeå · Founded 2018" data-ar="أوميو · تأسست 2018" data-so="Umeå · Aasaasay 2018" data-fr="Umeå · Fondé en 2018" data-de="Umeå · Gegründet 2018" data-es="Umeå · Fundado en 2018">Umeå · Grundat 2018</div>
     <h1 data-sv='Din ekonomi i <em>trygga</em> händer' data-en='Your finances in <em>safe</em> hands' data-ar='أموالك في <em>أيدٍ أمينة</em>' data-so='Maaliyadaadu <em>gacmaha amaan</em> ayay ku jirtaa' data-fr='Vos finances en <em>bonnes mains</em>' data-de='Ihre Finanzen in <em>sicheren Händen</em>' data-es='Sus finanzas en <em>buenas manos</em>'>Din ekonomi i <em>trygga</em> händer</h1>
     <p data-sv="Vi erbjuder professionell redovisning, bokföring och ekonomisk rådgivning för företag i Umeå och omnejd. Låt oss sköta siffrorna — du fokuserar på din verksamhet." data-en="We offer professional accounting, bookkeeping and financial advisory for businesses in Umeå and the surrounding area. Let us handle the numbers — you focus on your business." data-ar="نقدم خدمات المحاسبة والمراجعة المالية الاحترافية للشركات في أوميو والمناطق المجاورة. دعنا نتولى الأرقام — أنت تركز على عملك." data-so="Waxaan bixinaa xisaabaadka xirfadlaha ah, buugaagta lacageed iyo talada dhaqaale ee ganacsiyada Umeå. Naga tag lambarrada — adiga xagyaada shaqada." data-fr="Nous offrons des services professionnels de comptabilité, tenue de livres et conseil financier pour les entreprises à Umeå. Laissez-nous gérer les chiffres — vous vous concentrez sur votre activité." data-de="Wir bieten professionelle Buchhaltung, Buchführung und Finanzberatung für Unternehmen in Umeå. Lassen Sie uns die Zahlen übernehmen — Sie konzentrieren sich auf Ihr Geschäft." data-es="Ofrecemos servicios profesionales de contabilidad y asesoramiento financiero para empresas en Umeå. Déjenos manejar los números — usted se concentra en su negocio.">Vi erbjuder professionell redovisning, bokföring och ekonomisk rådgivning för företag i Umeå och omnejd. Låt oss sköta siffrorna — du fokuserar på din verksamhet.</p>
@@ -1088,7 +1057,9 @@ function pickLang(lang) {
   closeLangPopup();
   // Update hero welcome text and button
   const t = WELCOME_TEXTS[lang] || WELCOME_TEXTS.sv;
+  const hw = document.getElementById('heroWelcome');
   const pt = document.getElementById('popupTitle');
+  if (hw) hw.textContent = t.welcome;
   if (pt) pt.textContent = t.title;
   // Apply site language (SV, EN, AR supported)
   if (typeof setLang === 'function') setLang(lang);
