@@ -15,6 +15,8 @@ body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--white);f
 nav{background:var(--white);border-bottom:1px solid var(--pale);padding:0 56px;display:flex;align-items:center;justify-content:space-between;height:120px;position:sticky;top:0;z-index:200}
 .nav-left img{height:110px;width:auto}
 .nav-links{display:flex;gap:8px;align-items:center;background:#0f1a3d;border-radius:999px;padding:6px 8px}
+.nav-links a:hover{background:rgba(200,169,110,.15)!important;color:var(--gold)!important}
+.nav-links a.active{background:var(--gold)!important;color:var(--ink)!important}
 .nav-links a{font-size:13px;font-weight:600;color:white;background:#0f1a3d;text-decoration:none;letter-spacing:.3px;padding:8px 18px;border-radius:999px;transition:all .2s}
 .nav-links a:hover{background:#2a4aae;color:white;transform:translateY(-1px);box-shadow:0 4px 12px rgba(15,26,61,.25)}
 .nav-right{display:flex;align-items:center;gap:12px}
@@ -945,7 +947,7 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
       </div>
       <div class="ci">
         <div class="ci-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-        <div class="ci-text"><span data-sv="Adress" data-en="Address" data-ar="العنوان" data-fr="Adresse" data-de="Adresse" data-es="Dirección" data-so="Cinwaanka">Adress</span><strong>Istidsgatan 53, Umeå</strong></div>
+        <div class="ci-text"><span data-sv="Adress" data-en="Address" data-ar="العنوان" data-fr="Adresse" data-de="Adresse" data-es="Dirección" data-so="Cinwaanka">Adress</span><strong><a href="https://www.google.com/maps/search/?api=1&query=Istidsgatan+53,+Umeå" target="_blank" rel="noopener" style="color:var(--navy);text-decoration:none">Istidsgatan 53, Umeå</a></strong></div>
       </div>
     </div>
     <div class="contact-form">
@@ -1033,7 +1035,7 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 <footer>
   <div class="foot-logo"><img src="logo.png" alt="Eulers Service AB"></div>
   <div class="foot-info">
-    Istidsgatan 53, 906 57 Umeå<br>
+    <a href="https://www.google.com/maps/search/?api=1&query=Istidsgatan+53,+Umeå" target="_blank" rel="noopener" style="color:rgba(255,255,255,.5);text-decoration:none">Istidsgatan 53, 906 57 Umeå</a><br>
     <a href="tel:0727808398">072-780 83 98</a> &nbsp;·&nbsp; <a href="mailto:eulers.service@gmail.com">eulers.service@gmail.com</a><br>
     Org.nr 559181-0568 &nbsp;·&nbsp; © 2026 Eulers Service AB
   </div>
@@ -1300,6 +1302,25 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 // ────────────────────────────────────────────────────────────────
 
+
+// ── ACTIVE NAV LINK ON SCROLL ───────────────────────────────────
+function updateActiveNav() {
+  const sections = ['tjanster','om-oss','hur','kontakt'];
+  const links = document.querySelectorAll('.nav-links a');
+  let current = '';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && window.scrollY >= el.offsetTop - 120) current = id;
+  });
+  links.forEach(link => {
+    const href = link.getAttribute('href') || '';
+    const matches = href.includes('#' + current) && current !== '';
+    link.classList.toggle('active', matches);
+  });
+}
+window.addEventListener('scroll', updateActiveNav, {passive: true});
+document.addEventListener('DOMContentLoaded', updateActiveNav);
+// ────────────────────────────────────────────────────────────────
 </script>
 </body>
 </html>
