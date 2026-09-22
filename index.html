@@ -15,8 +15,8 @@ body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--white);f
 nav{background:var(--white);border-bottom:1px solid var(--pale);padding:0 56px;display:flex;align-items:center;justify-content:space-between;height:120px;position:sticky;top:0;z-index:200}
 .nav-left img{height:110px;width:auto}
 .nav-links{display:flex;gap:32px;align-items:center}
-.nav-links a{font-size:13px;font-weight:500;color:var(--silver);text-decoration:none;letter-spacing:.5px;transition:color .2s}
-.nav-links a:hover{color:var(--navy)}
+.nav-links a{font-size:13px;font-weight:500;color:var(--navy);text-decoration:none;letter-spacing:.5px;transition:color .2s}
+.nav-links a:hover{color:var(--blue)}
 .nav-right{display:flex;align-items:center;gap:12px}
 
 /* LANGUAGE SWITCHER */
@@ -161,7 +161,7 @@ footer{background:#0b1529;padding:40px 56px;display:flex;align-items:center;just
 <body>
 
 <nav>
-  <div class="nav-left"><img src="logo.png" alt="Eulers Service AB"></div>
+  <div class="nav-left"><a href="#" title="Eulers Service AB — Hem"><img src="logo.png" alt="Eulers Service AB"></a></div>
   <div class="nav-links">
     <a href="#tjanster" data-sv="Tjänster" data-en="Services" data-ar="الخدمات">Tjänster</a>
     <a href="#om-oss" data-sv="Om oss" data-en="About us" data-ar="من نحن">Om oss</a>
@@ -508,88 +508,355 @@ footer{background:#0b1529;padding:40px 56px;display:flex;align-items:center;just
 </section>
 
 <!-- LÖNEKALKYLATOR -->
-<section style="padding:88px 56px;background:var(--navy)" id="kalkylator">
-  <div style="max-width:1020px;margin:0 auto">
-    <div style="font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:rgba(200,169,110,.8);margin-bottom:14px;text-align:center">Gratis verktyg</div>
-    <div style="font-family:'Playfair Display',serif;font-size:36px;font-weight:700;color:var(--white);text-align:center;margin-bottom:12px">Lönekalkylator</div>
-    <p style="text-align:center;color:rgba(255,255,255,.55);font-size:15px;margin-bottom:52px">Räkna ut din lön efter skatt — snabbt och enkelt</p>
+<section style="padding:88px 56px;background:linear-gradient(135deg,#0f1a3d 0%,#152248 60%,#1a3a7c 100%)" id="kalkylator">
+  <div style="max-width:960px;margin:0 auto">
+    <div style="font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:#8ab4f8;margin-bottom:14px;text-align:center">Gratis verktyg</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:38px;font-weight:700;color:white;text-align:center;margin-bottom:8px">Räkna ut lön efter skatt</h2>
+    <p style="text-align:center;color:rgba(255,255,255,.55);font-size:15px;margin-bottom:48px">Enkel lönekalkylator — baserad på Skatteverkets tabeller 2026</p>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start">
 
       <!-- VÄNSTER: INMATNING -->
-      <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:40px">
-        <div style="display:flex;flex-direction:column;gap:24px">
+      <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);padding:40px;border-radius:0px">
+        <div style="display:flex;flex-direction:column;gap:28px">
 
+          <!-- VAL: KOMMUN ELLER TABELL -->
           <div>
-            <label style="display:block;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--silver);margin-bottom:10px">Bruttolön (kr/mån)</label>
+            <div style="display:flex;gap:0;margin-bottom:16px;border:1px solid rgba(255,255,255,.15);overflow:hidden;border-radius:0px">
+              <button id="btn-kommun" onclick="switchMode('kommun')" style="flex:1;padding:10px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;border:none;cursor:pointer;background:#4a90d9;color:#0f2a1a;transition:all .2s">Välj kommun</button>
+              <button id="btn-tabell" onclick="switchMode('tabell')" style="flex:1;padding:10px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;border:none;cursor:pointer;background:transparent;color:rgba(255,255,255,.6);transition:all .2s">Välj tabell direkt</button>
+            </div>
+
+            <!-- KOMMUNVAL -->
+            <div id="mode-kommun">
+              <label style="display:block;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#8ab4f8;margin-bottom:8px">Din hemkommun</label>
+              <select id="k-municipality" onchange="calcFromMunicipality()"
+                style="width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:white;padding:13px 16px;font-family:'DM Sans',sans-serif;font-size:15px;outline:none;cursor:pointer;border-radius:0px">
+                <option value="" style="background:#0f1a3d">— Välj kommun —</option>
+              <option value="33" style="background:#0f1a3d">Ale — 33.09% (tabell 33)</option>
+              <option value="33" style="background:#0f1a3d">Alingsås — 33.13% (tabell 33)</option>
+              <option value="34" style="background:#0f1a3d">Alvesta — 33.71% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Aneby — 34.14% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Arboga — 33.58% (tabell 34)</option>
+              <option value="35" style="background:#0f1a3d">Arjeplog — 35.13% (tabell 35)</option>
+              <option value="34" style="background:#0f1a3d">Arvidsjaur — 34.43% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Arvika — 34.32% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Askersund — 34.44% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Avesta — 34.24% (tabell 34)</option>
+              <option value="35" style="background:#0f1a3d">Bengtsfors — 34.69% (tabell 35)</option>
+              <option value="35" style="background:#0f1a3d">Berg — 34.51% (tabell 35)</option>
+              <option value="35" style="background:#0f1a3d">Bjurholm — 35.29% (tabell 35)</option>
+              <option value="32" style="background:#0f1a3d">Bjuv — 32.46% (tabell 32)</option>
+              <option value="34" style="background:#0f1a3d">Boden — 34.23% (tabell 34)</option>
+              <option value="33" style="background:#0f1a3d">Bollebygd — 33.36% (tabell 33)</option>
+              <option value="34" style="background:#0f1a3d">Bollnäs — 33.66% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Borgholm — 33.73% (tabell 34)</option>
+              <option value="35" style="background:#0f1a3d">Borlänge — 34.69% (tabell 35)</option>
+              <option value="33" style="background:#0f1a3d">Borås — 33.08% (tabell 33)</option>
+              <option value="33" style="background:#0f1a3d">Botkyrka — 32.52% (tabell 33)</option>
+              <option value="34" style="background:#0f1a3d">Boxholm — 33.66% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Bromölla — 34.03% (tabell 34)</option>
+              <option value="35" style="background:#0f1a3d">Bräcke — 35.38% (tabell 35)</option>
+              <option value="32" style="background:#0f1a3d">Burlöv — 31.56% (tabell 32)</option>
+              <option value="32" style="background:#0f1a3d">Båstad — 31.70% (tabell 32)</option>
+              <option value="35" style="background:#0f1a3d">Dals-Ed — 34.98% (tabell 35)</option>
+              <option value="31" style="background:#0f1a3d">Danderyd — 30.87% (tabell 31)</option>
+              <option value="36" style="background:#0f1a3d">Degerfors — 35.59% (tabell 36)</option>
+              <option value="36" style="background:#0f1a3d">Dorotea — 35.94% (tabell 36)</option>
+              <option value="35" style="background:#0f1a3d">Eda — 34.84% (tabell 35)</option>
+              <option value="32" style="background:#0f1a3d">Ekerö — 31.74% (tabell 32)</option>
+              <option value="34" style="background:#0f1a3d">Eksjö — 34.31% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Emmaboda — 34.11% (tabell 34)</option>
+              <option value="33" style="background:#0f1a3d">Enköping — 33.34% (tabell 33)</option>
+              <option value="33" style="background:#0f1a3d">Eskilstuna — 33.14% (tabell 33)</option>
+              <option value="32" style="background:#0f1a3d">Eslöv — 32.01% (tabell 32)</option>
+              <option value="33" style="background:#0f1a3d">Essunga — 33.34% (tabell 33)</option>
+              <option value="33" style="background:#0f1a3d">Fagersta — 33.28% (tabell 33)</option>
+              <option value="33" style="background:#0f1a3d">Falkenberg — 32.79% (tabell 33)</option>
+              <option value="34" style="background:#0f1a3d">Falköping — 33.72% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Falun — 34.34% (tabell 34)</option>
+              <option value="35" style="background:#0f1a3d">Filipstad — 34.84% (tabell 35)</option>
+              <option value="34" style="background:#0f1a3d">Finspång — 33.99% (tabell 34)</option>
+              <option value="33" style="background:#0f1a3d">Flen — 33.39% (tabell 33)</option>
+              <option value="35" style="background:#0f1a3d">Forshaga — 34.92% (tabell 35)</option>
+              <option value="35" style="background:#0f1a3d">Färgelanda — 34.68% (tabell 35)</option>
+              <option value="35" style="background:#0f1a3d">Gagnef — 34.56% (tabell 35)</option>
+              <option value="34" style="background:#0f1a3d">Gislaved — 34.04% (tabell 34)</option>
+              <option value="33" style="background:#0f1a3d">Gnesta — 33.24% (tabell 33)</option>
+              <option value="34" style="background:#0f1a3d">Gnosjö — 34.29% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Gotland — 33.89% (tabell 34)</option>
+              <option value="35" style="background:#0f1a3d">Grums — 35.07% (tabell 35)</option>
+              <option value="34" style="background:#0f1a3d">Grästorp — 33.76% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Gullspång — 34.26% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Gällivare — 34.18% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Gävle — 34.06% (tabell 34)</option>
+              <option value="33" style="background:#0f1a3d">Göteborg — 32.89% (tabell 33)</option>
+              <option value="34" style="background:#0f1a3d">Götene — 33.89% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Habo — 34.22% (tabell 34)</option>
+              <option value="35" style="background:#0f1a3d">Hagfors — 34.59% (tabell 35)</option>
+              <option value="34" style="background:#0f1a3d">Hallsberg — 34.14% (tabell 34)</option>
+              <option value="33" style="background:#0f1a3d">Hallstahammar — 32.98% (tabell 33)</option>
+              <option value="33" style="background:#0f1a3d">Halmstad — 32.67% (tabell 33)</option>
+              <option value="35" style="background:#0f1a3d">Hammarö — 35.34% (tabell 35)</option>
+              <option value="32" style="background:#0f1a3d">Haninge — 31.57% (tabell 32)</option>
+              <option value="34" style="background:#0f1a3d">Haparanda — 34.13% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Heby — 34.50% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Hedemora — 34.44% (tabell 34)</option>
+              <option value="32" style="background:#0f1a3d">Helsingborg — 31.68% (tabell 32)</option>
+              <option value="34" style="background:#0f1a3d">Herrljunga — 33.91% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Hjo — 33.77% (tabell 34)</option>
+              <option value="35" style="background:#0f1a3d">Hofors — 34.66% (tabell 35)</option>
+              <option value="32" style="background:#0f1a3d">Huddinge — 32.00% (tabell 32)</option>
+              <option value="33" style="background:#0f1a3d">Hudiksvall — 33.41% (tabell 33)</option>
+              <option value="34" style="background:#0f1a3d">Hultsfred — 34.06% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Hylte — 34.14% (tabell 34)</option>
+              <option value="35" style="background:#0f1a3d">Hällefors — 34.64% (tabell 35)</option>
+              <option value="34" style="background:#0f1a3d">Härjedalen — 34.46% (tabell 34)</option>
+              <option value="35" style="background:#0f1a3d">Härnösand — 34.92% (tabell 35)</option>
+              <option value="32" style="background:#0f1a3d">Härryda — 32.27% (tabell 32)</option>
+              <option value="33" style="background:#0f1a3d">Hässleholm — 32.67% (tabell 33)</option>
+              <option value="34" style="background:#0f1a3d">Håbo — 33.59% (tabell 34)</option>
+              <option value="31" style="background:#0f1a3d">Höganäs — 31.20% (tabell 31)</option>
+              <option value="34" style="background:#0f1a3d">Högsby — 34.36% (tabell 34)</option>
+              <option value="33" style="background:#0f1a3d">Hörby — 32.55% (tabell 33)</option>
+              <option value="33" style="background:#0f1a3d">Höör — 32.92% (tabell 33)</option>
+              <option value="35" style="background:#0f1a3d">Jokkmokk — 34.58% (tabell 35)</option>
+              <option value="32" style="background:#0f1a3d">Järfälla — 31.81% (tabell 32)</option>
+              <option value="34" style="background:#0f1a3d">Jönköping — 33.69% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Kalix — 34.18% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Kalmar — 33.96% (tabell 34)</option>
+              <option value="33" style="background:#0f1a3d">Karlsborg — 33.09% (tabell 33)</option>
+              <option value="34" style="background:#0f1a3d">Karlshamn — 34.09% (tabell 34)</option>
+              <option value="35" style="background:#0f1a3d">Karlskoga — 34.59% (tabell 35)</option>
+              <option value="34" style="background:#0f1a3d">Karlskrona — 33.98% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Karlstad — 33.84% (tabell 34)</option>
+              <option value="33" style="background:#0f1a3d">Katrineholm — 33.24% (tabell 33)</option>
+              <option value="35" style="background:#0f1a3d">Kil — 34.92% (tabell 35)</option>
+              <option value="33" style="background:#0f1a3d">Kinda — 33.29% (tabell 33)</option>
+              <option value="35" style="background:#0f1a3d">Kiruna — 34.68% (tabell 35)</option>
+              <option value="32" style="background:#0f1a3d">Klippan — 32.22% (tabell 32)</option>
+              <option value="33" style="background:#0f1a3d">Knivsta — 32.91% (tabell 33)</option>
+              <option value="35" style="background:#0f1a3d">Kramfors — 34.72% (tabell 35)</option>
+              <option value="33" style="background:#0f1a3d">Kristianstad — 32.93% (tabell 33)</option>
+              <option value="35" style="background:#0f1a3d">Kristinehamn — 34.54% (tabell 35)</option>
+              <option value="34" style="background:#0f1a3d">Krokom — 34.16% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Kumla — 34.13% (tabell 34)</option>
+              <option value="33" style="background:#0f1a3d">Kungsbacka — 32.87% (tabell 33)</option>
+              <option value="33" style="background:#0f1a3d">Kungsör — 33.20% (tabell 33)</option>
+              <option value="33" style="background:#0f1a3d">Kungälv — 33.21% (tabell 33)</option>
+              <option value="30" style="background:#0f1a3d">Kävlinge — 29.88% (tabell 30)</option>
+              <option value="33" style="background:#0f1a3d">Köping — 33.33% (tabell 33)</option>
+              <option value="33" style="background:#0f1a3d">Laholm — 33.09% (tabell 33)</option>
+              <option value="32" style="background:#0f1a3d">Landskrona — 31.71% (tabell 32)</option>
+              <option value="35" style="background:#0f1a3d">Laxå — 35.29% (tabell 35)</option>
+              <option value="34" style="background:#0f1a3d">Lekeberg — 34.02% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Leksand — 34.09% (tabell 34)</option>
+              <option value="32" style="background:#0f1a3d">Lerum — 32.32% (tabell 32)</option>
+              <option value="34" style="background:#0f1a3d">Lessebo — 34.10% (tabell 34)</option>
+              <option value="30" style="background:#0f1a3d">Lidingö — 29.96% (tabell 30)</option>
+              <option value="33" style="background:#0f1a3d">Lidköping — 33.03% (tabell 33)</option>
+              <option value="34" style="background:#0f1a3d">Lilla Edet — 34.14% (tabell 34)</option>
+              <option value="35" style="background:#0f1a3d">Lindesberg — 34.89% (tabell 35)</option>
+              <option value="32" style="background:#0f1a3d">Linköping — 32.04% (tabell 32)</option>
+              <option value="33" style="background:#0f1a3d">Ljungby — 33.36% (tabell 33)</option>
+              <option value="34" style="background:#0f1a3d">Ljusdal — 34.16% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Ljusnarsberg — 34.09% (tabell 34)</option>
+              <option value="31" style="background:#0f1a3d">Lomma — 31.01% (tabell 31)</option>
+              <option value="34" style="background:#0f1a3d">Ludvika — 34.34% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Luleå — 34.13% (tabell 34)</option>
+              <option value="33" style="background:#0f1a3d">Lund — 32.71% (tabell 33)</option>
+              <option value="35" style="background:#0f1a3d">Lycksele — 35.19% (tabell 35)</option>
+              <option value="34" style="background:#0f1a3d">Lysekil — 34.23% (tabell 34)</option>
+              <option value="33" style="background:#0f1a3d">Malmö — 32.71% (tabell 33)</option>
+              <option value="35" style="background:#0f1a3d">Malung-Sälen — 34.74% (tabell 35)</option>
+              <option value="35" style="background:#0f1a3d">Malå — 35.49% (tabell 35)</option>
+              <option value="33" style="background:#0f1a3d">Mariestad — 33.03% (tabell 33)</option>
+              <option value="33" style="background:#0f1a3d">Mark — 33.28% (tabell 33)</option>
+              <option value="34" style="background:#0f1a3d">Markaryd — 33.60% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Mellerud — 34.37% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Mjölby — 33.74% (tabell 34)</option>
+              <option value="35" style="background:#0f1a3d">Mora — 34.61% (tabell 35)</option>
+              <option value="34" style="background:#0f1a3d">Motala — 33.54% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Mullsjö — 34.39% (tabell 34)</option>
+              <option value="35" style="background:#0f1a3d">Munkedal — 35.15% (tabell 35)</option>
+              <option value="35" style="background:#0f1a3d">Munkfors — 34.59% (tabell 35)</option>
+              <option value="32" style="background:#0f1a3d">Mölndal — 32.28% (tabell 32)</option>
+              <option value="34" style="background:#0f1a3d">Mönsterås — 34.36% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Mörbylånga — 34.36% (tabell 34)</option>
+              <option value="30" style="background:#0f1a3d">Nacka — 30.40% (tabell 30)</option>
+              <option value="35" style="background:#0f1a3d">Nora — 34.84% (tabell 35)</option>
+              <option value="34" style="background:#0f1a3d">Norberg — 33.83% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Nordanstig — 34.31% (tabell 34)</option>
+              <option value="35" style="background:#0f1a3d">Nordmaling — 35.39% (tabell 35)</option>
+              <option value="34" style="background:#0f1a3d">Norrköping — 33.59% (tabell 34)</option>
+              <option value="32" style="background:#0f1a3d">Norrtälje — 32.34% (tabell 32)</option>
+              <option value="35" style="background:#0f1a3d">Norsjö — 35.49% (tabell 35)</option>
+              <option value="34" style="background:#0f1a3d">Nybro — 34.48% (tabell 34)</option>
+              <option value="33" style="background:#0f1a3d">Nykvarn — 32.59% (tabell 33)</option>
+              <option value="33" style="background:#0f1a3d">Nyköping — 32.54% (tabell 33)</option>
+              <option value="32" style="background:#0f1a3d">Nynäshamn — 32.47% (tabell 32)</option>
+              <option value="35" style="background:#0f1a3d">Nässjö — 34.59% (tabell 35)</option>
+              <option value="35" style="background:#0f1a3d">Ockelbo — 34.56% (tabell 35)</option>
+              <option value="34" style="background:#0f1a3d">Olofström — 34.04% (tabell 34)</option>
+              <option value="35" style="background:#0f1a3d">Orsa — 34.59% (tabell 35)</option>
+              <option value="34" style="background:#0f1a3d">Orust — 33.98% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Osby — 34.28% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Oskarshamn — 34.50% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Ovanåker — 33.66% (tabell 34)</option>
+              <option value="33" style="background:#0f1a3d">Oxelösund — 33.34% (tabell 33)</option>
+              <option value="35" style="background:#0f1a3d">Pajala — 35.03% (tabell 35)</option>
+              <option value="32" style="background:#0f1a3d">Partille — 31.65% (tabell 32)</option>
+              <option value="32" style="background:#0f1a3d">Perstorp — 32.28% (tabell 32)</option>
+              <option value="34" style="background:#0f1a3d">Piteå — 33.88% (tabell 34)</option>
+              <option value="35" style="background:#0f1a3d">Ragunda — 35.21% (tabell 35)</option>
+              <option value="35" style="background:#0f1a3d">Robertsfors — 35.29% (tabell 35)</option>
+              <option value="34" style="background:#0f1a3d">Ronneby — 33.97% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Rättvik — 34.09% (tabell 34)</option>
+              <option value="33" style="background:#0f1a3d">Sala — 33.48% (tabell 33)</option>
+              <option value="32" style="background:#0f1a3d">Salem — 32.29% (tabell 32)</option>
+              <option value="33" style="background:#0f1a3d">Sandviken — 33.41% (tabell 33)</option>
+              <option value="32" style="background:#0f1a3d">Sigtuna — 32.12% (tabell 32)</option>
+              <option value="32" style="background:#0f1a3d">Simrishamn — 31.98% (tabell 32)</option>
+              <option value="32" style="background:#0f1a3d">Sjöbo — 32.39% (tabell 32)</option>
+              <option value="34" style="background:#0f1a3d">Skara — 33.67% (tabell 34)</option>
+              <option value="35" style="background:#0f1a3d">Skellefteå — 34.74% (tabell 35)</option>
+              <option value="34" style="background:#0f1a3d">Skinnskatteberg — 33.63% (tabell 34)</option>
+              <option value="32" style="background:#0f1a3d">Skurup — 31.89% (tabell 32)</option>
+              <option value="33" style="background:#0f1a3d">Skövde — 33.38% (tabell 33)</option>
+              <option value="35" style="background:#0f1a3d">Smedjebacken — 34.73% (tabell 35)</option>
+              <option value="35" style="background:#0f1a3d">Sollefteå — 34.97% (tabell 35)</option>
+              <option value="31" style="background:#0f1a3d">Sollentuna — 30.74% (tabell 31)</option>
+              <option value="30" style="background:#0f1a3d">Solna — 29.99% (tabell 30)</option>
+              <option value="36" style="background:#0f1a3d">Sorsele — 35.74% (tabell 36)</option>
+              <option value="34" style="background:#0f1a3d">Sotenäs — 33.76% (tabell 34)</option>
+              <option value="30" style="background:#0f1a3d">Staffanstorp — 30.41% (tabell 30)</option>
+              <option value="33" style="background:#0f1a3d">Stenungsund — 33.41% (tabell 33)</option>
+              <option value="31" style="background:#0f1a3d">Stockholm — 30.62% (tabell 31)</option>
+              <option value="35" style="background:#0f1a3d">Storfors — 35.27% (tabell 35)</option>
+              <option value="35" style="background:#0f1a3d">Storuman — 35.24% (tabell 35)</option>
+              <option value="33" style="background:#0f1a3d">Strängnäs — 32.79% (tabell 33)</option>
+              <option value="34" style="background:#0f1a3d">Strömstad — 33.68% (tabell 34)</option>
+              <option value="35" style="background:#0f1a3d">Strömsund — 35.21% (tabell 35)</option>
+              <option value="32" style="background:#0f1a3d">Sundbyberg — 31.87% (tabell 32)</option>
+              <option value="34" style="background:#0f1a3d">Sundsvall — 34.17% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Sunne — 34.04% (tabell 34)</option>
+              <option value="33" style="background:#0f1a3d">Surahammar — 33.48% (tabell 33)</option>
+              <option value="32" style="background:#0f1a3d">Svalöv — 32.21% (tabell 32)</option>
+              <option value="32" style="background:#0f1a3d">Svedala — 31.71% (tabell 32)</option>
+              <option value="34" style="background:#0f1a3d">Svenljunga — 33.82% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Säffle — 34.09% (tabell 34)</option>
+              <option value="35" style="background:#0f1a3d">Säter — 34.59% (tabell 35)</option>
+              <option value="34" style="background:#0f1a3d">Sävsjö — 33.97% (tabell 34)</option>
+              <option value="33" style="background:#0f1a3d">Söderhamn — 33.46% (tabell 33)</option>
+              <option value="34" style="background:#0f1a3d">Söderköping — 33.82% (tabell 34)</option>
+              <option value="33" style="background:#0f1a3d">Södertälje — 32.67% (tabell 33)</option>
+              <option value="34" style="background:#0f1a3d">Sölvesborg — 34.15% (tabell 34)</option>
+              <option value="33" style="background:#0f1a3d">Tanum — 33.33% (tabell 33)</option>
+              <option value="33" style="background:#0f1a3d">Tibro — 33.48% (tabell 33)</option>
+              <option value="34" style="background:#0f1a3d">Tidaholm — 33.84% (tabell 34)</option>
+              <option value="33" style="background:#0f1a3d">Tierp — 33.29% (tabell 33)</option>
+              <option value="35" style="background:#0f1a3d">Timrå — 34.67% (tabell 35)</option>
+              <option value="34" style="background:#0f1a3d">Tingsryd — 34.29% (tabell 34)</option>
+              <option value="33" style="background:#0f1a3d">Tjörn — 33.48% (tabell 33)</option>
+              <option value="32" style="background:#0f1a3d">Tomelilla — 32.08% (tabell 32)</option>
+              <option value="35" style="background:#0f1a3d">Torsby — 34.59% (tabell 35)</option>
+              <option value="34" style="background:#0f1a3d">Torsås — 34.08% (tabell 34)</option>
+              <option value="33" style="background:#0f1a3d">Tranemo — 33.27% (tabell 33)</option>
+              <option value="34" style="background:#0f1a3d">Tranås — 34.06% (tabell 34)</option>
+              <option value="32" style="background:#0f1a3d">Trelleborg — 31.87% (tabell 32)</option>
+              <option value="34" style="background:#0f1a3d">Trollhättan — 34.13% (tabell 34)</option>
+              <option value="32" style="background:#0f1a3d">Trosa — 32.32% (tabell 32)</option>
+              <option value="32" style="background:#0f1a3d">Tyresö — 32.12% (tabell 32)</option>
+              <option value="30" style="background:#0f1a3d">Täby — 30.17% (tabell 30)</option>
+              <option value="33" style="background:#0f1a3d">Töreboda — 33.49% (tabell 33)</option>
+              <option value="34" style="background:#0f1a3d">Uddevalla — 33.93% (tabell 34)</option>
+              <option value="33" style="background:#0f1a3d">Ulricehamn — 32.82% (tabell 33)</option>
+              <option value="35" style="background:#0f1a3d">Umeå — 34.94% (tabell 35)</option>
+              <option value="32" style="background:#0f1a3d">Upplands Väsby — 32.04% (tabell 32)</option>
+              <option value="32" style="background:#0f1a3d">Upplands-Bro — 32.02% (tabell 32)</option>
+              <option value="33" style="background:#0f1a3d">Uppsala — 33.14% (tabell 33)</option>
+              <option value="34" style="background:#0f1a3d">Uppvidinge — 34.09% (tabell 34)</option>
+              <option value="35" style="background:#0f1a3d">Vadstena — 34.64% (tabell 35)</option>
+              <option value="34" style="background:#0f1a3d">Vaggeryd — 33.54% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Valdemarsvik — 34.32% (tabell 34)</option>
+              <option value="32" style="background:#0f1a3d">Vallentuna — 31.52% (tabell 32)</option>
+              <option value="35" style="background:#0f1a3d">Vansbro — 34.57% (tabell 35)</option>
+              <option value="34" style="background:#0f1a3d">Vara — 33.54% (tabell 34)</option>
+              <option value="32" style="background:#0f1a3d">Varberg — 32.02% (tabell 32)</option>
+              <option value="32" style="background:#0f1a3d">Vaxholm — 31.92% (tabell 32)</option>
+              <option value="30" style="background:#0f1a3d">Vellinge — 29.97% (tabell 30)</option>
+              <option value="34" style="background:#0f1a3d">Vetlanda — 34.06% (tabell 34)</option>
+              <option value="36" style="background:#0f1a3d">Vilhelmina — 35.79% (tabell 36)</option>
+              <option value="35" style="background:#0f1a3d">Vimmerby — 34.51% (tabell 35)</option>
+              <option value="35" style="background:#0f1a3d">Vindeln — 35.49% (tabell 35)</option>
+              <option value="34" style="background:#0f1a3d">Vingåker — 33.79% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Vänersborg — 33.98% (tabell 34)</option>
+              <option value="35" style="background:#0f1a3d">Vännäs — 35.49% (tabell 35)</option>
+              <option value="32" style="background:#0f1a3d">Värmdö — 31.60% (tabell 32)</option>
+              <option value="34" style="background:#0f1a3d">Värnamo — 33.57% (tabell 34)</option>
+              <option value="33" style="background:#0f1a3d">Västervik — 33.31% (tabell 33)</option>
+              <option value="32" style="background:#0f1a3d">Västerås — 31.53% (tabell 32)</option>
+              <option value="32" style="background:#0f1a3d">Växjö — 32.48% (tabell 32)</option>
+              <option value="33" style="background:#0f1a3d">Vårgårda — 33.38% (tabell 33)</option>
+              <option value="34" style="background:#0f1a3d">Ydre — 34.39% (tabell 34)</option>
+              <option value="32" style="background:#0f1a3d">Ystad — 31.58% (tabell 32)</option>
+              <option value="34" style="background:#0f1a3d">Älmhult — 34.15% (tabell 34)</option>
+              <option value="35" style="background:#0f1a3d">Älvdalen — 35.06% (tabell 35)</option>
+              <option value="35" style="background:#0f1a3d">Älvkarleby — 34.69% (tabell 35)</option>
+              <option value="34" style="background:#0f1a3d">Älvsbyn — 34.08% (tabell 34)</option>
+              <option value="32" style="background:#0f1a3d">Ängelholm — 31.64% (tabell 32)</option>
+              <option value="34" style="background:#0f1a3d">Åmål — 34.23% (tabell 34)</option>
+              <option value="35" style="background:#0f1a3d">Ånge — 34.91% (tabell 35)</option>
+              <option value="34" style="background:#0f1a3d">Åre — 34.21% (tabell 34)</option>
+              <option value="35" style="background:#0f1a3d">Årjäng — 34.54% (tabell 35)</option>
+              <option value="36" style="background:#0f1a3d">Åsele — 35.74% (tabell 36)</option>
+              <option value="32" style="background:#0f1a3d">Åstorp — 31.76% (tabell 32)</option>
+              <option value="34" style="background:#0f1a3d">Åtvidaberg — 34.23% (tabell 34)</option>
+              <option value="33" style="background:#0f1a3d">Öckerö — 33.33% (tabell 33)</option>
+              <option value="34" style="background:#0f1a3d">Ödeshög — 34.24% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Örebro — 33.94% (tabell 34)</option>
+              <option value="31" style="background:#0f1a3d">Örkelljunga — 30.53% (tabell 31)</option>
+              <option value="34" style="background:#0f1a3d">Örnsköldsvik — 34.14% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Östersund — 34.01% (tabell 34)</option>
+              <option value="29" style="background:#0f1a3d">Österåker — 29.22% (tabell 29)</option>
+              <option value="34" style="background:#0f1a3d">Östhammar — 33.59% (tabell 34)</option>
+              <option value="32" style="background:#0f1a3d">Östra Göinge — 32.46% (tabell 32)</option>
+              <option value="34" style="background:#0f1a3d">Överkalix — 34.43% (tabell 34)</option>
+              <option value="34" style="background:#0f1a3d">Övertorneå — 34.13% (tabell 34)</option>
+              </select>
+            </div>
+
+            <!-- TABELLVAL -->
+            <div id="mode-tabell" style="display:none">
+              <label style="display:block;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#8ab4f8;margin-bottom:8px">Skattetabell (Skatteverket 2026)</label>
+              <select id="k-tabell" onchange="calcLon()"
+                style="width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:white;padding:13px 16px;font-family:'DM Sans',sans-serif;font-size:15px;outline:none;cursor:pointer;border-radius:0px">
+                <option value="29" style="background:#0f1a3d">Tabell 29 (29,0–29,49%)</option>
+                <option value="30" style="background:#0f1a3d">Tabell 30 (29,5–30,49%)</option>
+                <option value="31" style="background:#0f1a3d">Tabell 31 (30,5–31,49%)</option>
+                <option value="32" style="background:#0f1a3d">Tabell 32 (31,5–32,49%)</option>
+                <option value="33" style="background:#0f1a3d">Tabell 33 (32,5–33,49%)</option>
+                <option value="34" style="background:#0f1a3d">Tabell 34 (33,5–34,49%)</option>
+                <option value="35" style="background:#0f1a3d">Tabell 35 (34,5–35,49%)</option>
+                <option value="36" style="background:#0f1a3d">Tabell 36 (35,5–36,49%)</option>
+                <option value="37" style="background:#0f1a3d">Tabell 37 (36,5–37,49%)</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- BRUTTOLÖN -->
+          <div>
+            <label style="display:block;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#8ab4f8;margin-bottom:8px">Bruttolön (kr/mån)</label>
             <input id="k-brutto" type="number" value="30000" min="0" max="200000" oninput="calcLon()"
-              style="width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:white;padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:18px;font-weight:600;outline:none">
-            <input type="range" id="k-brutto-slider" min="0" max="150000" step="500" value="30000" oninput="syncSlider('brutto')"
-              style="width:100%;margin-top:10px;accent-color:var(--gold)">
-            <div style="display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,.3);margin-top:4px"><span>0 kr</span><span>150 000 kr</span></div>
+              style="width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:white;padding:13px 16px;font-family:'DM Sans',sans-serif;font-size:18px;font-weight:600;outline:none;border-radius:0px">
+            <input type="range" id="k-brutto-slider" min="0" max="120000" step="500" value="30000" oninput="syncSlider()"
+              style="width:100%;margin-top:12px;accent-color:#8ab4f8">
+            <div style="display:flex;justify-content:space-between;font-size:11px;color:rgba(255,255,255,.35);margin-top:4px"><span>0 kr</span><span>120 000 kr</span></div>
           </div>
 
-          <div>
-            <label style="display:block;font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--silver);margin-bottom:10px">Välj din kommun</label>
-            <select id="k-tabell" onchange="calcLon()"
-              style="width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:white;padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:15px;outline:none;cursor:pointer">
-              <optgroup label="Tabell 29" style="background:#0f1a3d">
-                <option value="29" style="background:#152248">Österåker (29,22%)</option>
-              </optgroup>
-              <optgroup label="Tabell 30" style="background:#0f1a3d">
-                <option value="30" style="background:#152248">Täby (30,17%)</option>
-                <option value="30" style="background:#152248">Nacka (30,40%)</option>
-                <option value="30" style="background:#152248">Solna (29,99%)</option>
-                <option value="30" style="background:#152248">Lidingö (29,96%)</option>
-              </optgroup>
-              <optgroup label="Tabell 31" style="background:#0f1a3d">
-                <option value="31" style="background:#152248">Stockholm (30,62%)</option>
-                <option value="31" style="background:#152248">Danderyd (30,87%)</option>
-                <option value="31" style="background:#152248">Sollentuna (30,74%)</option>
-              </optgroup>
-              <optgroup label="Tabell 32" style="background:#0f1a3d">
-                <option value="32" style="background:#152248">Huddinge (32,00%)</option>
-                <option value="32" style="background:#152248">Helsingborg (31,68%)</option>
-                <option value="32" style="background:#152248">Linköping (32,04%)</option>
-                <option value="32" style="background:#152248">Västerås (31,53%)</option>
-                <option value="32" style="background:#152248">Växjö (32,48%)</option>
-              </optgroup>
-              <optgroup label="Tabell 33" style="background:#0f1a3d">
-                <option value="33" style="background:#152248">Göteborg (32,89%)</option>
-                <option value="33" style="background:#152248">Malmö (32,71%)</option>
-                <option value="33" style="background:#152248">Lund (32,71%)</option>
-                <option value="33" style="background:#152248">Uppsala (33,14%)</option>
-                <option value="33" style="background:#152248">Borås (33,08%)</option>
-                <option value="33" style="background:#152248">Halmstad (32,67%)</option>
-                <option value="33" style="background:#152248">Kristianstad (32,93%)</option>
-              </optgroup>
-              <optgroup label="Tabell 34" style="background:#0f1a3d">
-                <option value="34" style="background:#152248">Karlstad (33,84%)</option>
-                <option value="34" style="background:#152248">Örebro (33,94%)</option>
-                <option value="34" style="background:#152248">Gävle (34,06%)</option>
-                <option value="34" style="background:#152248">Sundsvall (34,17%)</option>
-                <option value="34" style="background:#152248">Östersund (34,01%)</option>
-                <option value="34" style="background:#152248">Luleå (34,13%)</option>
-                <option value="34" style="background:#152248">Jönköping (33,69%)</option>
-                <option value="34" style="background:#152248">Kalmar (33,96%)</option>
-                <option value="34" style="background:#152248">Karlskrona (33,98%)</option>
-                <option value="34" style="background:#152248">Falun (34,34%)</option>
-                <option value="34" style="background:#152248">Norrköping (33,59%)</option>
-              </optgroup>
-              <optgroup label="Tabell 35" style="background:#0f1a3d">
-                <option value="35" selected style="background:#152248">Umeå (34,94%)</option>
-                <option value="35" style="background:#152248">Skellefteå (34,74%)</option>
-                <option value="35" style="background:#152248">Borlänge (34,69%)</option>
-                <option value="35" style="background:#152248">Kiruna (34,68%)</option>
-              </optgroup>
-            </select>
-          </div>
-
-
-
-          <div style="display:flex;align-items:center;gap:12px">
-            <input type="checkbox" id="k-jonavdrag" onchange="calcLon()" style="width:18px;height:18px;accent-color:var(--gold)">
-            <label for="k-jonavdrag" style="color:rgba(255,255,255,.7);font-size:14px;cursor:pointer">Jobbskatteavdrag (standard)</label>
+          <!-- INFO -->
+          <div style="background:rgba(126,203,161,.08);border:1px solid rgba(74,144,217,.2);padding:14px 16px;border-radius:0px">
+            <p style="font-size:12px;color:rgba(255,255,255,.6);line-height:1.6">✓ Grundavdrag och jobbskatteavdrag ingår i Skatteverkets tabell (kolumn 1 — lön under 66 år)</p>
           </div>
 
         </div>
@@ -598,37 +865,30 @@ footer{background:#0b1529;padding:40px 56px;display:flex;align-items:center;just
       <!-- HÖGER: RESULTAT -->
       <div style="display:flex;flex-direction:column;gap:16px">
 
-        <div style="background:var(--gold);padding:32px;text-align:center">
-          <div style="font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(11,21,41,.6);margin-bottom:8px">Lön efter skatt</div>
-          <div id="k-netto" style="font-family:'Playfair Display',serif;font-size:52px;font-weight:700;color:var(--ink);line-height:1">21 384</div>
-          <div style="font-size:14px;color:rgba(11,21,41,.5);margin-top:4px">kr / månad</div>
+        <!-- NETTO STOR -->
+        <div style="background:#4a90d9;padding:36px;text-align:center;border-radius:0px">
+          <div style="font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.75);margin-bottom:8px">Lön efter skatt</div>
+          <div id="k-netto" style="font-family:'Playfair Display',serif;font-size:56px;font-weight:700;color:white;line-height:1">21 384</div>
+          <div style="font-size:14px;color:rgba(255,255,255,.65);margin-top:4px">kr / månad</div>
         </div>
 
-        <div style="background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);padding:24px;display:flex;flex-direction:column;gap:14px">
+        <!-- SPECIFIKATION -->
+        <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:28px;border-radius:0px;display:flex;flex-direction:column;gap:14px">
           <div style="display:flex;justify-content:space-between;align-items:center">
             <span style="font-size:14px;color:rgba(255,255,255,.6)">Bruttolön</span>
             <span id="k-r-brutto" style="font-size:15px;font-weight:600;color:white">30 000 kr</span>
           </div>
-          <div style="height:1px;background:rgba(255,255,255,.06)"></div>
+          <div style="height:1px;background:rgba(255,255,255,.08)"></div>
           <div style="display:flex;justify-content:space-between;align-items:center">
-            <span style="font-size:14px;color:rgba(255,255,255,.6)">Välj din kommun</span>
-            <span id="k-r-komskatt" style="font-size:15px;font-weight:600;color:#e57373">− 8 949 kr</span>
+            <span style="font-size:14px;color:rgba(255,255,255,.6)">Preliminär skatt (tabell <span id="k-tabell-vis">35</span>)</span>
+            <span id="k-r-komskatt" style="font-size:15px;font-weight:600;color:#f87171">− 8 616 kr</span>
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <span style="font-size:14px;color:rgba(255,255,255,.6)">JSA / Grundavdrag</span>
-            <span id="k-r-jsa" style="font-size:15px;font-weight:600;color:#81c784">+ 0 kr</span>
-          </div>
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <span style="font-size:14px;color:rgba(255,255,255,.6)">Statlig skatt (>55 000 kr)</span>
-            <span id="k-r-statlig" style="font-size:15px;font-weight:600;color:#e57373">− 0 kr</span>
-          </div>
-
-          <div style="height:1px;background:rgba(255,255,255,.06)"></div>
+          <div style="height:1px;background:rgba(255,255,255,.08)"></div>
           <div style="display:flex;justify-content:space-between;align-items:center">
             <span style="font-size:14px;font-weight:600;color:white">Nettolön</span>
-            <span id="k-r-netto" style="font-size:16px;font-weight:700;color:var(--gold)">21 384 kr</span>
+            <span id="k-r-netto" style="font-size:16px;font-weight:700;color:#8ab4f8">21 384 kr</span>
           </div>
-          <div style="height:1px;background:rgba(255,255,255,.06)"></div>
+          <div style="height:1px;background:rgba(255,255,255,.08)"></div>
           <div style="display:flex;justify-content:space-between;align-items:center">
             <span style="font-size:13px;color:rgba(255,255,255,.4)">Arbetsgivaravgift (31,42%)</span>
             <span id="k-r-aga" style="font-size:13px;color:rgba(255,255,255,.4)">9 426 kr</span>
@@ -637,17 +897,22 @@ footer{background:#0b1529;padding:40px 56px;display:flex;align-items:center;just
             <span style="font-size:13px;color:rgba(255,255,255,.4)">Total kostnad för arbetsgivare</span>
             <span id="k-r-tot" style="font-size:13px;color:rgba(255,255,255,.4)">39 426 kr</span>
           </div>
+          <div style="display:flex;justify-content:space-between;align-items:center">
+            <span style="font-size:13px;color:rgba(255,255,255,.4)">Skatteprocent</span>
+            <span id="k-r-pct" style="font-size:13px;color:rgba(255,255,255,.4)">28,7%</span>
+          </div>
         </div>
 
-        <div style="background:rgba(200,169,110,.1);border:1px solid rgba(200,169,110,.2);padding:18px 20px">
-          <p style="font-size:13px;color:rgba(255,255,255,.6);line-height:1.6">Behöver du hjälp med lönehantering? Vårt <strong style="color:var(--gold)">Standard-paket</strong> inkluderar lönehantering upp till 3 anställda.</p>
-          <button onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})" style="margin-top:12px;background:var(--gold);color:var(--ink);border:none;padding:9px 18px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer">Kontakta oss</button>
+        <!-- CTA -->
+        <div style="background:rgba(74,144,217,.1);border:1px solid rgba(74,144,217,.2);padding:18px 20px;border-radius:0px">
+          <p style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.6">Behöver du hjälp med lönehantering? Vårt <strong style="color:#8ab4f8">Standard-paket</strong> inkluderar lönehantering upp till 3 anställda.</p>
+          <button onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})" style="margin-top:12px;background:#4a90d9;color:#0f2a1a;border:none;padding:10px 20px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:700;cursor:pointer;border-radius:0px">Kontakta oss →</button>
         </div>
 
       </div>
     </div>
 
-    <p style="text-align:center;margin-top:28px;font-size:12px;color:rgba(255,255,255,.25)">Kalkylatorn är ett estimat baserat på 2026 års skatteregler. Kontakta oss för exakt beräkning.</p>
+    <p style="text-align:center;margin-top:28px;font-size:12px;color:rgba(255,255,255,.2)">Kalkylatorn är ett estimat baserat på Skatteverkets skattetabeller 2026. Kontakta oss för exakt beräkning.</p>
   </div>
 </section>
 
@@ -980,44 +1245,64 @@ function slaaUpSkatt(lon, tabellNr) {
   return Math.round(lon * 0.30);
 }
 
-function calcLon() {
-  const brutto = parseFloat(document.getElementById('k-brutto').value) || 0;
-  const tabellNr = document.getElementById('k-tabell').value;
-  document.getElementById('k-brutto-slider').value = Math.min(brutto, 150000);
+let currentTabell = 35;
 
-  // Slå upp skatt direkt från Skatteverkets tabell (kolumn 1)
-  // Tabellen ger preliminärskatt inklusive grundavdrag och jobbskatteavdrag
-  const skattKr = slaaUpSkatt(brutto, tabellNr);
-
-  // Netto efter skatt
-  const nettoMedPension = brutto - skattKr;
-
-  // Arbetsgivaravgift
-  const aga = Math.round(brutto * 0.3142);
-  const totKostnad = brutto + aga;
-
-  // Skatteprocent för visning
-  const skattPct = brutto > 0 ? (skattKr / brutto * 100).toFixed(1) : '0';
-
-  const fmt = n => Math.round(n).toLocaleString('sv-SE');
-
-  document.getElementById('k-netto').textContent = fmt(nettoMedPension);
-  document.getElementById('k-r-brutto').textContent = fmt(brutto) + ' kr';
-  document.getElementById('k-r-komskatt').textContent = '− ' + fmt(skattKr) + ' kr (' + skattPct + '%)';
-  document.getElementById('k-r-jsa').textContent = 'Ingår i tabellen';
-  document.getElementById('k-r-statlig').textContent = 'Ingår i tabellen';
-  
-  document.getElementById('k-r-netto').textContent = fmt(nettoMedPension) + ' kr';
-  document.getElementById('k-r-aga').textContent = fmt(aga) + ' kr';
-  document.getElementById('k-r-tot').textContent = fmt(totKostnad) + ' kr';
+function switchMode(mode) {
+  const btnKommun = document.getElementById('btn-kommun');
+  const btnTabell = document.getElementById('btn-tabell');
+  const modeKommun = document.getElementById('mode-kommun');
+  const modeTabell = document.getElementById('mode-tabell');
+  if (mode === 'kommun') {
+    btnKommun.style.background = '#4a90d9'; btnKommun.style.color = 'white';
+    btnTabell.style.background = 'transparent'; btnTabell.style.color = 'rgba(255,255,255,.6)';
+    modeKommun.style.display = 'block'; modeTabell.style.display = 'none';
+  } else {
+    btnTabell.style.background = '#4a90d9'; btnTabell.style.color = 'white';
+    btnKommun.style.background = 'transparent'; btnKommun.style.color = 'rgba(255,255,255,.6)';
+    modeKommun.style.display = 'none'; modeTabell.style.display = 'block';
+    document.getElementById('k-tabell').value = currentTabell;
+  }
 }
 
-function syncSlider(field) {
-  if (field === 'brutto') {
-    const v = document.getElementById('k-brutto-slider').value;
-    document.getElementById('k-brutto').value = v;
-    calcLon();
+function calcFromMunicipality() {
+  const sel = document.getElementById('k-municipality');
+  if (!sel.value) return;
+  currentTabell = parseInt(sel.value);
+  calcLon();
+}
+
+function calcLon() {
+  const brutto = parseFloat(document.getElementById('k-brutto').value) || 0;
+  const modeTabell = document.getElementById('mode-tabell');
+  if (modeTabell && modeTabell.style.display !== 'none') {
+    currentTabell = parseInt(document.getElementById('k-tabell').value);
   }
+  const tabellNr = currentTabell || 35;
+  const vis = document.getElementById('k-tabell-vis');
+  if (vis) vis.textContent = tabellNr;
+
+  document.getElementById('k-brutto-slider').value = Math.min(brutto, 120000);
+
+  const skattKr = slaaUpSkatt(brutto, tabellNr);
+  const netto = brutto - skattKr;
+  const aga = Math.round(brutto * 0.3142);
+  const totKostnad = brutto + aga;
+  const skattPct = brutto > 0 ? (skattKr / brutto * 100).toFixed(1) : '0';
+  const fmt = n => Math.round(n).toLocaleString('sv-SE');
+
+  document.getElementById('k-netto').textContent = fmt(netto);
+  document.getElementById('k-r-brutto').textContent = fmt(brutto) + ' kr';
+  document.getElementById('k-r-komskatt').textContent = '− ' + fmt(skattKr) + ' kr (' + skattPct + '%)';
+  document.getElementById('k-r-netto').textContent = fmt(netto) + ' kr';
+  document.getElementById('k-r-aga').textContent = fmt(aga) + ' kr';
+  document.getElementById('k-r-tot').textContent = fmt(totKostnad) + ' kr';
+  const pct = document.getElementById('k-r-pct');
+  if (pct) pct.textContent = skattPct + '%';
+}
+
+function syncSlider() {
+  document.getElementById('k-brutto').value = document.getElementById('k-brutto-slider').value;
+  calcLon();
 }
 
 // Kör kalkylatorn vid start
