@@ -15,8 +15,8 @@ body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--white);f
 nav{background:var(--white);border-bottom:1px solid var(--pale);padding:0 56px;display:flex;align-items:center;justify-content:space-between;height:120px;position:sticky;top:0;z-index:200}
 .nav-left img{height:110px;width:auto}
 .nav-links{display:flex;gap:32px;align-items:center}
-.nav-links a{font-size:13px;font-weight:500;color:var(--navy);text-decoration:none;letter-spacing:.5px;transition:color .2s}
-.nav-links a:hover{color:var(--blue)}
+.nav-links a{font-size:13px;font-weight:600;color:white;background:#0f1a3d;text-decoration:none;letter-spacing:.3px;padding:8px 16px;transition:all .2s}
+.nav-links a:hover{background:#2a4aae;color:white}
 .nav-right{display:flex;align-items:center;gap:12px}
 
 /* LANGUAGE SWITCHER */
@@ -133,7 +133,7 @@ footer{background:#0b1529;padding:40px 56px;display:flex;align-items:center;just
 
 /* MOBILE */
 @media(max-width:768px){
-  nav{padding:0 20px;height:120px}
+  nav{padding:0 20px;height:120px;background:var(--white)}
   .nav-left img{height:100px}
   .nav-links,.nav-btn,.lang-switcher{display:none}
   .hamburger{display:flex}
