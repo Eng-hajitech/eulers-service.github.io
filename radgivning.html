@@ -396,13 +396,11 @@ function applyPageLang(lang) {
     if (svg) backBtn.prepend(svg);
     backBtn.style.flexDirection = lang === 'ar' ? 'row-reverse' : '';
   }
-  try { localStorage.setItem('eulers_lang', lang); } catch(e) {}
 }
 
 // Read saved language on page load
 document.addEventListener('DOMContentLoaded', function() {
-  const lang = localStorage.getItem('eulers_lang') || 'sv';
-  applyPageLang(lang);
+  applyPageLang('sv');
 });
 // ────────────────────────────────────────────────────────────────
 </script>
