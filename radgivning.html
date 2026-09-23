@@ -127,8 +127,8 @@ nav{background:var(--white);border-bottom:1px solid var(--pale);padding:0 48px;d
 
 <!-- HERO -->
 <div class="hero">
-  <div class="hero-label">Rådgivning & Personligt stöd</div>
-  <h1>Vi hjälper dig fatta <em>rätt beslut</em></h1>
+  <div class="hero-label" data-sv="Rådgivning & Personligt stöd" data-en="Advisory & Personal support" data-ar="الاستشارات والدعم الشخصي" data-fr="Conseil & Soutien personnel" data-de="Beratung & Persönliche Unterstützung" data-es="Asesoramiento & Apoyo personal" data-so="Tallo iyo taageero shakhsi ah">Rådgivning & Personligt stöd</div>
+  <h1 data-sv="Vi hjälper dig fatta rätt beslut" data-en="We help you make the right decisions" data-ar="نساعدك في اتخاذ القرارات الصحيحة" data-fr="Nous vous aidons à prendre les bonnes décisions" data-de="Wir helfen Ihnen, die richtigen Entscheidungen zu treffen" data-es="Te ayudamos a tomar las decisiones correctas" data-so="Waxaan kaa caawinnaa inaad garto go'aannada saxda ah">Vi hjälper dig fatta <em>rätt beslut</em></h1>
   <p>Oavsett om det gäller din privatekonomi, privatleasing eller company leasing — vi guidar dig genom processen och ser till att du aldrig betalar mer än du behöver.</p>
   <div class="hero-btns">
     <a href="https://eulers.se/#kontakt" class="btn-gold">Boka kostnadsfritt möte</a>
@@ -139,9 +139,9 @@ nav{background:var(--white);border-bottom:1px solid var(--pale);padding:0 48px;d
 <!-- TABS -->
 <div class="tabs-wrap" id="tabsAnchor">
   <div class="tabs">
-    <button class="tab active" onclick="showTab('privatekonomi')">💰 Privatekonomi</button>
-    <button class="tab" onclick="showTab('privatleasing')">🚗 Privatleasing</button>
-    <button class="tab" onclick="showTab('businessleasing')">🏢 Business leasing</button>
+    <button class="tab active" onclick="showTab('privatekonomi')" data-sv="💰 Privatekonomi" data-en="💰 Personal finance" data-ar="💰 المالية الشخصية" data-so="💰 Maaliyadda shakhsiga">💰 Privatekonomi</button>
+    <button class="tab" onclick="showTab('privatleasing')" data-sv="🚗 Privatleasing" data-en="🚗 Private leasing" data-ar="🚗 تأجير خاص" data-so="🚗 Kiro gaar ah">🚗 Privatleasing</button>
+    <button class="tab" onclick="showTab('businessleasing')" data-sv="🏢 Business leasing" data-en="🏢 Business leasing" data-ar="🏢 تأجير تجاري" data-so="🏢 Kiro ganacsi">🏢 Business leasing</button>
   </div>
 </div>
 
@@ -365,5 +365,46 @@ function scrollToTabs() {
   document.getElementById('tabsAnchor').scrollIntoView({behavior:'smooth'});
 }
 </script>
+
+<script>
+// ── SPRÅKSTÖD ────────────────────────────────────────────────────
+const LANG_DATA = {
+  sv: { welcome:'Välkommen!', back:'Tillbaka', title_vd:'Viktiga datum 2026', title_rad:'Rådgivning & Personligt stöd' },
+  en: { welcome:'Welcome!', back:'Back', title_vd:'Important dates 2026', title_rad:'Advisory & Personal support' },
+  ar: { welcome:'أهلاً وسهلاً!', back:'رجوع', title_vd:'تواريخ مهمة 2026', title_rad:'الاستشارات والدعم الشخصي' },
+  fr: { welcome:'Bienvenue!', back:'Retour', title_vd:'Dates importantes 2026', title_rad:'Conseil & Soutien personnel' },
+  de: { welcome:'Willkommen!', back:'Zurück', title_vd:'Wichtige Termine 2026', title_rad:'Beratung & Persönliche Unterstützung' },
+  es: { welcome:'¡Bienvenido!', back:'Volver', title_vd:'Fechas importantes 2026', title_rad:'Asesoramiento & Apoyo personal' },
+  so: { welcome:'Ku soo dhawoow!', back:'Dib u noqo', title_vd:'Taariikhaha muhiimka ah 2026', title_rad:'Tallo iyo taageero shakhsi ah' },
+};
+
+function applyPageLang(lang) {
+  const d = LANG_DATA[lang] || LANG_DATA.sv;
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  // Update all data-lang elements
+  document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+    const val = el.getAttribute('data-' + lang);
+    if (val) el.textContent = val;
+  });
+  // Update back button
+  const backBtn = document.querySelector('.back-btn');
+  if (backBtn) {
+    const svg = backBtn.querySelector('svg');
+    backBtn.textContent = d.back;
+    if (svg) backBtn.prepend(svg);
+    if (lang === 'ar') backBtn.style.flexDirection = 'row-reverse';
+  }
+  try { localStorage.setItem('eulers_lang', lang); } catch(e) {}
+}
+
+// Read saved language on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const lang = localStorage.getItem('eulers_lang') || 'sv';
+  if (lang !== 'sv') applyPageLang(lang);
+});
+// ────────────────────────────────────────────────────────────────
+</script>
+
 </body>
 </html>

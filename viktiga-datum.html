@@ -96,8 +96,8 @@ nav{background:var(--white);border-bottom:1px solid var(--pale);padding:0 24px;d
 </nav>
 
 <div class="page-header">
-  <h1>Viktiga datum 2026</h1>
-  <p>Korrekta skattemässiga deadlines från Skatteverket. Anpassa efter din företagsform och momsperiod.</p>
+  <h1 data-sv="Viktiga datum 2026" data-en="Important dates 2026" data-ar="تواريخ مهمة 2026" data-fr="Dates importantes 2026" data-de="Wichtige Termine 2026" data-es="Fechas importantes 2026" data-so="Taariikhaha muhiimka ah 2026">Viktiga datum 2026</h1>
+  <p data-sv="Korrekta skattemässiga deadlines från Skatteverket. Anpassa efter din företagsform och momsperiod." data-en="Correct tax deadlines from the Swedish Tax Agency. Customize for your business type and VAT period." data-ar="مواعيد ضريبية صحيحة من مصلحة الضرائب السويدية. خصص وفقاً لشكل عملك وفترة ضريبة القيمة المضافة." data-so="Taariikhaha cashuurta saxda ah ee Skatteverket. U gaar sama nooca ganacsigaaga iyo muddada VAT.">Korrekta skattemässiga deadlines från Skatteverket. Anpassa efter din företagsform och momsperiod.</p>
 </div>
 
 <div class="active-filters" id="activeFilters"></div>
@@ -133,7 +133,7 @@ nav{background:var(--white);border-bottom:1px solid var(--pale);padding:0 24px;d
 <div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
   <div class="modal">
     <div class="modal-header">
-      <h2>Anpassa</h2>
+      <h2 data-sv="Anpassa" data-en="Customize" data-ar="تخصيص" data-fr="Personnaliser" data-de="Anpassen" data-es="Personalizar" data-so="U gaar garee">Anpassa</h2>
       <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
     <div class="modal-body">
@@ -420,5 +420,46 @@ document.querySelectorAll('.m-btn').forEach(btn=>{
 renderChips();
 filterMonth(MONTHS[CM]);
 </script>
+
+<script>
+// ── SPRÅKSTÖD ────────────────────────────────────────────────────
+const LANG_DATA = {
+  sv: { welcome:'Välkommen!', back:'Tillbaka', title_vd:'Viktiga datum 2026', title_rad:'Rådgivning & Personligt stöd' },
+  en: { welcome:'Welcome!', back:'Back', title_vd:'Important dates 2026', title_rad:'Advisory & Personal support' },
+  ar: { welcome:'أهلاً وسهلاً!', back:'رجوع', title_vd:'تواريخ مهمة 2026', title_rad:'الاستشارات والدعم الشخصي' },
+  fr: { welcome:'Bienvenue!', back:'Retour', title_vd:'Dates importantes 2026', title_rad:'Conseil & Soutien personnel' },
+  de: { welcome:'Willkommen!', back:'Zurück', title_vd:'Wichtige Termine 2026', title_rad:'Beratung & Persönliche Unterstützung' },
+  es: { welcome:'¡Bienvenido!', back:'Volver', title_vd:'Fechas importantes 2026', title_rad:'Asesoramiento & Apoyo personal' },
+  so: { welcome:'Ku soo dhawoow!', back:'Dib u noqo', title_vd:'Taariikhaha muhiimka ah 2026', title_rad:'Tallo iyo taageero shakhsi ah' },
+};
+
+function applyPageLang(lang) {
+  const d = LANG_DATA[lang] || LANG_DATA.sv;
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  // Update all data-lang elements
+  document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+    const val = el.getAttribute('data-' + lang);
+    if (val) el.textContent = val;
+  });
+  // Update back button
+  const backBtn = document.querySelector('.back-btn');
+  if (backBtn) {
+    const svg = backBtn.querySelector('svg');
+    backBtn.textContent = d.back;
+    if (svg) backBtn.prepend(svg);
+    if (lang === 'ar') backBtn.style.flexDirection = 'row-reverse';
+  }
+  try { localStorage.setItem('eulers_lang', lang); } catch(e) {}
+}
+
+// Read saved language on page load
+document.addEventListener('DOMContentLoaded', function() {
+  const lang = localStorage.getItem('eulers_lang') || 'sv';
+  if (lang !== 'sv') applyPageLang(lang);
+});
+// ────────────────────────────────────────────────────────────────
+</script>
+
 </body>
 </html>
