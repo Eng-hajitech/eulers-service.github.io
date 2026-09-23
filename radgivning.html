@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rådgivning & Personligt stöd — Eulers Service AB</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--navy:#152248;--gold:#c8a96e;--ink:#0b1529;--pale:#dde6f4;--frost:#f0f4fb;--white:#fff;--silver:#8fa0bb}
+body{font-family:'DM Sans',sans-serif;color:var(--ink);background:var(--white);-webkit-font-smoothing:antialiased}
+
+/* NAV */
+nav{background:var(--white);border-bottom:1px solid var(--pale);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:80px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(21,34,72,.06)}
+.nav-left a{display:flex;flex-direction:column;text-decoration:none}
+.nav-left img{height:56px;width:auto}
+.nav-left span{font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-top:2px}
+.back-btn{display:flex;align-items:center;gap:6px;color:var(--navy);text-decoration:none;font-size:13px;font-weight:600;padding:9px 18px;border:1.5px solid var(--pale);border-radius:999px;transition:all .2s}
+.back-btn:hover{background:var(--navy);color:white;border-color:var(--navy)}
+.back-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#080f22 0%,#0f1a3d 55%,#1a2d5a 100%);padding:88px 48px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;bottom:-100px;left:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(200,169,110,.06) 0%,transparent 65%);border-radius:50%}
+.hero::after{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(74,144,217,.08) 0%,transparent 65%);border-radius:50%}
+.hero-label{font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:rgba(200,169,110,.8);margin-bottom:16px;position:relative;z-index:1}
+.hero h1{font-family:'Playfair Display',serif;font-size:48px;font-weight:700;color:white;margin-bottom:16px;line-height:1.15;position:relative;z-index:1}
+.hero h1 em{color:var(--gold);font-style:normal}
+.hero p{font-size:16px;color:rgba(255,255,255,.6);max-width:560px;margin:0 auto 40px;line-height:1.75;position:relative;z-index:1}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+.btn-gold{background:var(--gold);color:var(--ink);padding:14px 36px;border:none;border-radius:999px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 4px 20px rgba(200,169,110,.4);transition:all .25s;text-decoration:none;display:inline-block}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(200,169,110,.5)}
+.btn-ghost{background:rgba(255,255,255,.07);color:rgba(255,255,255,.85);padding:14px 32px;border:1px solid rgba(255,255,255,.2);border-radius:999px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;transition:all .25s;text-decoration:none;display:inline-block;backdrop-filter:blur(8px)}
+.btn-ghost:hover{background:rgba(255,255,255,.14);transform:translateY(-2px)}
+
+/* TABS */
+.tabs-wrap{background:var(--white);border-bottom:2px solid var(--pale);position:sticky;top:80px;z-index:99}
+.tabs{max-width:960px;margin:0 auto;padding:0 48px;display:flex;gap:0}
+.tab{padding:18px 28px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;color:var(--silver);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .2s;background:none;border-top:none;border-left:none;border-right:none;white-space:nowrap}
+.tab:hover{color:var(--navy)}
+.tab.active{color:var(--navy);border-bottom-color:var(--gold)}
+
+/* SECTIONS */
+.section{padding:72px 48px;max-width:960px;margin:0 auto;display:none}
+.section.active{display:block}
+
+/* INTRO */
+.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:64px}
+.intro-text .label{font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.intro-text h2{font-family:'Playfair Display',serif;font-size:34px;font-weight:700;color:var(--navy);margin-bottom:16px;line-height:1.2}
+.intro-text p{font-size:15px;color:#4a5a7a;line-height:1.8;margin-bottom:12px}
+.intro-visual{background:linear-gradient(135deg,#f0f4fb,#e8eef8);border-radius:24px;padding:40px;display:flex;flex-direction:column;gap:16px}
+.vi-item{display:flex;align-items:center;gap:14px;background:white;border-radius:14px;padding:16px 20px;box-shadow:0 2px 12px rgba(21,34,72,.06)}
+.vi-icon{width:44px;height:44px;background:linear-gradient(135deg,var(--navy),#1a3a7c);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.vi-text strong{display:block;font-size:14px;font-weight:600;color:var(--navy);margin-bottom:2px}
+.vi-text span{font-size:12px;color:var(--silver)}
+
+/* HOW IT WORKS */
+.how-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin:40px 0}
+.how-card{background:var(--white);border:1px solid rgba(21,34,72,.08);border-radius:20px;padding:32px 28px;box-shadow:0 2px 12px rgba(21,34,72,.05);position:relative;overflow:hidden}
+.how-card::before{content:attr(data-num);position:absolute;top:12px;right:20px;font-family:'Playfair Display',serif;font-size:72px;font-weight:700;color:rgba(21,34,72,.04);line-height:1}
+.how-num{width:36px;height:36px;background:linear-gradient(135deg,var(--navy),#1a3a7c);border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-size:13px;font-weight:700;margin-bottom:16px}
+.how-card h4{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.how-card p{font-size:13px;color:var(--silver);line-height:1.7}
+
+/* LEASING TABLE */
+.compare-table{width:100%;border-collapse:collapse;margin:32px 0;border-radius:20px;overflow:hidden;box-shadow:0 4px 24px rgba(21,34,72,.08)}
+.compare-table th{background:var(--navy);color:white;padding:18px 20px;text-align:left;font-size:13px;font-weight:600}
+.compare-table th:first-child{width:40%}
+.compare-table td{padding:15px 20px;border-bottom:1px solid var(--pale);font-size:13px;color:#3a4a6a;vertical-align:top}
+.compare-table tr:last-child td{border-bottom:none}
+.compare-table tr:nth-child(even) td{background:var(--frost)}
+.compare-table .check{color:#5cb85c;font-weight:700;font-size:16px}
+.compare-table .cross{color:#e57373;font-weight:700;font-size:16px}
+
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:10px;margin-top:32px}
+.faq-q-btn{width:100%;background:var(--white);border:1px solid rgba(21,34,72,.08);border-radius:14px;padding:18px 22px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;color:var(--navy);text-align:left;transition:all .2s;box-shadow:0 1px 6px rgba(21,34,72,.05)}
+.faq-q-btn:hover{border-color:rgba(21,34,72,.15);box-shadow:0 4px 16px rgba(21,34,72,.09)}
+.faq-q-btn .arr{width:24px;height:24px;background:var(--frost);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--gold);transition:transform .3s;flex-shrink:0;margin-left:12px}
+.faq-q-btn.open .arr{transform:rotate(180deg)}
+.faq-ans{max-height:0;overflow:hidden;transition:max-height .3s ease,padding .3s;font-size:13px;color:#4a5a7a;line-height:1.75;padding:0 22px}
+.faq-ans.open{max-height:300px;padding:0 22px 18px}
+
+/* CTA BOX */
+.cta-box{background:linear-gradient(135deg,#0f1a3d,#1a3a7c);border-radius:24px;padding:56px;text-align:center;margin-top:48px;position:relative;overflow:hidden}
+.cta-box::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;background:radial-gradient(circle,rgba(200,169,110,.1) 0%,transparent 65%);border-radius:50%}
+.cta-box h3{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:white;margin-bottom:12px;position:relative;z-index:1}
+.cta-box p{font-size:15px;color:rgba(255,255,255,.6);margin-bottom:28px;line-height:1.7;max-width:480px;margin-left:auto;margin-right:auto;position:relative;z-index:1}
+.cta-box .btn-gold{position:relative;z-index:1}
+
+/* ADVANTAGES */
+.adv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:36px}
+.adv-card{background:var(--frost);border-radius:20px;padding:28px 24px;border:1px solid rgba(21,34,72,.06)}
+.adv-icon{font-size:28px;margin-bottom:14px}
+.adv-card h4{font-size:14px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.adv-card p{font-size:13px;color:var(--silver);line-height:1.65}
+
+@media(max-width:768px){
+  nav{padding:0 20px;height:72px}
+  .nav-left img{height:48px}
+  .hero{padding:56px 20px}
+  .hero h1{font-size:30px}
+  .tabs{padding:0 16px;overflow-x:auto}
+  .tab{padding:14px 18px;font-size:13px}
+  .section{padding:48px 20px}
+  .intro-grid,.how-grid,.adv-grid{grid-template-columns:1fr}
+  .compare-table th,.compare-table td{padding:12px 14px;font-size:12px}
+  .cta-box{padding:36px 24px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a href="https://eulers.se">
+      <img src="logo.png" alt="Eulers Service AB">
+      <span>Umeå · Grundat 2018</span>
+    </a>
+  </div>
+  <a href="https://eulers.se" class="back-btn">
+    <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+    Tillbaka
+  </a>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-label">Rådgivning & Personligt stöd</div>
+  <h1>Vi hjälper dig fatta <em>rätt beslut</em></h1>
+  <p>Oavsett om det gäller din privatekonomi, privatleasing eller company leasing — vi guidar dig genom processen och ser till att du aldrig betalar mer än du behöver.</p>
+  <div class="hero-btns">
+    <a href="https://eulers.se/#kontakt" class="btn-gold">Boka kostnadsfritt möte</a>
+    <a href="#" class="btn-ghost" onclick="scrollToTabs()">Läs mer ↓</a>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs-wrap" id="tabsAnchor">
+  <div class="tabs">
+    <button class="tab active" onclick="showTab('privatekonomi')">💰 Privatekonomi</button>
+    <button class="tab" onclick="showTab('privatleasing')">🚗 Privatleasing</button>
+    <button class="tab" onclick="showTab('businessleasing')">🏢 Business leasing</button>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     TAB 1: PRIVATEKONOMI
+═══════════════════════════════════════════ -->
+<div class="section active" id="tab-privatekonomi">
+
+  <div class="intro-grid">
+    <div class="intro-text">
+      <div class="label">Privatekonomi</div>
+      <h2>Ta kontroll över din ekonomi</h2>
+      <p>Vi hjälper privatpersoner att förstå sin ekonomi — oavsett om du vill budgetera bättre, spara smartare eller få ordning på skatter och avdrag.</p>
+      <p>Med en personlig rådgivare vid din sida får du en tydlig bild av din ekonomiska situation och konkreta steg framåt.</p>
+    </div>
+    <div class="intro-visual">
+      <div class="vi-item"><div class="vi-icon">📊</div><div class="vi-text"><strong>Budget & kassaflöde</strong><span>Översikt och planering av inkomster & utgifter</span></div></div>
+      <div class="vi-item"><div class="vi-icon">💸</div><div class="vi-text"><strong>Skatt & avdrag</strong><span>Hitta avdrag du missar och minska din skatt</span></div></div>
+      <div class="vi-item"><div class="vi-icon">🏦</div><div class="vi-text"><strong>Sparande & investeringar</strong><span>Råd om ISK, fond och pension</span></div></div>
+      <div class="vi-item"><div class="vi-icon">📋</div><div class="vi-text"><strong>Deklarationshjälp</strong><span>Vi granskar och optimerar din deklaration</span></div></div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:24px;color:var(--navy);margin-bottom:8px">Hur vi arbetar</h3>
+  <p style="color:var(--silver);font-size:14px;margin-bottom:0">Enkelt, personligt och utan onödig jargong.</p>
+  <div class="how-grid">
+    <div class="how-card" data-num="01">
+      <div class="how-num">1</div>
+      <h4>Kostnadsfritt möte</h4>
+      <p>Vi börjar alltid med ett gratis samtal — du berättar om din situation, vi lyssnar och ger en första bedömning.</p>
+    </div>
+    <div class="how-card" data-num="02">
+      <div class="how-num">2</div>
+      <h4>Analys & plan</h4>
+      <p>Vi går igenom din ekonomi och sätter upp en tydlig plan med konkreta åtgärder anpassade för dig.</p>
+    </div>
+    <div class="how-card" data-num="03">
+      <div class="how-num">3</div>
+      <h4>Löpande stöd</h4>
+      <p>Vi finns tillgängliga via telefon, mejl och WhatsApp — alltid nära, alltid tillgängliga.</p>
+    </div>
+  </div>
+
+  <div class="faq-list">
+    <div>
+      <button class="faq-q-btn" onclick="toggleFaq(this)">Kostar rådgivningen något? <span class="arr">▼</span></button>
+      <div class="faq-ans">Första mötet är alltid kostnadsfritt. Därefter beror priset på vad du behöver hjälp med — vi ger alltid en tydlig offert innan vi börjar.</div>
+    </div>
+    <div>
+      <button class="faq-q-btn" onclick="toggleFaq(this)">Kan ni hjälpa mig med deklarationen? <span class="arr">▼</span></button>
+      <div class="faq-ans">Ja! Vi hjälper dig optimera din deklaration, hitta avdrag du kan ha missat och se till att du betalar rätt skatt — varken mer eller mindre.</div>
+    </div>
+    <div>
+      <button class="faq-q-btn" onclick="toggleFaq(this)">Arbetar ni med privatpersoner utan företag? <span class="arr">▼</span></button>
+      <div class="faq-ans">Absolut. Vi hjälper privatpersoner lika gärna som företagare. Alla har rätt till bra ekonomisk rådgivning.</div>
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <h3>Redo att ta kontroll?</h3>
+    <p>Boka ett kostnadsfritt möte idag — ingen bindning, inga dolda avgifter.</p>
+    <a href="https://eulers.se/#kontakt" class="btn-gold">Boka kostnadsfritt möte →</a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     TAB 2: PRIVATLEASING
+═══════════════════════════════════════════ -->
+<div class="section" id="tab-privatleasing">
+
+  <div class="intro-grid">
+    <div class="intro-text">
+      <div class="label">Privatleasing</div>
+      <h2>Kör ny bil — utan att binda kapital</h2>
+      <p>Privatleasing innebär att du hyr en bil under en bestämd period, vanligtvis 24–36 månader, mot en fast månadskostnad. Du äger inte bilen och slipper tänka på andrahandsvärde.</p>
+      <p>Vi hjälper dig förstå om privatleasing är rätt val för dig, och guidar dig genom villkoren så du slipper obehagliga överraskningar.</p>
+    </div>
+    <div class="intro-visual">
+      <div class="vi-item"><div class="vi-icon">📝</div><div class="vi-text"><strong>Avtalsgranskning</strong><span>Vi läser igenom avtalet och förklarar villkoren</span></div></div>
+      <div class="vi-item"><div class="vi-icon">💡</div><div class="vi-text"><strong>Köp vs leasa?</strong><span>Vi hjälper dig räkna på vad som är billigast</span></div></div>
+      <div class="vi-item"><div class="vi-icon">🔍</div><div class="vi-text"><strong>Jämförelse av erbjudanden</strong><span>Vi jämför olika leasingavtal åt dig</span></div></div>
+      <div class="vi-item"><div class="vi-icon">⚠️</div><div class="vi-text"><strong>Villkor & fallgropar</strong><span>Övermilskostnad, slitage och förtidslösning</span></div></div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:24px;color:var(--navy);margin-bottom:20px">Vad ingår i privatleasing?</h3>
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Vad</th>
+        <th>Vanligtvis ingår</th>
+        <th>Tillval</th>
+        <th>Ingår ej</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Bilen & utrustning</td><td class="check">✓</td><td></td><td></td></tr>
+      <tr><td>Service & underhåll</td><td class="check">✓</td><td></td><td></td></tr>
+      <tr><td>Vägassistans</td><td class="check">✓</td><td></td><td></td></tr>
+      <tr><td>Bilförsäkring</td><td></td><td class="check">✓ (tillval)</td><td></td></tr>
+      <tr><td>Vinterhjul</td><td></td><td class="check">✓ (tillval)</td><td></td></tr>
+      <tr><td>Fordonsskatt</td><td></td><td></td><td class="cross">✗</td></tr>
+      <tr><td>Drivmedel</td><td></td><td></td><td class="cross">✗</td></tr>
+      <tr><td>Övermilskostnad</td><td></td><td></td><td class="cross">✗ (debiteras i efterhand)</td></tr>
+    </tbody>
+  </table>
+
+  <div class="adv-grid">
+    <div class="adv-card"><div class="adv-icon">✅</div><h4>Fördelar</h4><p>Fast månadskostnad, inget kapital bundet, ny bil med garanti, enkelt att byta bil efter perioden.</p></div>
+    <div class="adv-card"><div class="adv-icon">⚠️</div><h4>Tänk på</h4><p>Du äger inte bilen. Övermilskostnad kan bli dyr. Skador ska åtgärdas innan återlämning. Förtidslösning kostar.</p></div>
+    <div class="adv-card"><div class="adv-icon">💰</div><h4>Kostnad</h4><p>Månadskostnad + uppläggningsavgift + eventuell försäkring. Jämför alltid totalkostnaden mot köp.</p></div>
+  </div>
+
+  <div class="faq-list">
+    <div>
+      <button class="faq-q-btn" onclick="toggleFaq(this)">Vad händer om jag kör fler mil än avtalat? <span class="arr">▼</span></button>
+      <div class="faq-ans">Du betalar en övermilskostnad — vanligtvis 10 kr/mil exkl. moms — som debiteras i efterhand när avtalet löper ut. Vi hjälper dig beräkna rätt körsträcka från början.</div>
+    </div>
+    <div>
+      <button class="faq-q-btn" onclick="toggleFaq(this)">Kan jag avsluta privatleasing i förtid? <span class="arr">▼</span></button>
+      <div class="faq-ans">Ja, men det kostar. Vanligtvis 35% av återstående månadskostnader och tidigast efter 12 månader. Vi granskar villkoren i ditt avtal.</div>
+    </div>
+    <div>
+      <button class="faq-q-btn" onclick="toggleFaq(this)">Är det billigare att köpa eller leasa? <span class="arr">▼</span></button>
+      <div class="faq-ans">Det beror på din situation. Leasing passar om du vill ha låg initial kostnad och alltid ny bil. Köp kan vara billigare på sikt. Vi hjälper dig räkna på båda alternativen.</div>
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <h3>Osäker på vilket avtal som passar?</h3>
+    <p>Vi granskar ditt leasingavtal och ger dig en tydlig bild — kostnadsfritt vid första mötet.</p>
+    <a href="https://eulers.se/#kontakt" class="btn-gold">Boka kostnadsfritt möte →</a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     TAB 3: BUSINESS LEASING
+═══════════════════════════════════════════ -->
+<div class="section" id="tab-businessleasing">
+
+  <div class="intro-grid">
+    <div class="intro-text">
+      <div class="label">Business leasing</div>
+      <h2>Företagsbil utan att binda kapital</h2>
+      <p>Business leasing (operationell leasing) innebär att ditt företag hyr en eller flera bilar under en bestämd period. Månadsavgiften är avdragsgill och bilen påverkar inte bolagets balansräkning.</p>
+      <p>Vi hjälper dig förstå skatteeffekterna, jämföra erbjudanden och välja rätt leasingform för ditt företag.</p>
+    </div>
+    <div class="intro-visual">
+      <div class="vi-item"><div class="vi-icon">🏢</div><div class="vi-text"><strong>Operationell leasing</strong><span>Bilen aktiveras ej i balansräkningen</span></div></div>
+      <div class="vi-item"><div class="vi-icon">📊</div><div class="vi-text"><strong>Finansiell leasing</strong><span>Bilen aktiveras som tillgång & skuld</span></div></div>
+      <div class="vi-item"><div class="vi-icon">💼</div><div class="vi-text"><strong>Tjänstebil & förmånsbil</strong><span>Rätt avdrag & förmånsvärdesberäkning</span></div></div>
+      <div class="vi-item"><div class="vi-icon">🔑</div><div class="vi-text"><strong>Fleet-lösningar</strong><span>Rådgivning för hela fordonsflottan</span></div></div>
+    </div>
+  </div>
+
+  <h3 style="font-family:'Playfair Display',serif;font-size:24px;color:var(--navy);margin-bottom:20px">Operationell vs Finansiell leasing</h3>
+  <table class="compare-table">
+    <thead>
+      <tr>
+        <th>Egenskap</th>
+        <th>Operationell leasing</th>
+        <th>Finansiell leasing</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Äganderätt</td><td>Leasingbolaget äger bilen</td><td>Leasingbolaget äger bilen (du tar restvärdesrisken)</td></tr>
+      <tr><td>Balansräkning</td><td>Aktiveras ej</td><td>Aktiveras som tillgång & skuld</td></tr>
+      <tr><td>Månadskostnad</td><td>Lägre — ingår service</td><td>Lägre ränta, du ansvarar för service</td></tr>
+      <tr><td>Service ingår</td><td class="check">✓ Vanligtvis</td><td class="cross">✗ Du ansvarar</td></tr>
+      <tr><td>Restvärdesrisk</td><td class="check">✓ Leasingbolaget</td><td class="cross">✗ Du bär risken</td></tr>
+      <tr><td>Lösen möjlig</td><td class="cross">✗ Lämnas tillbaka</td><td class="check">✓ Kan lösas in</td></tr>
+      <tr><td>Passar</td><td>Företag som vill enkel administration</td><td>Företag som vill kunna köpa loss bilen</td></tr>
+    </tbody>
+  </table>
+
+  <div class="adv-grid">
+    <div class="adv-card"><div class="adv-icon">💼</div><h4>Skattemässiga fördelar</h4><p>Leasingkostnaden är avdragsgill i verksamheten. Vi hjälper dig maximera avdragen och hantera förmånsvärdet rätt.</p></div>
+    <div class="adv-card"><div class="adv-icon">📱</div><h4>Enkel administration</h4><p>En faktura per månad, service och vägassistans ingår. Du fokuserar på kärnverksamheten.</p></div>
+    <div class="adv-card"><div class="adv-icon">🔄</div><h4>Alltid ny bil</h4><p>Byt till nyare modell när avtalet löper ut. Inga problem med andrahandsvärde eller försäljning.</p></div>
+  </div>
+
+  <div class="faq-list">
+    <div>
+      <button class="faq-q-btn" onclick="toggleFaq(this)">Hur beräknas förmånsvärdet på en tjänstebil? <span class="arr">▼</span></button>
+      <div class="faq-ans">Förmånsvärdet baseras på bilens nybilspris och beräknas av Skatteverket. Det påverkar arbetsgivaravgifter och anställdas inkomstskatt. Vi hjälper dig beräkna detta korrekt och välja bilar som ger lägre förmånsvärde.</div>
+    </div>
+    <div>
+      <button class="faq-q-btn" onclick="toggleFaq(this)">Kan vi leasa elbilar till företaget? <span class="arr">▼</span></button>
+      <div class="faq-ans">Ja! Elbilar ger lägre förmånsvärde och kan ge rätt till klimatbonusar. Vi guidar dig igenom reglerna och hjälper dig välja rätt modell för ditt behov.</div>
+    </div>
+    <div>
+      <button class="faq-q-btn" onclick="toggleFaq(this)">Vad skiljer business leasing från privatleasing skattemässigt? <span class="arr">▼</span></button>
+      <div class="faq-ans">Vid business leasing är leasingkostnaden avdragsgill i företaget. Vid privatleasing finns inga skattemässiga fördelar. Väljer du tjänstebil tillkommer förmånsbeskattning för den anställde.</div>
+    </div>
+    <div>
+      <button class="faq-q-btn" onclick="toggleFaq(this)">Hur lång avtalstid rekommenderas? <span class="arr">▼</span></button>
+      <div class="faq-ans">Vanligtvis 24 eller 36 månader. Längre avtal ger lägre månadskostnad men mindre flexibilitet. Vi hjälper dig välja baserat på ditt företags behov och körvanor.</div>
+    </div>
+  </div>
+
+  <div class="cta-box">
+    <h3>Dags att se över företagets bilförmåner?</h3>
+    <p>Vi hjälper dig välja rätt leasingform, maximera avdragen och undvika skattemässiga fallgropar.</p>
+    <a href="https://eulers.se/#kontakt" class="btn-gold">Boka kostnadsfritt möte →</a>
+  </div>
+</div>
+
+<script>
+function showTab(id) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  event.currentTarget.classList.add('active');
+}
+function toggleFaq(btn) {
+  const ans = btn.nextElementSibling;
+  btn.classList.toggle('open');
+  ans.classList.toggle('open');
+}
+function scrollToTabs() {
+  document.getElementById('tabsAnchor').scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
