@@ -335,6 +335,21 @@ html{scroll-behavior:smooth}
 body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 
 /* ═══════════════════════════════ */
+
+/* DROPDOWN MENUS */
+.nav-item{position:relative}
+.nav-item:hover .dropdown{opacity:1;pointer-events:all;transform:translateY(0)}
+.dropdown{position:absolute;top:calc(100% + 10px);left:50%;transform:translateX(-50%) translateY(-8px);background:white;border-radius:16px;box-shadow:0 8px 40px rgba(21,34,72,.15);border:1px solid rgba(21,34,72,.07);min-width:220px;opacity:0;pointer-events:none;transition:all .2s;z-index:400;overflow:hidden}
+.dropdown::before{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:12px;height:12px;background:white;border-left:1px solid rgba(21,34,72,.07);border-top:1px solid rgba(21,34,72,.07);rotate:45deg}
+.dropdown a{display:flex;align-items:center;gap:10px;padding:13px 18px;text-decoration:none;color:var(--navy)!important;font-size:13px;font-weight:500;background:transparent!important;border-radius:0!important;transition:background .15s;border-bottom:1px solid var(--frost)}
+.dropdown a:last-child{border-bottom:none}
+.dropdown a:hover{background:var(--frost)!important;color:var(--navy)!important}
+.dropdown-icon{width:30px;height:30px;background:var(--frost);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px}
+.dropdown-text strong{display:block;font-size:13px;font-weight:600;color:var(--navy)}
+.dropdown-text span{display:block;font-size:11px;color:var(--silver);margin-top:1px}
+.nav-arrow{font-size:9px;margin-left:3px;opacity:.6;display:inline-block;transition:transform .2s}
+.nav-item:hover .nav-arrow{transform:rotate(180deg)}
+
 </style>
 </head>
 <body>
@@ -345,11 +360,43 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 <nav>
   <div class="nav-left"><a href="#" title="Eulers Service AB — Hem" style="display:flex;flex-direction:column;align-items:flex-start;text-decoration:none"><img src="logo.png" alt="Eulers Service AB"><span style="font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-top:2px" data-sv="Umeå · Grundat 2018" data-en="Umeå · Founded 2018" data-ar="أوميو · تأسست 2018" data-so="Umeå · Aasaasay 2018" data-fr="Umeå · Fondé en 2018" data-de="Umeå · Gegründet 2018" data-es="Umeå · Fundado en 2018">Umeå · Grundat 2018</span></a></div>
   <div class="nav-links">
-    <a href="#tjanster" data-sv="Tjänster" data-en="Services" data-ar="الخدمات" data-so="Adeegyada" data-fr="Services" data-de="Leistungen" data-es="Servicios">Tjänster</a>
+    <!-- TJÄNSTER DROPDOWN -->
+    <div class="nav-item">
+      <a href="#tjanster" data-sv="Tjänster" data-en="Services" data-ar="الخدمات" data-so="Adeegyada" data-fr="Services" data-de="Leistungen" data-es="Servicios">Tjänster <span class="nav-arrow">▾</span></a>
+      <div class="dropdown">
+        <a href="#tjanster">
+          <div class="dropdown-icon">📋</div>
+          <div class="dropdown-text"><strong>Kompletta ekonomitjänster</strong><span>Bokföring, lön, skatt & mer</span></div>
+        </a>
+        <a href="#priser">
+          <div class="dropdown-icon">💰</div>
+          <div class="dropdown-text"><strong>Enkla & transparenta paket</strong><span>Se våra fasta priser</span></div>
+        </a>
+        <a href="https://eng-hajitech.github.io/eulers-service.github.io/viktiga-datum.html">
+          <div class="dropdown-icon">📅</div>
+          <div class="dropdown-text"><strong>Viktiga datum</strong><span>Skattemässiga deadlines 2026</span></div>
+        </a>
+      </div>
+    </div>
+
     <a href="#om-oss" data-sv="Om oss" data-en="About us" data-ar="من نحن" data-so="Naga" data-fr="À propos" data-de="Über uns" data-es="Nosotros">Om oss</a>
-    <a href="#hur" data-sv="Så fungerar det" data-en="How it works" data-ar="كيف يعمل" data-so="Sida u shaqeysa" data-fr="Comment ça marche" data-de="Wie es funktioniert" data-es="Cómo funciona">Så fungerar det</a>
+
     <a href="https://eng-hajitech.github.io/eulers-service.github.io/kalkylator.html" data-sv="Räkna ut lön efter skatt" data-en="Calculate salary" data-ar="احسب الراتب" data-so="Xisaabi mushaarka" data-fr="Calculer le salaire" data-de="Gehalt berechnen" data-es="Calcular salario" style="color:var(--gold);font-weight:600">Räkna ut lön efter skatt</a>
-    <a href="#kontakt" data-sv="Kontakt" data-en="Contact" data-ar="اتصل بنا" data-so="Xiriir" data-fr="Contact" data-de="Kontakt" data-es="Contacto">Kontakt</a>
+
+    <!-- KONTAKT DROPDOWN -->
+    <div class="nav-item">
+      <a href="#kontakt" data-sv="Kontakt" data-en="Contact" data-ar="اتصل بنا" data-so="Xiriir" data-fr="Contact" data-de="Kontakt" data-es="Contacto">Kontakt <span class="nav-arrow">▾</span></a>
+      <div class="dropdown">
+        <a href="#kontakt">
+          <div class="dropdown-icon">📞</div>
+          <div class="dropdown-text"><strong>Boka ett kostnadsfritt möte</strong><span>Fyll i kontaktformuläret</span></div>
+        </a>
+        <a href="#boka">
+          <div class="dropdown-icon">📆</div>
+          <div class="dropdown-text"><strong>Boka direkt</strong><span>Välj en tid i kalendern</span></div>
+        </a>
+      </div>
+    </div>
   </div>
   <div class="nav-right">
 
@@ -376,7 +423,7 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 <div class="mobile-menu" id="mobileMenu">
   <a href="#tjanster" data-sv="Tjänster" data-en="Services" data-ar="الخدمات" data-fr="Services" data-de="Leistungen" data-es="Servicios" data-so="Adeegyada" onclick="toggleMenu()">Tjänster</a>
   <a href="#om-oss" data-sv="Om oss" data-en="About us" data-ar="من نحن" data-fr="À propos" data-de="Über uns" data-es="Nosotros" data-so="Naga" onclick="toggleMenu()">Om oss</a>
-  <a href="#hur" data-sv="Så fungerar det" data-en="How it works" data-ar="كيف يعمل" data-fr="Comment ça marche" data-de="Wie es funktioniert" data-es="Cómo funciona" data-so="Sida u shaqeysa" onclick="toggleMenu()">Så fungerar det</a>
+  <a href="https://eng-hajitech.github.io/eulers-service.github.io/viktiga-datum.html" data-sv="Viktiga datum" data-en="Important dates" data-ar="تواريخ مهمة" data-so="Taariikhaha muhiimka ah" data-fr="Dates importantes" data-de="Wichtige Termine" data-es="Fechas importantes" onclick="toggleMenu()">📅 Viktiga datum</a>
   <a href="https://eng-hajitech.github.io/eulers-service.github.io/kalkylator.html" data-sv="Räkna ut lön efter skatt" data-en="Calculate salary" data-ar="احسب الراتب" data-so="Xisaabi mushaarka" data-fr="Calculer le salaire" data-de="Gehalt berechnen" data-es="Calcular salario" onclick="toggleMenu()" style="color:var(--gold);font-weight:600">Räkna ut lön efter skatt</a>
   <a href="#kontakt" data-sv="Kontakt" data-en="Contact" data-ar="اتصل بنا" onclick="toggleMenu()">Kontakt</a>
   <div class="mobile-lang">
