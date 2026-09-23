@@ -379,21 +379,22 @@ const LANG_DATA = {
 };
 
 function applyPageLang(lang) {
-  const d = LANG_DATA[lang] || LANG_DATA.sv;
+  if (!lang || lang === '') lang = 'sv';
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-  // Update all data-lang elements
-  document.querySelectorAll('[data-' + lang + ']').forEach(el => {
-    const val = el.getAttribute('data-' + lang);
+  // Update all elements that have data-sv (meaning they support lang switching)
+  document.querySelectorAll('[data-sv]').forEach(el => {
+    const val = el.getAttribute('data-' + lang) || el.getAttribute('data-sv');
     if (val) el.textContent = val;
   });
   // Update back button
   const backBtn = document.querySelector('.back-btn');
   if (backBtn) {
     const svg = backBtn.querySelector('svg');
-    backBtn.textContent = d.back;
+    const txt = lang === 'ar' ? 'رجوع' : lang === 'en' ? 'Back' : 'Tillbaka';
+    backBtn.textContent = txt;
     if (svg) backBtn.prepend(svg);
-    if (lang === 'ar') backBtn.style.flexDirection = 'row-reverse';
+    backBtn.style.flexDirection = lang === 'ar' ? 'row-reverse' : '';
   }
   try { localStorage.setItem('eulers_lang', lang); } catch(e) {}
 }
@@ -401,7 +402,7 @@ function applyPageLang(lang) {
 // Read saved language on page load
 document.addEventListener('DOMContentLoaded', function() {
   const lang = localStorage.getItem('eulers_lang') || 'sv';
-  if (lang !== 'sv') applyPageLang(lang);
+  applyPageLang(lang);
 });
 // ────────────────────────────────────────────────────────────────
 </script>
