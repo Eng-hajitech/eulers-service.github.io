@@ -3,13 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Viktiga datum — Eulers Service AB</title>
+<title>Viktiga datum 2026 — Eulers Service AB</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{--navy:#152248;--gold:#c8a96e;--ink:#0b1529;--pale:#dde6f4;--frost:#f0f4fb;--white:#fff;--silver:#8fa0bb}
 body{font-family:'DM Sans',sans-serif;background:var(--frost);color:var(--ink);font-size:15px;-webkit-font-smoothing:antialiased;min-height:100vh}
-
 nav{background:var(--white);border-bottom:1px solid var(--pale);padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:72px;position:sticky;top:0;z-index:100;box-shadow:0 1px 0 rgba(21,34,72,.06)}
 .nav-left a{display:flex;flex-direction:column;text-decoration:none}
 .nav-left img{height:50px;width:auto}
@@ -21,88 +20,62 @@ nav{background:var(--white);border-bottom:1px solid var(--pale);padding:0 24px;d
 .filter-btn{display:flex;align-items:center;gap:6px;color:var(--navy);background:var(--white);border:1.5px solid var(--pale);padding:8px 16px;border-radius:999px;font-family:'DM Sans',sans-serif;font-size:13px;font-weight:600;cursor:pointer;transition:all .2s}
 .filter-btn:hover{border-color:var(--navy)}
 .filter-btn svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-
-/* PAGE HEADER */
-.page-header{padding:32px 24px 20px;max-width:680px;margin:0 auto}
+.page-header{padding:32px 24px 16px;max-width:680px;margin:0 auto}
 .page-header h1{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--navy);margin-bottom:6px}
 .page-header p{font-size:13px;color:var(--silver);line-height:1.6}
-
-/* ACTIVE FILTERS CHIPS */
-.active-filters{padding:0 24px 16px;max-width:680px;margin:0 auto;display:flex;gap:8px;flex-wrap:wrap;min-height:32px}
-.filter-chip{background:var(--navy);color:white;font-size:11px;font-weight:600;padding:5px 12px;border-radius:999px;display:flex;align-items:center;gap:6px}
-.filter-chip button{background:none;border:none;color:rgba(255,255,255,.7);cursor:pointer;font-size:14px;line-height:1;padding:0;margin-left:2px}
-
-/* MONTH FILTER */
-.month-filter{padding:0 24px 20px;max-width:680px;margin:0 auto;display:flex;gap:6px;flex-wrap:wrap}
+.active-filters{padding:0 24px 12px;max-width:680px;margin:0 auto;display:flex;gap:8px;flex-wrap:wrap;min-height:28px}
+.filter-chip{background:var(--navy);color:white;font-size:11px;font-weight:600;padding:4px 12px;border-radius:999px}
+.month-filter{padding:0 24px 16px;max-width:680px;margin:0 auto;display:flex;gap:6px;flex-wrap:wrap}
 .m-btn{padding:6px 14px;border-radius:999px;border:1.5px solid var(--pale);background:var(--white);color:var(--silver);font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;cursor:pointer;transition:all .2s}
 .m-btn:hover{border-color:var(--navy);color:var(--navy)}
 .m-btn.active{background:var(--navy);color:white;border-color:var(--navy)}
 .m-btn.current{border-color:var(--gold);color:var(--gold)}
 .m-btn.active.current{background:var(--gold);color:var(--ink);border-color:var(--gold)}
-
-/* CONTENT */
 .content{max-width:680px;margin:0 auto;padding:0 24px 80px}
-
+.legend{display:flex;gap:12px;flex-wrap:wrap;padding:12px 16px;background:var(--white);border-radius:14px;margin-bottom:20px;border:1px solid rgba(21,34,72,.06);box-shadow:0 1px 6px rgba(21,34,72,.04)}
+.leg-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--silver)}
+.leg-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
 .month-block{margin-bottom:28px}
 .month-label{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--silver);margin-bottom:10px;padding-left:4px}
-
 .date-card{background:var(--white);border-radius:20px;overflow:hidden;box-shadow:0 2px 12px rgba(21,34,72,.06);border:1px solid rgba(21,34,72,.06);margin-bottom:10px}
 .date-item{display:flex;align-items:stretch;border-bottom:1px solid var(--frost)}
 .date-item:last-child{border-bottom:none}
 .date-item.passed{opacity:.45}
-.date-num{width:60px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px 0}
+.date-num{width:60px;flex-shrink:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:18px 0;border-right:1px solid var(--frost)}
 .date-num span{font-size:22px;font-weight:700;color:var(--navy);line-height:1;font-family:'Playfair Display',serif}
 .date-num small{font-size:9px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--silver);margin-top:2px}
-.date-divider{width:1px;background:var(--frost);flex-shrink:0}
 .date-entries{flex:1}
-.date-entry{padding:14px 18px;border-bottom:1px solid var(--frost);display:flex;align-items:flex-start;gap:10px}
+.date-entry{padding:13px 18px;border-bottom:1px solid var(--frost);display:flex;align-items:flex-start;gap:10px}
 .date-entry:last-child{border-bottom:none}
-.entry-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:6px}
-.dot-red{background:#e57373}
-.dot-blue{background:#5b8dee}
-.dot-gold{background:var(--gold)}
-.dot-green{background:#5cb85c}
-.dot-purple{background:#9b59b6}
+.entry-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.dot-red{background:#e57373}.dot-blue{background:#5b8dee}.dot-gold{background:var(--gold)}.dot-green{background:#5cb85c}.dot-purple{background:#9b59b6}
 .entry-action{font-size:11px;color:var(--silver);margin-bottom:2px;font-weight:500}
 .entry-title{font-size:13px;font-weight:600;color:var(--navy);line-height:1.4}
 .today-badge{background:var(--gold);color:var(--ink);font-size:9px;font-weight:700;padding:2px 7px;border-radius:999px;letter-spacing:.5px;margin-left:6px;vertical-align:middle}
-
-.legend{display:flex;gap:12px;flex-wrap:wrap;padding:12px 16px;background:var(--white);border-radius:14px;margin-bottom:20px;border:1px solid rgba(21,34,72,.06);box-shadow:0 1px 6px rgba(21,34,72,.04)}
-.leg-item{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--silver)}
-.leg-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0}
-
 .empty{text-align:center;padding:48px 20px;color:var(--silver);font-size:14px}
-
-/* MODAL OVERLAY */
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:500;display:flex;align-items:flex-end;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s}
 .modal-overlay.open{opacity:1;pointer-events:all}
-.modal{background:var(--white);border-radius:24px 24px 0 0;width:100%;max-width:600px;max-height:85vh;overflow-y:auto;padding:0 0 32px;transform:translateY(40px);transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
+.modal{background:var(--white);border-radius:24px 24px 0 0;width:100%;max-width:600px;max-height:88vh;overflow-y:auto;transform:translateY(40px);transition:transform .3s cubic-bezier(.34,1.56,.64,1)}
 .modal-overlay.open .modal{transform:translateY(0)}
 .modal-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid var(--pale);position:sticky;top:0;background:var(--white);z-index:1;border-radius:24px 24px 0 0}
 .modal-header h2{font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:var(--navy)}
-.modal-close{width:36px;height:36px;border-radius:50%;background:var(--frost);border:none;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--silver);transition:all .2s}
+.modal-close{width:34px;height:34px;border-radius:50%;background:var(--frost);border:none;font-size:16px;cursor:pointer;color:var(--silver);transition:all .2s}
 .modal-close:hover{background:var(--pale);color:var(--navy)}
-.modal-body{padding:24px}
-.modal-section{margin-bottom:28px}
-.modal-section h3{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:16px}
+.modal-body{padding:20px 24px}
+.modal-section{margin-bottom:24px}
+.modal-section h3{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:12px}
 .modal-options{background:var(--white);border:1px solid var(--pale);border-radius:16px;overflow:hidden}
-.modal-option{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--frost);cursor:pointer;transition:background .15s}
+.modal-option{display:flex;align-items:center;justify-content:space-between;padding:14px 18px;border-bottom:1px solid var(--frost);cursor:pointer;transition:background .15s}
 .modal-option:last-child{border-bottom:none}
 .modal-option:hover{background:var(--frost)}
 .modal-option label{font-size:14px;font-weight:500;color:var(--navy);cursor:pointer;flex:1}
 .modal-option input[type=radio]{width:20px;height:20px;accent-color:var(--navy);cursor:pointer;flex-shrink:0}
-.modal-save{width:calc(100% - 48px);margin:0 24px;background:var(--navy);color:white;border:none;padding:16px;border-radius:16px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s}
-.modal-save:hover{background:#1a3a7c;transform:translateY(-1px)}
-
-@media(max-width:600px){
-  .page-header,.month-filter,.content,.active-filters{padding-left:16px;padding-right:16px}
-  .date-num{width:50px}
-  .date-num span{font-size:18px}
-}
+.modal-save{width:calc(100% - 48px);margin:0 24px 28px;background:var(--navy);color:white;border:none;padding:15px;border-radius:14px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;cursor:pointer;transition:all .2s}
+.modal-save:hover{background:#1a3a7c}
+@media(max-width:600px){.page-header,.month-filter,.content,.active-filters{padding-left:16px;padding-right:16px}.date-num{width:50px}.date-num span{font-size:18px}}
 </style>
 </head>
 <body>
-
 <nav>
   <div class="nav-left">
     <a href="https://eulers.se">
@@ -123,13 +96,13 @@ nav{background:var(--white);border-bottom:1px solid var(--pale);padding:0 24px;d
 </nav>
 
 <div class="page-header">
-  <h1>Viktiga datum</h1>
-  <p>Skattemässiga deadlines för ditt företag 2026. Anpassa efter din verksamhet.</p>
+  <h1>Viktiga datum 2026</h1>
+  <p>Korrekta skattemässiga deadlines från Skatteverket. Anpassa efter din företagsform och momsperiod.</p>
 </div>
 
 <div class="active-filters" id="activeFilters"></div>
 
-<div class="month-filter" id="monthFilter">
+<div class="month-filter">
   <button class="m-btn" onclick="filterMonth('alla')">Alla</button>
   <button class="m-btn" onclick="filterMonth('jan')">Jan</button>
   <button class="m-btn" onclick="filterMonth('feb')">Feb</button>
@@ -147,10 +120,10 @@ nav{background:var(--white);border-bottom:1px solid var(--pale);padding:0 24px;d
 
 <div class="content">
   <div class="legend">
-    <div class="leg-item"><div class="leg-dot dot-red"></div>Betalning</div>
-    <div class="leg-item"><div class="leg-dot dot-blue"></div>Inlämning</div>
-    <div class="leg-item"><div class="leg-dot dot-gold"></div>Moms</div>
     <div class="leg-item"><div class="leg-dot dot-green"></div>Arbetsgivare</div>
+    <div class="leg-item"><div class="leg-dot dot-gold"></div>Moms</div>
+    <div class="leg-item"><div class="leg-dot dot-blue"></div>Deklaration</div>
+    <div class="leg-item"><div class="leg-dot dot-red"></div>Betalning/Skatt</div>
     <div class="leg-item"><div class="leg-dot dot-purple"></div>Övrigt</div>
   </div>
   <div id="calendarContent"></div>
@@ -164,263 +137,248 @@ nav{background:var(--white);border-bottom:1px solid var(--pale);padding:0 24px;d
       <button class="modal-close" onclick="closeModal()">✕</button>
     </div>
     <div class="modal-body">
-
-      <!-- FÖRETAGSFORM -->
       <div class="modal-section">
         <h3>Företagsform</h3>
         <div class="modal-options">
-          <label class="modal-option">
-            <label>Enskild näringsidkare</label>
-            <input type="radio" name="foretagsform" value="ef" checked>
-          </label>
-          <label class="modal-option">
-            <label>Aktiebolag och föreningar</label>
-            <input type="radio" name="foretagsform" value="ab">
-          </label>
-          <label class="modal-option">
-            <label>Handels- och kommanditbolag</label>
-            <input type="radio" name="foretagsform" value="hb">
-          </label>
+          <label class="modal-option"><label>Enskild firma (EF)</label><input type="radio" name="ff" value="ef" checked></label>
+          <label class="modal-option"><label>Aktiebolag (AB)</label><input type="radio" name="ff" value="ab"></label>
+          <label class="modal-option"><label>Handels-/Kommanditbolag (HB)</label><input type="radio" name="ff" value="hb"></label>
         </div>
       </div>
-
-      <!-- MOMSDEKLARATION -->
       <div class="modal-section">
         <h3>Momsdeklaration</h3>
         <div class="modal-options">
-          <label class="modal-option">
-            <label>Helår</label>
-            <input type="radio" name="moms" value="helar">
-          </label>
-          <label class="modal-option">
-            <label>Kvartal</label>
-            <input type="radio" name="moms" value="kvartal" checked>
-          </label>
-          <label class="modal-option">
-            <label>Månad</label>
-            <input type="radio" name="moms" value="manad">
-          </label>
+          <label class="modal-option"><label>Årsvis (omsättning max 1 mkr)</label><input type="radio" name="moms" value="ar"></label>
+          <label class="modal-option"><label>Kvartalsvis</label><input type="radio" name="moms" value="kvartal" checked></label>
+          <label class="modal-option"><label>Månadsvis (omsättning 1–40 mkr)</label><input type="radio" name="moms" value="manad"></label>
         </div>
       </div>
-
-      <!-- OMSÄTTNING -->
-      <div class="modal-section">
-        <h3>Omsättning</h3>
-        <div class="modal-options">
-          <label class="modal-option">
-            <label>0–1 miljoner kronor</label>
-            <input type="radio" name="omsattning" value="liten" checked>
-          </label>
-          <label class="modal-option">
-            <label>1–40 miljoner kronor</label>
-            <input type="radio" name="omsattning" value="mellan">
-          </label>
-          <label class="modal-option">
-            <label>Över 40 miljoner kronor</label>
-            <input type="radio" name="omsattning" value="stor">
-          </label>
-        </div>
-      </div>
-
     </div>
-    <button class="modal-save" onclick="saveSettings()">Spara</button>
+    <button class="modal-save" onclick="saveSettings()">Spara inställningar</button>
   </div>
 </div>
 
 <script>
 const TODAY = new Date();
-const CURRENT_MONTH = TODAY.getMonth();
-const CURRENT_DAY = TODAY.getDate();
+const CM = TODAY.getMonth();
+const CD = TODAY.getDate();
 const MONTHS = ['jan','feb','mar','apr','maj','jun','jul','aug','sep','okt','nov','dec'];
-const MONTH_NAMES = ['Januari','Februari','Mars','April','Maj','Juni','Juli','Augusti','September','Oktober','November','December'];
+const MNAMES = ['Januari','Februari','Mars','April','Maj','Juni','Juli','Augusti','September','Oktober','November','December'];
 
-// Settings
 let settings = {
-  foretagsform: localStorage.getItem('vd_ff') || 'ef',
-  moms: localStorage.getItem('vd_moms') || 'kvartal',
-  omsattning: localStorage.getItem('vd_oms') || 'liten'
+  ff: localStorage.getItem('vd_ff') || 'ef',
+  moms: localStorage.getItem('vd_moms') || 'kvartal'
 };
+let currentFilter = MONTHS[CM];
 
-let currentFilter = MONTHS[CURRENT_MONTH];
+// ff: 'all','ef','ab','hb','ab_hb'
+// moms: 'all','ar','kvartal','manad'
+// 'ab_hb' = gäller AB och HB men ej EF
+const DATES = [
+  // JANUARI
+  {m:0,d:19,action:'Lämna in & betala',title:'Arbetsgivardeklaration, arbetsgivaravgifter & avdragen skatt',type:'green',ff:'all',moms:'all'},
+  {m:0,d:19,action:'Lämna in & betala',title:'Moms- & arbetsgivardeklaration + moms på skattekontot',type:'gold',ff:'ab_hb',moms:'manad'},
+  {m:0,d:19,action:'Lämna in & betala',title:'Moms- & arbetsgivardeklaration + moms på skattekontot',type:'gold',ff:'ab_hb',moms:'kvartal'},
+  {m:0,d:20,action:'Skicka in',title:'Periodisk sammanställning EU-moms på blankett SKV5740 (kvartal)',type:'purple',ff:'all',moms:'all'},
+  {m:0,d:26,action:'Skicka in',title:'Periodisk sammanställning EU-moms via e-tjänst (kvartal)',type:'purple',ff:'all',moms:'all'},
+  {m:0,d:31,action:'Lämna in',title:'Kontrolluppgifter till Skatteverket',type:'blue',ff:'all',moms:'all'},
+  {m:0,d:31,action:'Betala',title:'Moms på OSS och IOSS',type:'gold',ff:'all',moms:'all'},
 
-// All dates — tagged by who they apply to
-// foretagsform: 'all','ef','ab','hb'
-// moms: 'all','helar','kvartal','manad'
-const ALL_DATES = [
-  // ARBETSGIVARDEKLARATION — varje månad den 12:e (gäller alla med anställda)
-  ...[0,1,2,3,4,5,6,7,8,9,10,11].map(m => ({
-    m, d:12, action:'Du ska ha lämnat in', title:`Arbetsgivardeklaration (${MONTH_NAMES[m===0?11:m-1]})`,
-    type:'green', ff:'all', moms:'all'
-  })),
-  // Arbetsgivaravgift & avdragen skatt — 12:e varje månad
-  ...[0,1,2,3,4,5,6,7,8,9,10,11].map(m => ({
-    m, d:12, action:'Du ska ha betalat in', title:'Arbetsgivaravgift och avdragen skatt',
-    type:'red', ff:'all', moms:'all'
-  })),
-  // Debiterad preliminärskatt — 12:e varje månad
-  ...[0,1,2,3,4,5,6,7,8,9,10,11].map(m => ({
-    m, d:12, action:'Du ska ha betalat in', title:'Debiterad preliminärskatt',
-    type:'red', ff:'all', moms:'all'
-  })),
+  // FEBRUARI
+  {m:1,d:2,action:'Öppnar',title:'Inkomstdeklaration 2 (för AB) öppnar digitalt',type:'blue',ff:'ab',moms:'all'},
+  {m:1,d:12,action:'Lämna in & betala',title:'Moms- & arbetsgivardeklaration + moms på skattekontot',type:'gold',ff:'ab_hb',moms:'manad'},
+  {m:1,d:12,action:'Lämna in',title:'Arbetsgivardeklaration (lön utbetald i januari)',type:'green',ff:'all',moms:'all'},
+  {m:1,d:12,action:'Betala',title:'Arbetsgivaravgifter och avdragen skatt',type:'green',ff:'all',moms:'all'},
+  {m:1,d:12,action:'Betala (frivilligt)',title:'Extra inbetalning kvarskatt om du räknar med >30 000 kr underskott',type:'red',ff:'all',moms:'all'},
+  {m:1,d:20,action:'Skicka in',title:'Periodisk sammanställning EU-moms på blankett (kvartal)',type:'purple',ff:'all',moms:'all'},
+  {m:1,d:25,action:'Skicka in',title:'Periodisk sammanställning EU-moms via e-tjänst (kvartal)',type:'purple',ff:'all',moms:'all'},
+  {m:1,d:26,action:'Betala',title:'Momsdeklaration vid EU-handel (EF)',type:'gold',ff:'ef',moms:'all'},
+  {m:1,d:28,action:'Betala',title:'Moms på IOSS',type:'gold',ff:'all',moms:'all'},
 
-  // MOMS MÅNADSVIS — 26:e varje månad (gäller stora bolag)
-  ...[0,1,2,3,4,5,6,7,8,9,10,11].map(m => ({
-    m, d:26, action:'Du ska ha betalat in', title:'Momsdeklaration (månadsredovisning)',
-    type:'gold', ff:'all', moms:'manad'
-  })),
+  // MARS
+  {m:2,d:12,action:'Lämna in & betala',title:'Moms- & arbetsgivardeklaration + moms på skattekontot',type:'gold',ff:'ab_hb',moms:'manad'},
+  {m:2,d:12,action:'Lämna in',title:'Arbetsgivardeklaration (lön utbetald i februari)',type:'green',ff:'all',moms:'all'},
+  {m:2,d:12,action:'Betala',title:'Arbetsgivaravgifter och avdragen skatt',type:'green',ff:'all',moms:'all'},
+  {m:2,d:12,action:'Betala',title:'Underskott av slutlig skatt (kvarskatt från besked)',type:'red',ff:'all',moms:'all'},
+  {m:2,d:17,action:'Öppnar',title:'Inkomstdeklaration 1 (enskild firma) öppnar',type:'blue',ff:'ef',moms:'all'},
+  {m:2,d:20,action:'Skicka in',title:'Periodisk sammanställning EU-moms på blankett (kvartal)',type:'purple',ff:'all',moms:'all'},
+  {m:2,d:25,action:'Skicka in',title:'Periodisk sammanställning EU-moms via e-tjänst (kvartal)',type:'purple',ff:'all',moms:'all'},
+  {m:2,d:31,action:'Betala',title:'Moms på IOSS',type:'gold',ff:'all',moms:'all'},
 
-  // MOMS KVARTAL
-  {m:2, d:26, action:'Du ska ha betalat in', title:'Moms kvartal 4 (okt–dec)', type:'gold', ff:'all', moms:'kvartal'},
-  {m:5, d:26, action:'Du ska ha betalat in', title:'Moms kvartal 1 (jan–mar)', type:'gold', ff:'all', moms:'kvartal'},
-  {m:8, d:26, action:'Du ska ha betalat in', title:'Moms kvartal 2 (apr–jun)', type:'gold', ff:'all', moms:'kvartal'},
-  {m:11, d:26, action:'Du ska ha betalat in', title:'Moms kvartal 3 (jul–sep)', type:'gold', ff:'all', moms:'kvartal'},
+  // APRIL
+  {m:3,d:13,action:'Lämna in & betala',title:'Moms- & arbetsgivardeklaration + moms på skattekontot',type:'gold',ff:'ab_hb',moms:'manad'},
+  {m:3,d:13,action:'Lämna in',title:'Arbetsgivardeklaration (lön utbetald i mars)',type:'green',ff:'all',moms:'all'},
+  {m:3,d:13,action:'Betala',title:'Arbetsgivaravgifter och avdragen skatt',type:'green',ff:'all',moms:'all'},
+  {m:3,d:20,action:'Skicka in',title:'Periodisk sammanställning EU-moms på blankett (kvartal)',type:'purple',ff:'all',moms:'all'},
+  {m:3,d:27,action:'Skicka in',title:'Periodisk sammanställning EU-moms via e-tjänst (kvartal)',type:'purple',ff:'all',moms:'all'},
+  {m:3,d:30,action:'Betala',title:'Moms på OSS och IOSS',type:'gold',ff:'all',moms:'all'},
 
-  // MOMS HELÅR
-  {m:4, d:12, action:'Du ska ha betalat in', title:'Momsdeklaration helår (föregående år)', type:'gold', ff:'all', moms:'helar'},
+  // MAJ
+  {m:4,d:4,action:'Sista dag',title:'Inkomstdeklaration 1 — enskild firma (via e-tjänst)',type:'blue',ff:'ef',moms:'all'},
+  {m:4,d:12,action:'Lämna in & betala',title:'Moms- & arbetsgivardeklaration + moms på skattekontot',type:'gold',ff:'ab_hb',moms:'manad'},
+  {m:4,d:12,action:'Lämna in',title:'Arbetsgivardeklaration (lön utbetald i april)',type:'green',ff:'all',moms:'all'},
+  {m:4,d:12,action:'Betala',title:'Arbetsgivaravgifter och avdragen skatt',type:'green',ff:'all',moms:'all'},
+  {m:4,d:12,action:'Lämna in & betala',title:'Momsdeklaration årsvis (EF, omsättning max 1 mkr)',type:'gold',ff:'ef',moms:'ar'},
+  {m:4,d:20,action:'Skicka in',title:'Periodisk sammanställning EU-moms på blankett (kvartal)',type:'purple',ff:'all',moms:'all'},
+  {m:4,d:25,action:'Skicka in',title:'Periodisk sammanställning EU-moms via e-tjänst (kvartal)',type:'purple',ff:'all',moms:'all'},
+  {m:4,d:31,action:'Betala',title:'Moms på IOSS',type:'gold',ff:'all',moms:'all'},
 
-  // INKOMSTDEKLARATION
-  {m:4, d:2, action:'Sista dag att lämna', title:'Inkomstdeklaration 1 (enskild firma & privatpersoner)', type:'blue', ff:'ef', moms:'all'},
-  {m:6, d:1, action:'Sista dag att lämna', title:'Inkomstdeklaration 2 (aktiebolag)', type:'blue', ff:'ab', moms:'all'},
+  // JUNI
+  {m:5,d:12,action:'Lämna in & betala',title:'Moms- & arbetsgivardeklaration + moms på skattekontot',type:'gold',ff:'ab_hb',moms:'manad'},
+  {m:5,d:12,action:'Lämna in',title:'Arbetsgivardeklaration (lön utbetald i maj)',type:'green',ff:'all',moms:'all'},
+  {m:5,d:12,action:'Betala',title:'Arbetsgivaravgifter och avdragen skatt',type:'green',ff:'all',moms:'all'},
+  {m:5,d:15,action:'Sista dag',title:'Deklaration med byråanstånd (via konsult/revisor)',type:'blue',ff:'all',moms:'all'},
+  {m:5,d:15,action:'Skatteverket skickar',title:'Slutskattebesked (EF med digital brevlåda)',type:'red',ff:'ef',moms:'all'},
+  {m:5,d:22,action:'Skicka in',title:'Periodisk sammanställning EU-moms på blankett (kvartal)',type:'purple',ff:'all',moms:'all'},
+  {m:5,d:25,action:'Skicka in',title:'Periodisk sammanställning EU-moms via e-tjänst (kvartal)',type:'purple',ff:'all',moms:'all'},
+  {m:5,d:25,action:'Lämna in',title:'Preliminär inkomstdeklaration för föregående beskattningsår',type:'blue',ff:'all',moms:'all'},
+  {m:5,d:30,action:'Betala',title:'Moms på IOSS',type:'gold',ff:'all',moms:'all'},
 
-  // UNDERSKOTT AV SLUTLIG SKATT
-  ...[0,1,2,3,4,5,6,7,8,9,10,11].map(m => ({
-    m, d:12, action:'Du ska ha betalat in', title:'Underskott av slutlig skatt',
-    type:'red', ff:'all', moms:'all'
-  })),
+  // JULI
+  {m:6,d:13,action:'Lämna in & betala',title:'Moms- & arbetsgivardeklaration + moms på skattekontot',type:'gold',ff:'ab_hb',moms:'manad'},
+  {m:6,d:13,action:'Lämna in',title:'Arbetsgivardeklaration (lön utbetald i juni)',type:'green',ff:'all',moms:'all'},
+  {m:6,d:13,action:'Betala',title:'Arbetsgivaravgifter och avdragen skatt',type:'green',ff:'all',moms:'all'},
+  {m:6,d:20,action:'Skicka in',title:'Periodisk sammanställning EU-moms på blankett (kvartal)',type:'purple',ff:'all',moms:'all'},
+  {m:6,d:27,action:'Skicka in',title:'Periodisk sammanställning EU-moms via e-tjänst (kvartal)',type:'purple',ff:'all',moms:'all'},
+  {m:6,d:31,action:'Betala',title:'Moms på IOSS och OSS',type:'gold',ff:'all',moms:'all'},
 
-  // PERIODISK SAMMANSTÄLLNING
-  {m:8, d:21, action:'Du ska ha skickat in', title:'Periodisk sammanställning på blankett', type:'purple', ff:'all', moms:'all'},
-  {m:8, d:25, action:'Du ska ha skickat in', title:'Periodisk sammanställning via e-tjänst', type:'purple', ff:'all', moms:'all'},
-  {m:8, d:25, action:'Skatteverket skickar ut', title:'Fastighetsdeklaration', type:'purple', ff:'all', moms:'all'},
-  {m:8, d:30, action:'Du ska ha betalat in', title:'Moms på IOSS', type:'gold', ff:'all', moms:'all'},
+  // AUGUSTI
+  {m:7,d:1,action:'Sista dag',title:'Inkomstdeklaration 2 och 3 (AB, kalenderår)',type:'blue',ff:'ab',moms:'all'},
+  {m:7,d:15,action:'Skatteverket skickar',title:'Slutskattebesked (EF)',type:'red',ff:'ef',moms:'all'},
+  {m:7,d:17,action:'Lämna in & betala',title:'Moms- & arbetsgivardeklaration + moms på skattekontot',type:'gold',ff:'ab_hb',moms:'manad'},
+  {m:7,d:17,action:'Lämna in',title:'Arbetsgivardeklaration (lön utbetald i juli)',type:'green',ff:'all',moms:'all'},
+  {m:7,d:17,action:'Betala',title:'Arbetsgivaravgifter och avdragen skatt',type:'green',ff:'all',moms:'all'},
+  {m:7,d:20,action:'Skicka in',title:'Periodisk sammanställning EU-moms på blankett (kvartal)',type:'purple',ff:'all',moms:'all'},
+  {m:7,d:25,action:'Skicka in',title:'Periodisk sammanställning EU-moms via e-tjänst (kvartal)',type:'purple',ff:'all',moms:'all'},
+  {m:7,d:31,action:'Betala',title:'Moms på IOSS',type:'gold',ff:'all',moms:'all'},
 
-  // BOKSLUT / ÅRSREDOVISNING
-  {m:5, d:30, action:'Sista dag att lämna', title:'Årsredovisning till Bolagsverket (räkenskapsår jan–dec)', type:'blue', ff:'ab', moms:'all'},
+  // SEPTEMBER
+  {m:8,d:14,action:'Lämna in & betala',title:'Moms- & arbetsgivardeklaration + moms på skattekontot',type:'gold',ff:'ab_hb',moms:'manad'},
+  {m:8,d:14,action:'Lämna in',title:'Arbetsgivardeklaration (lön utbetald i augusti)',type:'green',ff:'all',moms:'all'},
+  {m:8,d:14,action:'Betala',title:'Arbetsgivaravgifter och avdragen skatt',type:'green',ff:'all',moms:'all'},
+  {m:8,d:14,action:'Betala',title:'Kvarskatt från junibeskeden (EF)',type:'red',ff:'ef',moms:'all'},
+  {m:8,d:21,action:'Skicka in',title:'Periodisk sammanställning EU-moms på blankett (kvartal)',type:'purple',ff:'all',moms:'all'},
+  {m:8,d:25,action:'Skicka in',title:'Periodisk sammanställning EU-moms via e-tjänst (kvartal)',type:'purple',ff:'all',moms:'all'},
+  {m:8,d:30,action:'Betala',title:'Moms på IOSS',type:'gold',ff:'all',moms:'all'},
 
-  // F-SKATT / PRELIMINÄRSKATT EF
-  {m:0, d:12, action:'Du ska ha betalat in', title:'F-skatt januari', type:'red', ff:'ef', moms:'all'},
-  {m:2, d:12, action:'Du ska ha betalat in', title:'F-skatt mars', type:'red', ff:'ef', moms:'all'},
-  {m:4, d:12, action:'Du ska ha betalat in', title:'F-skatt maj', type:'red', ff:'ef', moms:'all'},
-  {m:6, d:12, action:'Du ska ha betalat in', title:'F-skatt juli', type:'red', ff:'ef', moms:'all'},
-  {m:8, d:12, action:'Du ska ha betalat in', title:'F-skatt september', type:'red', ff:'ef', moms:'all'},
-  {m:10, d:12, action:'Du ska ha betalat in', title:'F-skatt november', type:'red', ff:'ef', moms:'all'},
+  // OKTOBER
+  {m:9,d:12,action:'Lämna in & betala',title:'Moms- & arbetsgivardeklaration + moms på skattekontot',type:'gold',ff:'ab_hb',moms:'manad'},
+  {m:9,d:12,action:'Lämna in',title:'Arbetsgivardeklaration (lön utbetald i september)',type:'green',ff:'all',moms:'all'},
+  {m:9,d:12,action:'Betala',title:'Arbetsgivaravgifter och avdragen skatt',type:'green',ff:'all',moms:'all'},
+  {m:9,d:20,action:'Skicka in',title:'Periodisk sammanställning EU-moms på blankett (kvartal)',type:'purple',ff:'all',moms:'all'},
+  {m:9,d:26,action:'Skicka in',title:'Periodisk sammanställning EU-moms via e-tjänst (kvartal)',type:'purple',ff:'all',moms:'all'},
+  {m:9,d:31,action:'Betala',title:'Moms på IOSS och OSS',type:'gold',ff:'all',moms:'all'},
+
+  // NOVEMBER
+  {m:10,d:2,action:'Sista dag',title:'Förenklad fastighetsdeklaration (EF)',type:'blue',ff:'ef',moms:'all'},
+  {m:10,d:12,action:'Lämna in & betala',title:'Moms- & arbetsgivardeklaration + moms på skattekontot',type:'gold',ff:'ab_hb',moms:'manad'},
+  {m:10,d:12,action:'Lämna in & betala',title:'Moms- & arbetsgivardeklaration + moms (kvartal)',type:'gold',ff:'ab_hb',moms:'kvartal'},
+  {m:10,d:12,action:'Lämna in',title:'Arbetsgivardeklaration (lön utbetald i oktober)',type:'green',ff:'all',moms:'all'},
+  {m:10,d:12,action:'Betala',title:'Arbetsgivaravgifter och avdragen skatt',type:'green',ff:'all',moms:'all'},
+  {m:10,d:12,action:'Betala',title:'Kvarskatt från augustibeskeden (AB)',type:'red',ff:'ab',moms:'all'},
+  {m:10,d:20,action:'Skicka in',title:'Periodisk sammanställning EU-moms på blankett (kvartal)',type:'purple',ff:'all',moms:'all'},
+  {m:10,d:25,action:'Skicka in',title:'Periodisk sammanställning EU-moms via e-tjänst (kvartal)',type:'purple',ff:'all',moms:'all'},
+  {m:10,d:30,action:'Betala',title:'Moms på IOSS',type:'gold',ff:'all',moms:'all'},
+
+  // DECEMBER
+  {m:11,d:14,action:'Lämna in & betala',title:'Moms- & arbetsgivardeklaration + moms på skattekontot',type:'gold',ff:'ab_hb',moms:'manad'},
+  {m:11,d:14,action:'Lämna in',title:'Arbetsgivardeklaration (lön utbetald i november)',type:'green',ff:'all',moms:'all'},
+  {m:11,d:14,action:'Betala',title:'Arbetsgivaravgifter och avdragen skatt',type:'green',ff:'all',moms:'all'},
+  {m:11,d:14,action:'Betala (frivilligt)',title:'Fyllnadsinbetalning slutlig kvarskatt (EF) för att slippa ränta',type:'red',ff:'ef',moms:'all'},
+  {m:11,d:15,action:'Skatteverket skickar',title:'Slutskattebesked AB, HB och föreningar',type:'red',ff:'ab_hb',moms:'all'},
+  {m:11,d:21,action:'Skicka in',title:'Periodisk sammanställning EU-moms på blankett (kvartal)',type:'purple',ff:'all',moms:'all'},
+  {m:11,d:28,action:'Skicka in',title:'Periodisk sammanställning EU-moms via e-tjänst (kvartal)',type:'purple',ff:'all',moms:'all'},
+  {m:11,d:28,action:'Lämna in',title:'Preliminär inkomstdeklaration för föregående år',type:'blue',ff:'all',moms:'all'},
+  {m:11,d:31,action:'Betala',title:'Moms på IOSS',type:'gold',ff:'all',moms:'all'},
 ];
 
-function getFilteredDates() {
-  return ALL_DATES.filter(item => {
-    const ffOk = item.ff === 'all' || item.ff === settings.foretagsform;
-    const momsOk = item.moms === 'all' || item.moms === settings.moms;
-    return ffOk && momsOk;
-  });
+function matchFF(item) {
+  if (item.ff === 'all') return true;
+  if (item.ff === 'ab_hb') return settings.ff === 'ab' || settings.ff === 'hb';
+  return item.ff === settings.ff;
+}
+function matchMoms(item) {
+  if (item.moms === 'all') return true;
+  return item.moms === settings.moms;
 }
 
-function isPassed(m, d) {
-  if (m < CURRENT_MONTH) return true;
-  if (m === CURRENT_MONTH && d < CURRENT_DAY) return true;
-  return false;
-}
-function isToday(m, d) {
-  return m === CURRENT_MONTH && d === CURRENT_DAY;
-}
+function isPassed(m,d){ return m<CM||(m===CM&&d<CD); }
+function isToday(m,d){ return m===CM&&d===CD; }
 
-function renderCalendar(monthFilter) {
-  const dates = getFilteredDates();
+function renderCalendar(filter) {
   const byMonth = {};
-  dates.forEach(item => {
-    if (monthFilter !== 'alla' && MONTHS[item.m] !== monthFilter) return;
-    if (!byMonth[item.m]) byMonth[item.m] = {};
-    if (!byMonth[item.m][item.d]) byMonth[item.m][item.d] = [];
-    // Deduplicate
-    const key = item.action + item.title;
-    if (!byMonth[item.m][item.d].find(x => x.action+x.title === key)) {
+  DATES.forEach(item => {
+    if (!matchFF(item)||!matchMoms(item)) return;
+    if (filter!=='alla'&&MONTHS[item.m]!==filter) return;
+    if (!byMonth[item.m]) byMonth[item.m]={};
+    if (!byMonth[item.m][item.d]) byMonth[item.m][item.d]=[];
+    const key=item.action+item.title;
+    if (!byMonth[item.m][item.d].find(x=>x.action+x.title===key))
       byMonth[item.m][item.d].push(item);
-    }
   });
 
-  const months = Object.keys(byMonth).sort((a,b) => +a - +b);
-  const container = document.getElementById('calendarContent');
-  if (!months.length) { container.innerHTML = '<div class="empty">Inga datum för vald period och inställning.</div>'; return; }
+  const months=Object.keys(byMonth).sort((a,b)=>+a-+b);
+  const container=document.getElementById('calendarContent');
+  if (!months.length){container.innerHTML='<div class="empty">Inga datum för vald period och inställning.</div>';return;}
 
-  let html = '';
-  months.forEach(m => {
-    html += `<div class="month-block"><div class="month-label">${MONTH_NAMES[m]} 2026</div><div class="date-card">`;
-    const days = Object.keys(byMonth[m]).sort((a,b) => +a - +b);
-    days.forEach(d => {
-      const passed = isPassed(+m, +d);
-      const today = isToday(+m, +d);
-      html += `<div class="date-item${passed?' passed':''}">
-        <div class="date-num"><span>${d}</span><small>${MONTHS[m]}</small></div>
-        <div class="date-divider"></div>
-        <div class="date-entries">`;
-      byMonth[m][d].forEach(item => {
-        html += `<div class="date-entry">
-          <div class="entry-dot dot-${item.type}"></div>
-          <div>
-            <div class="entry-action">${item.action}</div>
-            <div class="entry-title">${item.title}${today?'<span class="today-badge">IDAG</span>':''}</div>
-          </div>
-        </div>`;
+  let html='';
+  months.forEach(m=>{
+    html+=`<div class="month-block"><div class="month-label">${MNAMES[m]} 2026</div><div class="date-card">`;
+    Object.keys(byMonth[m]).sort((a,b)=>+a-+b).forEach(d=>{
+      const passed=isPassed(+m,+d), today=isToday(+m,+d);
+      html+=`<div class="date-item${passed?' passed':''}"><div class="date-num"><span>${d}</span><small>${MONTHS[m]}</small></div><div class="date-entries">`;
+      byMonth[m][d].forEach(item=>{
+        html+=`<div class="date-entry"><div class="entry-dot dot-${item.type}"></div><div><div class="entry-action">${item.action}</div><div class="entry-title">${item.title}${today?'<span class="today-badge">IDAG</span>':''}</div></div></div>`;
       });
-      html += `</div></div>`;
+      html+=`</div></div>`;
     });
-    html += `</div></div>`;
+    html+=`</div></div>`;
   });
-  container.innerHTML = html;
+  container.innerHTML=html;
 }
 
-function renderActiveFilters() {
-  const labels = {
-    ef:'Enskild näringsidkare', ab:'Aktiebolag', hb:'Handelsbolag',
-    helar:'Moms: Helår', kvartal:'Moms: Kvartal', manad:'Moms: Månad',
-    liten:'Omsättning: 0–1 mkr', mellan:'Omsättning: 1–40 mkr', stor:'Omsättning: >40 mkr'
-  };
-  const chips = [settings.foretagsform, settings.moms, settings.omsattning];
-  document.getElementById('activeFilters').innerHTML = chips
-    .map(k => `<div class="filter-chip">${labels[k]}</div>`).join('');
+function renderChips(){
+  const labels={ef:'Enskild firma',ab:'Aktiebolag',hb:'Handelsbolag',ar:'Moms: Årsvis',kvartal:'Moms: Kvartal',manad:'Moms: Månadsvis'};
+  document.getElementById('activeFilters').innerHTML=
+    [settings.ff,settings.moms].map(k=>`<div class="filter-chip">${labels[k]}</div>`).join('');
 }
 
-function filterMonth(m) {
-  currentFilter = m;
-  document.querySelectorAll('.m-btn').forEach(btn => {
-    const txt = btn.textContent.toLowerCase();
+function filterMonth(m){
+  currentFilter=m;
+  document.querySelectorAll('.m-btn').forEach(btn=>{
+    const t=btn.textContent.toLowerCase();
     btn.classList.remove('active');
-    if ((m==='alla' && txt==='alla') || txt===m) btn.classList.add('active');
+    if((m==='alla'&&t==='alla')||t===m) btn.classList.add('active');
   });
   renderCalendar(m);
 }
 
-function openModal() {
-  // Set radio to current settings
-  document.querySelector(`input[name=foretagsform][value="${settings.foretagsform}"]`).checked = true;
-  document.querySelector(`input[name=moms][value="${settings.moms}"]`).checked = true;
-  document.querySelector(`input[name=omsattning][value="${settings.omsattning}"]`).checked = true;
+function openModal(){
+  document.querySelector(`input[name=ff][value="${settings.ff}"]`).checked=true;
+  document.querySelector(`input[name=moms][value="${settings.moms}"]`).checked=true;
   document.getElementById('modalOverlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow='hidden';
 }
-function closeModal() {
+function closeModal(){
   document.getElementById('modalOverlay').classList.remove('open');
-  document.body.style.overflow = '';
+  document.body.style.overflow='';
 }
-function saveSettings() {
-  settings.foretagsform = document.querySelector('input[name=foretagsform]:checked').value;
-  settings.moms = document.querySelector('input[name=moms]:checked').value;
-  settings.omsattning = document.querySelector('input[name=omsattning]:checked').value;
-  localStorage.setItem('vd_ff', settings.foretagsform);
-  localStorage.setItem('vd_moms', settings.moms);
-  localStorage.setItem('vd_oms', settings.omsattning);
+function saveSettings(){
+  settings.ff=document.querySelector('input[name=ff]:checked').value;
+  settings.moms=document.querySelector('input[name=moms]:checked').value;
+  localStorage.setItem('vd_ff',settings.ff);
+  localStorage.setItem('vd_moms',settings.moms);
   closeModal();
-  renderActiveFilters();
+  renderChips();
   renderCalendar(currentFilter);
 }
 
-// Mark current month
-document.querySelectorAll('.m-btn').forEach(btn => {
-  if (btn.textContent.toLowerCase() === MONTHS[CURRENT_MONTH]) btn.classList.add('current');
+document.querySelectorAll('.m-btn').forEach(btn=>{
+  if(btn.textContent.toLowerCase()===MONTHS[CM]) btn.classList.add('current');
 });
 
-// Init
-renderActiveFilters();
-filterMonth(MONTHS[CURRENT_MONTH]);
+renderChips();
+filterMonth(MONTHS[CM]);
 </script>
 </body>
 </html>
