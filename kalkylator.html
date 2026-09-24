@@ -47,6 +47,9 @@ nav{background:var(--white);border-bottom:1px solid var(--pale);padding:0 56px;d
 footer{background:#0b1529;padding:32px 56px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
 footer img{height:44px;filter:brightness(1.8) saturate(.6)}
 footer p{font-size:13px;color:rgba(255,255,255,.35)}
+.lang-switcher{display:flex;gap:4px}
+.lang-btn{background:none;border:1px solid var(--pale);color:var(--silver);border-radius:999px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;padding:5px 10px;cursor:pointer;transition:all .2s;letter-spacing:.5px}
+.lang-btn:hover,.lang-btn.active{background:var(--navy);color:var(--white);border-color:var(--navy)}
 
 @media(max-width:768px){
   nav{padding:0 20px;height:80px}
@@ -61,17 +64,31 @@ footer p{font-size:13px;color:rgba(255,255,255,.35)}
 
 <nav>
   <div class="nav-left"><a href='https://eulers.se/'><img src="logo.png" alt="Eulers Service AB"></a></div>
-  <a href='https://eulers.se/' class="back-btn">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-    Tillbaka
-  </a>
+  <div style="display:flex;align-items:center;gap:20px">
+    <div class="lang-switcher" style="position:relative">
+      <button class="lang-btn active" onclick="setLang('sv')">SV</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('ar')">AR</button>
+      <button class="lang-btn" onclick="toggleMoreLangBtn()" id="lang-more-btn" style="padding:5px 8px;font-size:14px">▾</button>
+      <div id="lang-dropdown" style="display:none;position:absolute;top:calc(100% + 8px);right:0;background:white;border:1px solid var(--pale);border-radius:8px;box-shadow:0 8px 24px rgba(15,26,61,.12);padding:6px;z-index:300;min-width:80px">
+        <button class="lang-btn" onclick="setLang('fr');toggleMoreLangBtn()" style="width:100%;margin-bottom:4px;border-radius:6px">FR</button>
+        <button class="lang-btn" onclick="setLang('de');toggleMoreLangBtn()" style="width:100%;margin-bottom:4px;border-radius:6px">DE</button>
+        <button class="lang-btn" onclick="setLang('es');toggleMoreLangBtn()" style="width:100%;margin-bottom:4px;border-radius:6px">ES</button>
+        <button class="lang-btn" onclick="setLang('so');toggleMoreLangBtn()" style="width:100%;border-radius:6px">SO</button>
+      </div>
+    </div>
+    <a href='https://eulers.se/' class="back-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      <span data-sv="Tillbaka" data-en="Back" data-ar="رجوع" data-fr="Retour" data-de="Zurück" data-es="Atrás" data-so="Dib u noqo">Tillbaka</span>
+    </a>
+  </div>
 </nav>
 
 <div class="calc-wrap">
   <div class="calc-inner">
-    <div style="font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:#8ab4f8;margin-bottom:14px;text-align:center">Gratis verktyg</div>
-    <h1 class="calc-title">Räkna ut lön efter skatt</h1>
-    <p class="calc-sub">Enkel lönekalkylator — baserad på Skatteverkets tabeller 2026</p>
+    <div style="font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:#8ab4f8;margin-bottom:14px;text-align:center" data-sv="Gratis verktyg" data-en="Free tool" data-ar="أداة مجانية" data-fr="Outil gratuit" data-de="Kostenloses Tool" data-es="Herramienta gratuita" data-so="Qalab Bilaash ah">Gratis verktyg</div>
+    <h1 class="calc-title" data-sv="Räkna ut lön efter skatt" data-en="Calculate salary after tax" data-ar="احسب الراتب بعد الضريبة" data-fr="Calculer le salaire après impôt" data-de="Gehalt nach Steuern berechnen" data-es="Calcular el salario después de impuestos" data-so="Xisaabi mushaarka canshuurta ka dib">Räkna ut lön efter skatt</h1>
+    <p class="calc-sub" data-sv="Enkel lönekalkylator — baserad på Skatteverkets tabeller 2026" data-en="Simple salary calculator — based on the Swedish Tax Agency's 2026 tables" data-ar="حاسبة راتب بسيطة — مبنية على جداول هيئة الضرائب السويدية 2026" data-fr="Calculateur de salaire simple — basé sur les tables 2026 de l'Agence fiscale suédoise" data-de="Einfacher Gehaltsrechner — basierend auf den Steuertabellen 2026 des schwedischen Finanzamts" data-es="Calculadora de salario sencilla — basada en las tablas 2026 de la Agencia Tributaria sueca" data-so="Xisaabiye mushahar oo fudud — ku salaysan jadwalada Hay'adda Canshuuraha Iswiidhan ee 2026">Enkel lönekalkylator — baserad på Skatteverkets tabeller 2026</p>
 
     <div class="calc-grid">
 
@@ -80,16 +97,16 @@ footer p{font-size:13px;color:rgba(255,255,255,.35)}
 
         <!-- MODE -->
         <div class="mode-btns">
-          <button class="mode-btn active" id="btn-kommun" onclick="switchMode('kommun')">Välj kommun</button>
-          <button class="mode-btn" id="btn-tabell" onclick="switchMode('tabell')">Välj tabell direkt</button>
-          <button class="mode-btn" id="btn-procent" onclick="switchMode('procent')">Ange procent</button>
+          <button class="mode-btn active" id="btn-kommun" onclick="switchMode('kommun')" data-sv="Välj kommun" data-en="Choose municipality" data-ar="اختر البلدية" data-fr="Choisir la commune" data-de="Gemeinde wählen" data-es="Elegir municipio" data-so="Dooro Degmada">Välj kommun</button>
+          <button class="mode-btn" id="btn-tabell" onclick="switchMode('tabell')" data-sv="Välj tabell direkt" data-en="Choose table directly" data-ar="اختر الجدول مباشرة" data-fr="Choisir directement la table" data-de="Tabelle direkt wählen" data-es="Elegir tabla directamente" data-so="Dooro Jadwalka Toos ah">Välj tabell direkt</button>
+          <button class="mode-btn" id="btn-procent" onclick="switchMode('procent')" data-sv="Ange procent" data-en="Enter percentage" data-ar="أدخل النسبة المئوية" data-fr="Saisir un pourcentage" data-de="Prozentsatz eingeben" data-es="Indicar porcentaje" data-so="Geli Boqolkiiba">Ange procent</button>
         </div>
 
         <!-- KOMMUNVAL -->
         <div id="mode-kommun">
-          <label class="calc-label">Din hemkommun</label>
+          <label class="calc-label" data-sv="Din hemkommun" data-en="Your home municipality" data-ar="بلديتك" data-fr="Votre commune de résidence" data-de="Ihre Wohngemeinde" data-es="Su municipio de residencia" data-so="Degmadaada guriga">Din hemkommun</label>
           <select id="k-municipality" onchange="calcFromMunicipality()" class="calc-select">
-            <option value="">— Välj kommun —</option>
+            <option value="" data-sv="— Välj kommun —" data-en="— Choose municipality —" data-ar="— اختر البلدية —" data-fr="— Choisir la commune —" data-de="— Gemeinde wählen —" data-es="— Elegir municipio —" data-so="— Dooro Degmada —">— Välj kommun —</option>
             <option value="29">Österåker — 29,22% (tabell 29)</option>
             <option value="30">Täby — 30,17% (tabell 30)</option>
             <option value="30">Nacka — 30,40% (tabell 30)</option>
@@ -126,22 +143,22 @@ footer p{font-size:13px;color:rgba(255,255,255,.35)}
 
         <!-- TABELLVAL -->
         <div id="mode-tabell" style="display:none">
-          <label class="calc-label">Skattetabell (Skatteverket 2026)</label>
+          <label class="calc-label" data-sv="Skattetabell (Skatteverket 2026)" data-en="Tax table (Swedish Tax Agency 2026)" data-ar="جدول الضرائب (هيئة الضرائب السويدية 2026)" data-fr="Table fiscale (Agence fiscale suédoise 2026)" data-de="Steuertabelle (Finanzamt 2026)" data-es="Tabla fiscal (Agencia Tributaria sueca 2026)" data-so="Jadwalka Canshuurta (Hay'adda Canshuuraha 2026)">Skattetabell (Skatteverket 2026)</label>
           <select id="k-tabell" onchange="calcLon()" class="calc-select">
-            <option value="29">Tabell 29 (29,0–29,49%)</option>
-            <option value="30">Tabell 30 (29,5–30,49%)</option>
-            <option value="31">Tabell 31 (30,5–31,49%)</option>
-            <option value="32">Tabell 32 (31,5–32,49%)</option>
-            <option value="33">Tabell 33 (32,5–33,49%)</option>
-            <option value="34">Tabell 34 (33,5–34,49%)</option>
-            <option value="35" selected>Tabell 35 (34,5–35,49%)</option>
-            <option value="36">Tabell 36 (35,5–36,49%)</option>
+            <option value="29" data-sv="Tabell 29 (29,0–29,49%)" data-en="Table 29 (29,0–29,49%)" data-ar="جدول 29 (29,0–29,49%)" data-fr="Table 29 (29,0–29,49%)" data-de="Tabelle 29 (29,0–29,49%)" data-es="Tabla 29 (29,0–29,49%)" data-so="Jadwal 29 (29,0–29,49%)">Tabell 29 (29,0–29,49%)</option>
+            <option value="30" data-sv="Tabell 30 (29,5–30,49%)" data-en="Table 30 (29,5–30,49%)" data-ar="جدول 30 (29,5–30,49%)" data-fr="Table 30 (29,5–30,49%)" data-de="Tabelle 30 (29,5–30,49%)" data-es="Tabla 30 (29,5–30,49%)" data-so="Jadwal 30 (29,5–30,49%)">Tabell 30 (29,5–30,49%)</option>
+            <option value="31" data-sv="Tabell 31 (30,5–31,49%)" data-en="Table 31 (30,5–31,49%)" data-ar="جدول 31 (30,5–31,49%)" data-fr="Table 31 (30,5–31,49%)" data-de="Tabelle 31 (30,5–31,49%)" data-es="Tabla 31 (30,5–31,49%)" data-so="Jadwal 31 (30,5–31,49%)">Tabell 31 (30,5–31,49%)</option>
+            <option value="32" data-sv="Tabell 32 (31,5–32,49%)" data-en="Table 32 (31,5–32,49%)" data-ar="جدول 32 (31,5–32,49%)" data-fr="Table 32 (31,5–32,49%)" data-de="Tabelle 32 (31,5–32,49%)" data-es="Tabla 32 (31,5–32,49%)" data-so="Jadwal 32 (31,5–32,49%)">Tabell 32 (31,5–32,49%)</option>
+            <option value="33" data-sv="Tabell 33 (32,5–33,49%)" data-en="Table 33 (32,5–33,49%)" data-ar="جدول 33 (32,5–33,49%)" data-fr="Table 33 (32,5–33,49%)" data-de="Tabelle 33 (32,5–33,49%)" data-es="Tabla 33 (32,5–33,49%)" data-so="Jadwal 33 (32,5–33,49%)">Tabell 33 (32,5–33,49%)</option>
+            <option value="34" data-sv="Tabell 34 (33,5–34,49%)" data-en="Table 34 (33,5–34,49%)" data-ar="جدول 34 (33,5–34,49%)" data-fr="Table 34 (33,5–34,49%)" data-de="Tabelle 34 (33,5–34,49%)" data-es="Tabla 34 (33,5–34,49%)" data-so="Jadwal 34 (33,5–34,49%)">Tabell 34 (33,5–34,49%)</option>
+            <option value="35" selected data-sv="Tabell 35 (34,5–35,49%)" data-en="Table 35 (34,5–35,49%)" data-ar="جدول 35 (34,5–35,49%)" data-fr="Table 35 (34,5–35,49%)" data-de="Tabelle 35 (34,5–35,49%)" data-es="Tabla 35 (34,5–35,49%)" data-so="Jadwal 35 (34,5–35,49%)">Tabell 35 (34,5–35,49%)</option>
+            <option value="36" data-sv="Tabell 36 (35,5–36,49%)" data-en="Table 36 (35,5–36,49%)" data-ar="جدول 36 (35,5–36,49%)" data-fr="Table 36 (35,5–36,49%)" data-de="Tabelle 36 (35,5–36,49%)" data-es="Tabla 36 (35,5–36,49%)" data-so="Jadwal 36 (35,5–36,49%)">Tabell 36 (35,5–36,49%)</option>
           </select>
         </div>
 
         <!-- PROCENTVAL -->
         <div id="mode-procent" style="display:none">
-          <label class="calc-label">Skatteprocent</label>
+          <label class="calc-label" data-sv="Skatteprocent" data-en="Tax percentage" data-ar="نسبة الضريبة" data-fr="Pourcentage d'imposition" data-de="Steuersatz" data-es="Porcentaje de impuesto" data-so="Boqolkiiba Canshuurta">Skatteprocent</label>
           <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
             <input id="k-pct-input" type="number" value="30" min="1" max="60" step="0.5" oninput="calcLon()" style="width:100px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:white;padding:13px 16px;font-family:'DM Sans',sans-serif;font-size:18px;font-weight:600;outline:none;border-radius:10px">
             <span style="color:white;font-size:22px;font-weight:600">%</span>
@@ -155,74 +172,74 @@ footer p{font-size:13px;color:rgba(255,255,255,.35)}
             <button onclick="setPct(35)" style="padding:6px 14px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.7);font-family:'DM Sans',sans-serif;font-size:13px;cursor:pointer;border-radius:999px;transition:all .2s" onmouseover="this.style.background='rgba(255,255,255,.2)'" onmouseout="this.style.background='rgba(255,255,255,.08)'">35%</button>
           </div>
           <div style="background:rgba(200,169,110,.12);border:1px solid rgba(200,169,110,.25);padding:12px 16px;border-radius:12px;margin-bottom:16px">
-            <div style="font-size:12px;font-weight:700;color:var(--gold);margin-bottom:4px">💡 Tips</div>
-            <div style="font-size:13px;color:rgba(255,255,255,.65);line-height:1.6">Jobbar du för flera arbetsgivare? Välj då <strong style="color:white">30%</strong> — det är den schablonmässiga skattesatsen som används när du har fler än en arbetsgivare och din huvudarbetsgivare inte drar hela skatten.</div>
+            <div style="font-size:12px;font-weight:700;color:var(--gold);margin-bottom:4px">💡 <span data-sv="Tips" data-en="Tip" data-ar="نصيحة" data-fr="Astuce" data-de="Tipp" data-es="Consejo" data-so="Talo">Tips</span></div>
+            <div style="font-size:13px;color:rgba(255,255,255,.65);line-height:1.6"><span data-sv="Jobbar du för flera arbetsgivare? Välj då" data-en="Do you work for several employers? Then choose" data-ar="هل تعمل لدى عدة أصحاب عمل؟ اختر إذًا" data-fr="Travaillez-vous pour plusieurs employeurs ? Choisissez alors" data-de="Arbeiten Sie für mehrere Arbeitgeber? Wählen Sie dann" data-es="¿Trabaja para varios empleadores? Elija entonces" data-so="Ma u shaqeysaa dhowr loo-shaqeeye ah? Markaa dooro">Jobbar du för flera arbetsgivare? Välj då</span> <strong style="color:white">30%</strong> <span data-sv="— det är den schablonmässiga skattesatsen som används när du har fler än en arbetsgivare och din huvudarbetsgivare inte drar hela skatten." data-en="— that is the standard tax rate used when you have more than one employer and your main employer doesn't withhold the full tax." data-ar="— وهي نسبة الضريبة القياسية التي تُستخدم عندما يكون لديك أكثر من صاحب عمل ولا يخصم صاحب عملك الرئيسي كامل الضريبة." data-fr="— c'est le taux d'imposition forfaitaire utilisé lorsque vous avez plus d'un employeur et que votre employeur principal ne prélève pas l'intégralité de l'impôt." data-de="— das ist der pauschale Steuersatz, der verwendet wird, wenn Sie mehr als einen Arbeitgeber haben und Ihr Hauptarbeitgeber nicht die volle Steuer einbehält." data-es="— esa es la tasa impositiva estándar que se utiliza cuando tiene más de un empleador y su empleador principal no retiene el impuesto completo." data-so="— taasi waa heerka canshuurta caadiga ah ee la isticmaalo marka aad haysato in ka badan hal loo-shaqeeye oo loo-shaqeeyahaaga ugu weyni uusan jarin canshuurta oo dhan.">— det är den schablonmässiga skattesatsen som används när du har fler än en arbetsgivare och din huvudarbetsgivare inte drar hela skatten.</span></div>
           </div>
         </div>
 
         <!-- BRUTTOLÖN -->
-        <label class="calc-label">Bruttolön (kr/mån)</label>
+        <label class="calc-label" data-sv="Bruttolön (kr/mån)" data-en="Gross salary (SEK/month)" data-ar="الراتب الإجمالي (كرونة/شهرياً)" data-fr="Salaire brut (SEK/mois)" data-de="Bruttolohn (SEK/Monat)" data-es="Salario bruto (SEK/mes)" data-so="Mushaarka Guud (SEK/bishii)">Bruttolön (kr/mån)</label>
         <input id="k-brutto" type="number" value="30000" min="0" max="200000" oninput="calcLon()" class="calc-input">
         <input type="range" id="k-brutto-slider" min="0" max="120000" step="500" value="30000" oninput="syncSlider()" class="calc-slider">
-        <div class="calc-slider-labels"><span>0 kr</span><span>120 000 kr</span></div>
+        <div class="calc-slider-labels"><span>0 kr</span><span data-sv="120 000 kr" data-en="120,000 SEK" data-ar="120,000 كرونة" data-fr="120 000 SEK" data-de="120.000 SEK" data-es="120.000 SEK" data-so="120,000 SEK">120 000 kr</span></div>
 
         <div class="calc-note" style="margin-top:20px">
-          ✓ Grundavdrag och jobbskatteavdrag ingår i Skatteverkets tabell (kolumn 1 — lön under 66 år)
+          ✓ <span data-sv="Grundavdrag och jobbskatteavdrag ingår i Skatteverkets tabell (kolumn 1 — lön under 66 år)" data-en="Basic allowance and earned income tax credit are included in the Tax Agency's table (column 1 — under 66 years old)" data-ar="الخصم الأساسي وخصم ضريبة دخل العمل مدرجان في جدول هيئة الضرائب (العمود 1 — أقل من 66 عاماً)" data-fr="L'abattement de base et le crédit d'impôt sur les revenus du travail sont inclus dans la table de l'Agence fiscale (colonne 1 — moins de 66 ans)" data-de="Grundfreibetrag und Erwerbstätigenabzug sind in der Tabelle des Finanzamts enthalten (Spalte 1 — unter 66 Jahre)" data-es="La deducción básica y la deducción por ingresos del trabajo están incluidas en la tabla de la Agencia Tributaria (columna 1 — menores de 66 años)" data-so="Jarista aasaasiga ah iyo jarista canshuurta dakhliga shaqada waxay ku jiraan jadwalka Hay'adda Canshuuraha (tiirka 1 — da'da ka yar 66)">Grundavdrag och jobbskatteavdrag ingår i Skatteverkets tabell (kolumn 1 — lön under 66 år)</span>
         </div>
       </div>
 
       <!-- HÖGER -->
       <div>
         <div class="result-box">
-          <div class="result-label">Lön efter skatt</div>
+          <div class="result-label" data-sv="Lön efter skatt" data-en="Salary after tax" data-ar="الراتب بعد الضريبة" data-fr="Salaire après impôt" data-de="Gehalt nach Steuern" data-es="Salario después de impuestos" data-so="Mushaar canshuurta ka dib">Lön efter skatt</div>
           <div class="result-num" id="k-netto">—</div>
-          <div class="result-unit">kr / månad</div>
+          <div class="result-unit" data-sv="kr / månad" data-en="SEK / month" data-ar="كرونة / شهرياً" data-fr="SEK / mois" data-de="SEK / Monat" data-es="SEK / mes" data-so="SEK / bishii">kr / månad</div>
         </div>
 
         <div class="spec-box">
           <div class="spec-row">
-            <span class="spec-label">Bruttolön</span>
+            <span class="spec-label" data-sv="Bruttolön" data-en="Gross salary" data-ar="الراتب الإجمالي" data-fr="Salaire brut" data-de="Bruttolohn" data-es="Salario bruto" data-so="Mushaarka Guud">Bruttolön</span>
             <span class="spec-val" id="k-r-brutto">—</span>
           </div>
           <div class="spec-row">
-            <span class="spec-label">Prelim. skatt (tabell <span id="k-tabell-vis">35</span>)</span>
+            <span class="spec-label"><span data-sv="Prelim. skatt (tabell" data-en="Prelim. tax (table" data-ar="ضريبة أولية (جدول" data-fr="Impôt provisoire (table" data-de="Vorl. Steuer (Tabelle" data-es="Impuesto provisional (tabla" data-so="Canshuur hordhac ah (jadwal">Prelim. skatt (tabell</span> <span id="k-tabell-vis">35</span><span data-sv=")" data-en=")" data-ar=")" data-fr=")" data-de=")" data-es=")" data-so=")">)</span></span>
             <span class="spec-val red" id="k-r-skatt">—</span>
           </div>
           <div class="spec-row">
-            <span class="spec-label">Nettolön</span>
+            <span class="spec-label" data-sv="Nettolön" data-en="Net salary" data-ar="الراتب الصافي" data-fr="Salaire net" data-de="Nettolohn" data-es="Salario neto" data-so="Mushaarka Saafiga ah">Nettolön</span>
             <span class="spec-val spec-total green" id="k-r-netto">—</span>
           </div>
           <div class="spec-row">
-            <span class="spec-label muted">Arbetsgivaravgift (31,42%)</span>
+            <span class="spec-label muted" data-sv="Arbetsgivaravgift (31,42%)" data-en="Employer contribution (31.42%)" data-ar="اشتراكات صاحب العمل (31.42%)" data-fr="Charges patronales (31,42%)" data-de="Arbeitgeberabgabe (31,42%)" data-es="Contribución patronal (31,42%)" data-so="Qaybta Loo-shaqeeyaha (31,42%)">Arbetsgivaravgift (31,42%)</span>
             <span class="spec-val muted" id="k-r-aga">—</span>
           </div>
           <div class="spec-row">
-            <span class="spec-label muted">Total kostnad arbetsgivare</span>
+            <span class="spec-label muted" data-sv="Total kostnad arbetsgivare" data-en="Total employer cost" data-ar="التكلفة الإجمالية لصاحب العمل" data-fr="Coût total employeur" data-de="Gesamtkosten Arbeitgeber" data-es="Coste total del empleador" data-so="Kharashka Guud ee Loo-shaqeeyaha">Total kostnad arbetsgivare</span>
             <span class="spec-val muted" id="k-r-tot">—</span>
           </div>
           <div class="spec-row">
-            <span class="spec-label muted">Skatteprocent</span>
+            <span class="spec-label muted" data-sv="Skatteprocent" data-en="Tax percentage" data-ar="نسبة الضريبة" data-fr="Pourcentage d'imposition" data-de="Steuersatz" data-es="Porcentaje de impuesto" data-so="Boqolkiiba Canshuurta">Skatteprocent</span>
             <span class="spec-val muted" id="k-r-pct">—</span>
           </div>
         </div>
 
         <div class="cta-box">
-          <p style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.6">Behöver du hjälp med lönehantering? Vårt <strong style="color:#8ab4f8">Standard-paket</strong> inkluderar lönehantering upp till 3 anställda.</p>
-          <button class="cta-btn" onclick="window.location.href='https://eulers.se/#kontakt'">Kontakta oss →</button>
+          <p style="font-size:13px;color:rgba(255,255,255,.7);line-height:1.6"><span data-sv="Behöver du hjälp med lönehantering? Vårt" data-en="Need help with payroll? Our" data-ar="هل تحتاج مساعدة في إدارة الرواتب؟" data-fr="Besoin d'aide pour la gestion de la paie ? Notre" data-de="Brauchen Sie Hilfe bei der Lohnabrechnung? Unser" data-es="¿Necesita ayuda con la gestión de nóminas? Nuestro" data-so="Ma u baahan tahay caawimaad maareynta mushaharka? Xirmadeena">Behöver du hjälp med lönehantering? Vårt</span> <strong style="color:#8ab4f8" data-sv="Standard-paket" data-en="Standard package" data-ar="الباقة القياسية" data-fr="forfait Standard" data-de="Standard-Paket" data-es="paquete Standard" data-so="Standard">Standard-paket</strong> <span data-sv="inkluderar lönehantering upp till 3 anställda." data-en="includes payroll for up to 3 employees." data-ar="تشمل إدارة الرواتب لما يصل إلى 3 موظفين." data-fr="inclut la gestion de la paie jusqu'à 3 employés." data-de="beinhaltet die Lohnabrechnung für bis zu 3 Mitarbeiter." data-es="incluye la gestión de nóminas para hasta 3 empleados." data-so="waxay ku jirtaa maareynta mushaharka ilaa 3 shaqaale.">inkluderar lönehantering upp till 3 anställda.</span></p>
+          <button class="cta-btn" onclick="window.location.href='https://eulers.se/#kontakt'" data-sv="Kontakta oss →" data-en="Contact us →" data-ar="تواصل معنا" data-fr="Contactez-nous →" data-de="Kontaktieren Sie uns →" data-es="Contáctenos →" data-so="Nala soo xiriir →">Kontakta oss →</button>
         </div>
 
         <!-- BOKA MÖTE -->
         <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);padding:28px;margin-top:16px;text-align:center;border-radius:16px">
-          <div style="font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#8ab4f8;margin-bottom:10px">Kostnadsfritt</div>
-          <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:white;margin-bottom:8px">Boka ett kostnadsfritt möte</div>
-          <p style="font-size:13px;color:rgba(255,255,255,.55);line-height:1.6;margin-bottom:20px">Har du frågor om din lön, skatt eller bokföring? Vi hjälper dig — helt kostnadsfritt vid första mötet.</p>
-          <button onclick="window.location.href='https://eulers.se/#kontakt'" style="width:100%;background:var(--gold);color:var(--ink);border:none;padding:14px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;margin-bottom:10px;border-radius:999px">Boka direkt →</button>
-          <p style="font-size:12px;color:rgba(255,255,255,.3)">Eller ring oss: <a href="tel:0727808398" style="color:rgba(255,255,255,.5);text-decoration:none">072-780 83 98</a></p>
+          <div style="font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#8ab4f8;margin-bottom:10px" data-sv="Kostnadsfritt" data-en="Free of charge" data-ar="مجاناً" data-fr="Gratuit" data-de="Kostenlos" data-es="Gratis" data-so="Bilaash">Kostnadsfritt</div>
+          <div style="font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:white;margin-bottom:8px" data-sv="Boka ett kostnadsfritt möte" data-en="Book a free meeting" data-ar="احجز اجتماعاً مجانياً" data-fr="Réserver une réunion gratuite" data-de="Kostenloses Treffen buchen" data-es="Reservar una reunión gratuita" data-so="Ballan bilaash ah qabso">Boka ett kostnadsfritt möte</div>
+          <p style="font-size:13px;color:rgba(255,255,255,.55);line-height:1.6;margin-bottom:20px" data-sv="Har du frågor om din lön, skatt eller bokföring? Vi hjälper dig — helt kostnadsfritt vid första mötet." data-en="Do you have questions about your salary, tax or bookkeeping? We'll help you — completely free at the first meeting." data-ar="هل لديك أسئلة حول راتبك أو ضرائبك أو محاسبتك؟ نحن نساعدك — مجاناً تماماً في الاجتماع الأول." data-fr="Avez-vous des questions sur votre salaire, vos impôts ou votre comptabilité ? Nous vous aidons — entièrement gratuit lors du premier rendez-vous." data-de="Haben Sie Fragen zu Ihrem Gehalt, Ihren Steuern oder Ihrer Buchhaltung? Wir helfen Ihnen — beim ersten Treffen völlig kostenlos." data-es="¿Tiene preguntas sobre su salario, impuestos o contabilidad? Le ayudamos — totalmente gratis en la primera reunión." data-so="Ma su'aalo ka qabtaa mushaarkaaga, canshuurtaada ama xisaabaadkaaga? Waan ku caawinaynaa — gebi ahaanba bilaash ah kulanka koowaad.">Har du frågor om din lön, skatt eller bokföring? Vi hjälper dig — helt kostnadsfritt vid första mötet.</p>
+          <button onclick="window.location.href='https://eulers.se/#kontakt'" style="width:100%;background:var(--gold);color:var(--ink);border:none;padding:14px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;margin-bottom:10px;border-radius:999px" data-sv="Boka direkt →" data-en="Book directly →" data-ar="احجز مباشرة" data-fr="Réserver directement →" data-de="Direkt buchen →" data-es="Reservar directamente →" data-so="Ballan si toos ah u dhig →">Boka direkt →</button>
+          <p style="font-size:12px;color:rgba(255,255,255,.3)"><span data-sv="Eller ring oss:" data-en="Or call us:" data-ar="أو اتصل بنا:" data-fr="Ou appelez-nous :" data-de="Oder rufen Sie uns an:" data-es="O llámenos:" data-so="Ama noo soo wac:">Eller ring oss:</span> <a href="tel:0727808398" style="color:rgba(255,255,255,.5);text-decoration:none">072-780 83 98</a></p>
         </div>
       </div>
 
     </div>
-    <p style="text-align:center;margin-top:28px;font-size:12px;color:rgba(255,255,255,.2)">Kalkylatorn är ett estimat baserat på Skatteverkets skattetabeller 2026. Kontakta oss för exakt beräkning.</p>
+    <p style="text-align:center;margin-top:28px;font-size:12px;color:rgba(255,255,255,.2)" data-sv="Kalkylatorn är ett estimat baserat på Skatteverkets skattetabeller 2026. Kontakta oss för exakt beräkning." data-en="The calculator is an estimate based on the Swedish Tax Agency's 2026 tax tables. Contact us for an exact calculation." data-ar="الحاسبة هي تقدير مبني على جداول ضرائب هيئة الضرائب السويدية 2026. تواصل معنا للحصول على حساب دقيق." data-fr="Le calculateur est une estimation basée sur les tables fiscales 2026 de l'Agence fiscale suédoise. Contactez-nous pour un calcul exact." data-de="Der Rechner ist eine Schätzung auf Basis der Steuertabellen 2026 des schwedischen Finanzamts. Kontaktieren Sie uns für eine genaue Berechnung." data-es="La calculadora es una estimación basada en las tablas fiscales 2026 de la Agencia Tributaria sueca. Contáctenos para un cálculo exacto." data-so="Xisaabiyuhu waa qiyaas ku salaysan jadwalada canshuurta ee Hay'adda Canshuuraha Iswiidhan ee 2026. Nala soo xiriir si aad u hesho xisaab sax ah.">Kalkylatorn är ett estimat baserat på Skatteverkets skattetabeller 2026. Kontakta oss för exakt beräkning.</p>
   </div>
 </div>
 
@@ -346,6 +363,58 @@ function syncSlider() {
 }
 
 document.addEventListener('DOMContentLoaded', calcLon);
+
+// ── LANGUAGE SWITCHER (matches index.html) ──────────────────────
+let currentLang = 'sv';
+
+function toggleMoreLangBtn() {
+  const dd = document.getElementById('lang-dropdown');
+  const btn = document.getElementById('lang-more-btn');
+  if (!dd) return;
+  const open = dd.style.display === 'none' || !dd.style.display;
+  dd.style.display = open ? 'block' : 'none';
+  btn.textContent = open ? '▴' : '▾';
+}
+document.addEventListener('click', function(e) {
+  const dd = document.getElementById('lang-dropdown');
+  const btn = document.getElementById('lang-more-btn');
+  if (dd && btn && !dd.contains(e.target) && e.target !== btn) {
+    dd.style.display = 'none';
+    btn.textContent = '▾';
+  }
+});
+
+function setLang(lang) {
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+  document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+    const val = el.getAttribute('data-' + lang);
+    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+      el.placeholder = val;
+    } else if (el.tagName === 'OPTION') {
+      el.textContent = val;
+    } else if (val && val.includes('<')) {
+      el.innerHTML = val;
+    } else {
+      el.textContent = val;
+    }
+  });
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
+  });
+
+  try { localStorage.setItem('eulers_lang', lang); } catch(e) {}
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  let lang = 'sv';
+  try { lang = localStorage.getItem('eulers_lang') || lang; } catch(e) {}
+  if (lang !== 'sv') setLang(lang);
+});
+// ──────────────────────────────────────────────────────────────
 </script>
 </body>
 </html>
