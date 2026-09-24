@@ -84,14 +84,17 @@ nav{background:var(--white);border-bottom:1px solid var(--pale);padding:0 24px;d
     </a>
   </div>
   <div class="nav-right">
-	<div class="lang-switcher">
+	<div class="lang-switcher" style="position:relative">
       <button class="lang-btn active" onclick="applyPageLang('sv')">SV</button>
       <button class="lang-btn" onclick="applyPageLang('en')">EN</button>
       <button class="lang-btn" onclick="applyPageLang('ar')">AR</button>
-      <button class="lang-btn" onclick="applyPageLang('fr')">FR</button>
-      <button class="lang-btn" onclick="applyPageLang('de')">DE</button>
-      <button class="lang-btn" onclick="applyPageLang('es')">ES</button>
-      <button class="lang-btn" onclick="applyPageLang('so')">SO</button>
+      <button class="lang-btn" onclick="toggleMoreLangBtn()" id="lang-more-btn" style="padding:5px 8px;font-size:14px">▾</button>
+      <div id="lang-dropdown" style="display:none;position:absolute;top:calc(100% + 8px);right:0;background:white;border:1px solid var(--pale);border-radius:8px;box-shadow:0 8px 24px rgba(15,26,61,.12);padding:6px;z-index:300;min-width:80px">
+        <button class="lang-btn" onclick="applyPageLang('fr');toggleMoreLangBtn()" style="width:100%;margin-bottom:4px;border-radius:6px">FR</button>
+        <button class="lang-btn" onclick="applyPageLang('de');toggleMoreLangBtn()" style="width:100%;margin-bottom:4px;border-radius:6px">DE</button>
+        <button class="lang-btn" onclick="applyPageLang('es');toggleMoreLangBtn()" style="width:100%;margin-bottom:4px;border-radius:6px">ES</button>
+        <button class="lang-btn" onclick="applyPageLang('so');toggleMoreLangBtn()" style="width:100%;border-radius:6px">SO</button>
+      </div>
     </div>
     <button class="filter-btn" onclick="openModal()">
       <svg viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
@@ -461,6 +464,23 @@ function applyPageLang(lang) {
   }
   try { localStorage.setItem('eulers_lang', lang); } catch(e) {}
 }
+
+function toggleMoreLangBtn() {
+  const dd = document.getElementById('lang-dropdown');
+  const btn = document.getElementById('lang-more-btn');
+  if (!dd) return;
+  const open = dd.style.display === 'none' || !dd.style.display;
+  dd.style.display = open ? 'block' : 'none';
+  btn.textContent = open ? '▴' : '▾';
+}
+document.addEventListener('click', function(e) {
+  const dd = document.getElementById('lang-dropdown');
+  const btn = document.getElementById('lang-more-btn');
+  if (dd && btn && !dd.contains(e.target) && e.target !== btn) {
+    dd.style.display = 'none';
+    btn.textContent = '▾';
+  }
+});
 
 // Read saved language on page load
 document.addEventListener('DOMContentLoaded', function() {
