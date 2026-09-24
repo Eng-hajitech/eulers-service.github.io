@@ -360,10 +360,10 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 
 <nav>
   <div class="nav-left"><a href="#" title="Eulers Service AB — Hem" style="display:flex;flex-direction:column;align-items:flex-start;text-decoration:none"><img src="logo.png" alt="Eulers Service AB"><span style="font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-top:2px" data-sv="Umeå · Grundat 2018" data-en="Umeå · Founded 2018" data-ar="أوميو · تأسست 2018" data-so="Umeå · Aasaasay 2018" data-fr="Umeå · Fondé en 2018" data-de="Umeå · Gegründet 2018" data-es="Umeå · Fundado en 2018">Umeå · Grundat 2018</span></a></div>
-  <div class="nav-links">
+  <div class="nav-links" id="t_nav_links">
     <!-- TJÄNSTER DROPDOWN -->
     <div class="nav-item">
-      <a href="#tjanster" data-sv="Tjänster" data-en="Services" data-ar="الخدمات" data-so="Adeegyada" data-fr="Services" data-de="Leistungen" data-es="Servicios">Tjänster <span class="nav-arrow">▾</span></a>
+      <a href="#tjanster" data-sv="Tjänster" data-en="Services" data-ar="الخدمات" data-so="Adeegyada" data-fr="Services" data-de="Leistungen" data-es="Servicios" id="t_nav_tjanster">Tjänster <span class="nav-arrow">▾</span></a>
       <div class="dropdown">
         <a href="#tjanster">
           <div class="dropdown-icon">📋</div>
@@ -385,9 +385,9 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
     </div>
 
     <a href="https://eng-hajitech.github.io/eulers-service.github.io/viktiga-datum.html" data-sv="📅 Viktiga datum" data-en="📅 Important dates" data-ar="📅 تواريخ مهمة" data-fr="📅 Dates importantes" data-de="📅 Wichtige Termine" data-es="📅 Fechas importantes" data-so="📅 Taariikhaha muhiimka ah" style="color:var(--gold);font-weight:600">📅 Viktiga datum</a>
-    <a href="https://eng-hajitech.github.io/eulers-service.github.io/radgivning.html" data-sv="🤝 Rådgivning" data-en="🤝 Advisory" data-ar="🤝 الاستشارات" data-fr="🤝 Conseil" data-de="🤝 Beratung" data-es="🤝 Asesoramiento" data-so="🤝 Tallo" style="color:var(--gold);font-weight:600">🤝 Rådgivning</a>
+    <a href="https://eng-hajitech.github.io/eulers-service.github.io/radgivning.html" data-sv="🤝 Rådgivning" data-en="🤝 Advisory" data-ar="🤝 الاستشارات" data-fr="🤝 Conseil" data-de="🤝 Beratung" data-es="🤝 Asesoramiento" data-so="🤝 Tallo" id="t_nav_radgivning" style="color:var(--gold);font-weight:600">🤝 Rådgivning</a>
 
-    <a href="#om-oss" data-sv="Om oss" data-en="About us" data-ar="من نحن" data-so="Naga" data-fr="À propos" data-de="Über uns" data-es="Nosotros">Om oss</a>
+    <a href="#om-oss" data-sv="Om oss" data-en="About us" data-ar="من نحن" data-so="Naga" data-fr="À propos" data-de="Über uns" data-es="Nosotros" id="t_nav_om_oss">Om oss</a>
 
     <a href="https://eng-hajitech.github.io/eulers-service.github.io/kalkylator.html" data-sv="Räkna ut lön efter skatt" data-en="Calculate salary" data-ar="احسب الراتب" data-so="Xisaabi mushaarka" data-fr="Calculer le salaire" data-de="Gehalt berechnen" data-es="Calcular salario" style="color:var(--gold);font-weight:600">Räkna ut lön efter skatt</a>
 
@@ -453,7 +453,7 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 
 <section class="hero">
   <div class="hero-left">
-    <div style="font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--gold);line-height:1.1;margin-bottom:16px" id="heroWelcome" data-sv="Välkommen!" data-en="Welcome!" data-fr="Bienvenue !" data-de="Willkommen!" data-es="¡Bienvenido!" data-ar="أهلاً وسهلاً!" data-so="Ku soo dhawoow!">Välkommen!</div>
+    <div style="font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--gold);line-height:1.1;margin-bottom:16px" id="t_hero_welcome" data-sv="Välkommen!" data-en="Welcome!" data-fr="Bienvenue !" data-de="Willkommen!" data-es="¡Bienvenido!" data-ar="أهلاً وسهلاً!" data-so="Ku soo dhawoow!">Välkommen!</div>
     <div class="hero-eyebrow" style="display:none" data-sv="Umeå · Grundat 2018" data-en="Umeå · Founded 2018" data-ar="أوميو · تأسست 2018" data-so="Umeå · Aasaasay 2018" data-fr="Umeå · Fondé en 2018" data-de="Umeå · Gegründet 2018" data-es="Umeå · Fundado en 2018">Umeå · Grundat 2018</div>
     <h1 data-sv='Din ekonomi i <em>trygga</em> händer' data-en='Your finances in <em>safe</em> hands' data-ar='أموالك في <em>أيدٍ أمينة</em>' data-so='Maaliyadaadu <em>gacmaha amaan</em> ayay ku jirtaa' data-fr='Vos finances en <em>bonnes mains</em>' data-de='Ihre Finanzen in <em>sicheren Händen</em>' data-es='Sus finanzas en <em>buenas manos</em>'>Din ekonomi i <em>trygga</em> händer</h1>
     <p data-sv="Vi erbjuder professionell redovisning, bokföring och ekonomisk rådgivning för företag i Umeå och omnejd. Låt oss sköta siffrorna — du fokuserar på din verksamhet." data-en="We offer professional accounting, bookkeeping and financial advisory for businesses in Umeå and the surrounding area. Let us handle the numbers — you focus on your business." data-ar="نقدم خدمات المحاسبة والمراجعة المالية الاحترافية للشركات في أوميو والمناطق المجاورة. دعنا نتولى الأرقام — أنت تركز على عملك." data-so="Waxaan bixinaa xisaabaadka xirfadlaha ah, buugaagta lacageed iyo talada dhaqaale ee ganacsiyada Umeå. Naga tag lambarrada — adiga xagyaada shaqada." data-fr="Nous offrons des services professionnels de comptabilité, tenue de livres et conseil financier pour les entreprises à Umeå. Laissez-nous gérer les chiffres — vous vous concentrez sur votre activité." data-de="Wir bieten professionelle Buchhaltung, Buchführung und Finanzberatung für Unternehmen in Umeå. Lassen Sie uns die Zahlen übernehmen — Sie konzentrieren sich auf Ihr Geschäft." data-es="Ofrecemos servicios profesionales de contabilidad y asesoramiento financiero para empresas en Umeå. Déjenos manejar los números — usted se concentra en su negocio.">Vi erbjuder professionell redovisning, bokföring och ekonomisk rådgivning för företag i Umeå och omnejd. Låt oss sköta siffrorna — du fokuserar på din verksamhet.</p>
@@ -482,8 +482,8 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 
 
 <section class="services-full" id="tjanster">
-  <div class="section-label" data-sv="Vad vi erbjuder" data-en="What we offer" data-ar="ما نقدمه" data-so="Waxa aan bixino" data-fr="Ce que nous offrons" data-de="Was wir anbieten" data-es="Lo que ofrecemos">Vad vi erbjuder</div>
-  <div class="section-title" data-sv="Kompletta ekonomitjänster" data-en="Complete financial services" data-ar="خدمات مالية متكاملة" data-so="Adeegyada dhaqaale oo dhameysan" data-fr="Services financiers complets" data-de="Vollständige Finanzdienstleistungen" data-es="Servicios financieros completos">Kompletta ekonomitjänster</div>
+  <div class="section-label" id="t_sec_services_label" data-sv="Vad vi erbjuder" data-en="What we offer" data-ar="ما نقدمه" data-so="Waxa aan bixino" data-fr="Ce que nous offrons" data-de="Was wir anbieten" data-es="Lo que ofrecemos">Vad vi erbjuder</div>
+  <div class="section-title" id="t_sec_services_title" data-sv="Kompletta ekonomitjänster" data-en="Complete financial services" data-ar="خدمات مالية متكاملة" data-so="Adeegyada dhaqaale oo dhameysan" data-fr="Services financiers complets" data-de="Vollständige Finanzdienstleistungen" data-es="Servicios financieros completos">Kompletta ekonomitjänster</div>
   <div class="services-grid">
     <div class="svc-card"><div class="svc-num">01</div><div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div><div class="svc-title" data-sv="Löpande bokföring" data-en="Ongoing bookkeeping" data-ar="المحاسبة الجارية">Löpande bokföring</div><div class="svc-desc" data-sv="Vi sköter din löpande bokföring korrekt och i tid, så du alltid har koll på din ekonomi." data-en="We handle your bookkeeping accurately and on time, so you always have control of your finances." data-ar="نتولى محاسبتك بدقة وفي الوقت المحدد حتى تكون دائماً على دراية بوضعك المالي.">Vi sköter din löpande bokföring korrekt och i tid, så du alltid har koll på din ekonomi.</div></div>
     <div class="svc-card"><div class="svc-num">02</div><div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div class="svc-title" data-sv="Årsredovisning" data-en="Annual report" data-ar="التقرير السنوي">Årsredovisning</div><div class="svc-desc" data-sv="Professionell upprättning av årsredovisning och inlämnande till Bolagsverket." data-en="Professional preparation of annual reports and submission to the Swedish Companies Registration Office." data-ar="إعداد التقارير السنوية الاحترافية وتقديمها إلى مكتب تسجيل الشركات السويدي.">Professionell upprättning av årsredovisning och inlämnande till Bolagsverket.</div></div>
@@ -516,7 +516,7 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 </section>
 
 <section class="process" id="hur">
-  <div class="section-label" data-sv="Så fungerar det" data-en="How it works" data-ar="كيف يعمل" data-fr="Comment ça marche" data-de="Wie es funktioniert" data-es="Cómo funciona">Så fungerar det</div>
+  <div class="section-label" id="t_sec_process_label" data-sv="Så fungerar det" data-en="How it works" data-ar="كيف يعمل" data-fr="Comment ça marche" data-de="Wie es funktioniert" data-es="Cómo funciona">Så fungerar det</div>
   <div class="section-title" data-sv="Enkelt från start till mål" data-en="Simple from start to finish" data-ar="بسيط من البداية إلى النهاية" data-fr="Simple du début à la fin" data-de="Einfach von Anfang bis Ende" data-es="Simple de principio a fin">Enkelt från start till mål</div>
   <div class="steps">
     <div class="step"><div class="step-circle"><span>1</span></div><h4 data-sv="Kostnadsfritt möte" data-en="Free meeting" data-ar="اجتماع مجاني" data-so="Shirweyne bilaash ah" data-fr="Réunion gratuite" data-de="Kostenloses Treffen" data-es="Reunión gratuita">Kostnadsfritt möte</h4><p data-sv="Vi lär känna ditt företag och dina behov utan kostnad." data-en="We get to know your business and your needs at no cost." data-ar="نتعرف على عملك واحتياجاتك بدون تكلفة." data-so="Waxaan baranaa ganacsigaaga iyo baahiyahaaga bilaash." data-fr="Nous apprenons à connaître votre entreprise et vos besoins sans frais." data-de="Wir lernen Ihr Unternehmen und Ihre Bedürfnisse kostenlos kennen." data-es="Conocemos su empresa y sus necesidades sin costo.">Vi lär känna ditt företag och dina behov utan kostnad.</p></div>
@@ -529,7 +529,7 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 <div class="about-wrap" id="om-oss">
   <div class="about">
     <div class="about-text">
-      <div class="section-label" data-sv="Om oss" data-en="About us" data-ar="من نحن" data-so="Naga" data-fr="À propos" data-de="Über uns" data-es="Nosotros">Om oss</div>
+      <div class="section-label" id="t_sec_about_label" data-sv="Om oss" data-en="About us" data-ar="من نحن" data-so="Naga" data-fr="À propos" data-de="Über uns" data-es="Nosotros">Om oss</div>
       <div class="section-title" data-sv="Eulers Service AB" data-en="Eulers Service AB" data-ar="Eulers Service AB" data-so="Eulers Service AB">Eulers Service AB</div>
       <p data-sv="Vi är ett redovisningsföretag baserat i Umeå, Västerbotten. Sedan 2018 har vi hjälpt företagare att få ordning på sin ekonomi med personlig service och hög kompetens." data-en="We are an accounting firm based in Umeå, Västerbotten. Since 2018 we have helped business owners get their finances in order with personal service and high expertise." data-ar="نحن شركة محاسبة مقرها في أوميو، فستربوتن. منذ عام 2018 ساعدنا أصحاب الأعمال على تنظيم شؤونهم المالية بخدمة شخصية وخبرة عالية." data-so="Waxaan nahay shirkad xisaabaad ku salaysan Umeå, Västerbotten. Tan iyo 2018 waxaan caawinnay ganacsatada inay hesho nidaam dhaqaale oo wanaagsan oo leh adeeg shaqsi ah iyo xirfad sare." data-fr="Nous sommes un cabinet comptable basé à Umeå, Västerbotten. Depuis 2018, nous aidons les entrepreneurs à mettre de l'ordre dans leurs finances avec un service personnalisé et une haute compétence." data-de="Wir sind ein Buchhaltungsunternehmen mit Sitz in Umeå, Västerbotten. Seit 2018 helfen wir Unternehmern, ihre Finanzen mit persönlichem Service und hoher Kompetenz in Ordnung zu bringen." data-es="Somos una empresa contable con sede en Umeå, Västerbotten. Desde 2018 ayudamos a los empresarios a poner en orden sus finanzas con servicio personalizado y alta competencia.">Vi är ett redovisningsföretag baserat i Umeå, Västerbotten. Sedan 2018 har vi hjälpt företagare att få ordning på sin ekonomi med personlig service och hög kompetens.</p>
       <p data-sv="Hos oss får du alltid en dedikerad kontaktperson som känner ditt företag. Inga onödiga mellanhänder — bara tydlig, pålitlig ekonomihjälp." data-en="With us you always get a dedicated contact person who knows your business. No unnecessary intermediaries — just clear, reliable financial help." data-ar="معنا ستحصل دائماً على شخص اتصال مخصص يعرف عملك. لا وسطاء غير ضروريين — فقط مساعدة مالية واضحة وموثوقة." data-so="Nala, had iyo jeer waad heli doontaa qof xiriir ah oo ku gooni u ah ee ganacsigaaga garanaya. Ma jiraan dhexdhexaadiyeyaal aan lagama maarmaanka ahayn — kaliya caawimo dhaqaale cad oo la isku halleyn karo." data-fr="Avec nous, vous avez toujours une personne de contact dédiée qui connaît votre entreprise. Pas d'intermédiaires inutiles — juste une aide financière claire et fiable." data-de="Bei uns haben Sie immer einen dedizierten Ansprechpartner, der Ihr Unternehmen kennt. Keine unnötigen Zwischenhändler — nur klare, zuverlässige Finanzhilfe." data-es="Con nosotros siempre tiene una persona de contacto dedicada que conoce su empresa. Sin intermediarios innecesarios — solo ayuda financiera clara y confiable.">Hos oss får du alltid en dedikerad kontaktperson som känner ditt företag. Inga onödiga mellanhänder — bara tydlig, pålitlig ekonomihjälp.</p>
@@ -548,14 +548,14 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 <!-- PRISLISTA -->
 <section style="padding:88px 56px;background:var(--frost)" id="priser">
   <div style="max-width:1100px;margin:0 auto">
-    <div class="section-label">Priser</div>
-    <div class="section-title" data-sv="Enkla &amp; transparenta paket" data-en="Simple &amp; transparent packages" data-ar="حزم بسيطة وشفافة" data-fr="Forfaits simples &amp; transparents" data-de="Einfache &amp; transparente Pakete" data-es="Paquetes simples &amp; transparentes" data-so="Xulashooyin fudud &amp; cad">Enkla &amp; transparenta paket</div>
+    <div class="section-label" id="t_sec_prices_label">Priser</div>
+    <div class="section-title" id="t_sec_prices_title" data-sv="Enkla &amp; transparenta paket" data-en="Simple &amp; transparent packages" data-ar="حزم بسيطة وشفافة" data-fr="Forfaits simples &amp; transparents" data-de="Einfache &amp; transparente Pakete" data-es="Paquetes simples &amp; transparentes" data-so="Xulashooyin fudud &amp; cad">Enkla &amp; transparenta paket</div>
 
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;margin-bottom:24px">
 
       <!-- BAS med tab -->
       <div style="background:var(--white);border:1px solid rgba(21,34,72,.08);padding:36px;position:relative;border-radius:24px;box-shadow:0 4px 24px rgba(21,34,72,.06);transition:transform .25s,box-shadow .25s" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(21,34,72,.13)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 24px rgba(21,34,72,.06)'">
-        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--navy);margin-bottom:16px">Bas</div>
+        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--navy);margin-bottom:16px" id="t_pkg_bas">Bas</div>
         <div style="display:flex;gap:0;margin-bottom:20px;border:1px solid var(--pale);overflow:hidden;border-radius:12px">
           <button onclick="switchBas('ef')" id="tab-ef" style="flex:1;padding:8px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;border:none;cursor:pointer;background:var(--navy);color:white;border-radius:12px 0 0 12px">Enskild firma</button>
           <button onclick="switchBas('ab')" id="tab-ab" style="flex:1;padding:8px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:600;border:none;cursor:pointer;background:var(--frost);color:var(--silver);border-radius:0 12px 12px 0">Aktiebolag</button>
@@ -609,7 +609,7 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 
       <!-- PREMIUM -->
       <div style="background:var(--white);border:1px solid rgba(21,34,72,.08);padding:36px;border-radius:24px;box-shadow:0 4px 24px rgba(21,34,72,.06);transition:transform .25s,box-shadow .25s" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(21,34,72,.13)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 24px rgba(21,34,72,.06)'">
-        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--navy);margin-bottom:8px">Premium</div>
+        <div style="font-family:'Playfair Display',serif;font-size:20px;font-weight:700;color:var(--navy);margin-bottom:8px" id="t_pkg_prem">Premium</div>
         <div style="font-size:13px;color:var(--silver);margin-bottom:16px">För växande företag</div>
         <div style="font-family:'Playfair Display',serif;font-size:40px;font-weight:700;color:var(--navy);line-height:1;margin-bottom:20px">3 495<span style="font-size:15px;font-weight:400;color:var(--silver)"> kr/mån</span></div>
         <div style="height:1px;background:var(--pale);margin-bottom:20px"></div>
@@ -657,7 +657,7 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 <!-- FAQ -->
 <section style="padding:88px 56px;background:var(--navy)" id="faq">
   <div style="max-width:800px;margin:0 auto">
-    <div class="section-label" style="color:rgba(200,169,110,.8)" data-sv="Vanliga frågor" data-en="FAQ" data-ar="أسئلة شائعة">Vanliga frågor</div>
+    <div class="section-label" id="t_sec_faq_label" style="color:rgba(200,169,110,.8)" data-sv="Vanliga frågor" data-en="FAQ" data-ar="أسئلة شائعة">Vanliga frågor</div>
     <div class="section-title" style="color:var(--white);margin-bottom:48px" data-sv="Frågor & svar" data-en="Questions & answers" data-ar="أسئلة وأجوبة">Frågor & svar</div>
     <div style="display:flex;flex-direction:column;gap:0" id="faqList">
       <div class="faq-item">
@@ -703,7 +703,7 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 <section style="padding:88px 56px;background:var(--white)" id="tips">
   <div style="max-width:1020px;margin:0 auto">
     <div class="section-label">Kunskap &amp; tips</div>
-    <div class="section-title" data-sv="Ekonomitips för dig" data-en="Financial tips for you" data-ar="نصائح مالية لك" data-fr="Conseils financiers pour vous" data-de="Finanztipps für Sie" data-es="Consejos financieros para ti" data-so="Talooyin dhaqaale kuugu ah">Ekonomitips för dig</div>
+    <div class="section-title" id="t_sec_tips_title" data-sv="Ekonomitips för dig" data-en="Financial tips for you" data-ar="نصائح مالية لك" data-fr="Conseils financiers pour vous" data-de="Finanztipps für Sie" data-es="Consejos financieros para ti" data-so="Talooyin dhaqaale kuugu ah">Ekonomitips för dig</div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
 
       <!-- ARTIKEL 1 -->
@@ -929,8 +929,8 @@ body{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
 
 <section style="padding:88px 56px;background:linear-gradient(180deg,var(--white) 0%,var(--frost) 100%)" id="recensioner">
   <div style="max-width:1020px;margin:0 auto">
-    <div class="section-label" data-sv="Vad kunderna säger" data-en="What customers say" data-ar="ما يقوله العملاء">Vad kunderna säger</div>
-    <div class="section-title" data-sv="Kundrecensioner" data-en="Customer reviews" data-ar="تقييمات العملاء">Kundrecensioner</div>
+    <div class="section-label" id="t_sec_reviews_label" data-sv="Vad kunderna säger" data-en="What customers say" data-ar="ما يقوله العملاء">Vad kunderna säger</div>
+    <div class="section-title" id="t_sec_reviews_title" data-sv="Kundrecensioner" data-en="Customer reviews" data-ar="تقييمات العملاء">Kundrecensioner</div>
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
 
       <div style="background:var(--white);border:1px solid rgba(21,34,72,.08);border-radius:20px;padding:36px 28px;box-shadow:0 4px 20px rgba(21,34,72,.07);transition:transform .25s,box-shadow .25s;position:relative;overflow:hidden" onmouseover="this.style.transform='translateY(-6px)';this.style.boxShadow='0 16px 48px rgba(21,34,72,.13)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 20px rgba(21,34,72,.07)'">
@@ -1248,42 +1248,7 @@ function toggleMenu() {
   burger.classList.toggle('open');
 }
 
-function setLang(lang) {
-  currentLang = lang;
-  document.documentElement.lang = lang;
-  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
 
-  // Update all elements with data attributes
-  document.querySelectorAll('[data-' + lang + ']').forEach(el => {
-    const val = el.getAttribute('data-' + lang);
-    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
-      el.placeholder = val;
-    } else if (el.tagName === 'OPTION') {
-      el.textContent = val;
-    } else if (val && val.includes('<')) {
-      el.innerHTML = val;
-    } else {
-      el.textContent = val;
-    }
-  });
-
-  // Update textarea placeholder
-  const ta = document.querySelector('textarea');
-  if (ta) {
-    if (lang === 'sv') ta.placeholder = 'Berätta om ditt företag och vad du behöver hjälp med...';
-    if (lang === 'en') ta.placeholder = 'Tell us about your business and what you need help with...';
-    if (lang === 'ar') ta.placeholder = 'أخبرنا عن عملك وما تحتاج إلى مساعدة فيه...';
-    if (lang === 'so') ta.placeholder = 'Noo sheeg ganacsigaaga iyo waxa aad caawimo u baahan tahay...';
-    if (lang === 'fr') ta.placeholder = 'Parlez-nous de votre entreprise et de ce dont vous avez besoin...';
-    if (lang === 'de') ta.placeholder = 'Erzählen Sie uns von Ihrem Unternehmen und was Sie benötigen...';
-    if (lang === 'es') ta.placeholder = 'Cuéntenos sobre su empresa y en qué necesita ayuda...';
-  }
-
-  // Update active button
-  document.querySelectorAll('.lang-btn').forEach(btn => {
-    btn.classList.toggle('active', btn.textContent.toLowerCase() === lang);
-  });
-}
 
 // Close mobile menu on outside click
 document.addEventListener('click', function(e) {
@@ -1375,5 +1340,398 @@ window.addEventListener('scroll', updateActiveNav, {passive: true});
 document.addEventListener('DOMContentLoaded', updateActiveNav);
 // ────────────────────────────────────────────────────────────────
 </script>
+
+<script>
+// ════════════════════════════════════════
+// COMPLETE TRANSLATION ENGINE
+// ════════════════════════════════════════
+const TRANSLATIONS = {
+  sv: {
+    // NAV
+    "t_nav_tjanster": "Tjänster",
+    "t_nav_om_oss": "Om oss",
+    "t_nav_kontakt": "Kontakt",
+    "t_nav_boka": "Boka möte",
+    "t_nav_lon": "Räkna ut lön efter skatt",
+    "t_nav_viktiga": "📅 Viktiga datum",
+    "t_nav_radgivning": "🤝 Rådgivning",
+    // DROPDOWN
+    "t_drop_tjanster": "Tjänster",
+    "t_drop_kompletta": "Kompletta ekonomitjänster",
+    "t_drop_kompletta_sub": "Bokföring, lön, skatt & mer",
+    "t_drop_radgivning": "Rådgivning & personligt stöd",
+    "t_drop_radgivning_sub": "Privatekonomi, privat- & businessleasing",
+    "t_drop_paket": "Enkla & transparenta paket",
+    "t_drop_paket_sub": "Se våra fasta priser",
+    "t_drop_hur": "Så fungerar det",
+    "t_drop_hur_sub": "4 enkla steg",
+    "t_drop_datum": "Viktiga datum",
+    "t_drop_datum_sub": "Skattemässiga deadlines 2026",
+    "t_drop_boka_fri": "Boka ett kostnadsfritt möte",
+    "t_drop_boka_fri_sub": "Fyll i kontaktformuläret",
+    "t_drop_boka_dir": "Boka direkt",
+    "t_drop_boka_dir_sub": "Välj en tid i kalendern",
+    // HERO
+    "t_hero_welcome": "Välkommen!",
+    "t_hero_tagline": "Din redovisningsbyrå i Umeå",
+    "t_hero_sub": "Vi hjälper företagare och privatpersoner med bokföring, skatt och ekonomisk rådgivning — på svenska, engelska och arabiska.",
+    "t_hero_cta1": "Boka kostnadsfritt möte",
+    "t_hero_cta2": "Räkna ut din lön",
+    "t_hero_lang": "Välj ditt språk",
+    // SECTIONS
+    "t_sec_services_label": "Vad vi erbjuder",
+    "t_sec_services_title": "Kompletta ekonomitjänster",
+    "t_sec_process_label": "Hur det fungerar",
+    "t_sec_process_title": "Så fungerar det",
+    "t_sec_about_label": "Om oss",
+    "t_sec_prices_label": "Priser",
+    "t_sec_prices_title": "Enkla & transparenta paket",
+    "t_sec_prices_sub": "Alla priser är exkl. moms. Kontakta oss för skräddarsydd offert.",
+    "t_sec_reviews_label": "Vad kunderna säger",
+    "t_sec_reviews_title": "Kundrecensioner",
+    "t_sec_faq_label": "Vanliga frågor",
+    "t_sec_faq_title": "Vanliga frågor & svar",
+    "t_sec_tips_label": "Ekonomitips",
+    "t_sec_tips_title": "Ekonomitips för dig",
+    "t_sec_book_title": "Boka ett kostnadsfritt möte",
+    "t_sec_book_sub": "Välj en ledig tid direkt i vår kalender.",
+    "t_sec_contact_title": "Kontakta oss",
+    "t_sec_contact_sub": "Fyll i formuläret så hör vi av oss inom 24 timmar.",
+    // SERVICES
+    "t_svc_bokforing": "Löpande bokföring",
+    "t_svc_lon": "Lönehantering",
+    "t_svc_skatt": "Skattedeklaration",
+    "t_svc_arsredovisning": "Årsredovisning",
+    "t_svc_radgivning": "Ekonomisk rådgivning",
+    "t_svc_trafik": "Trafiktillstånd",
+    "t_svc_bokslut": "Bokslut",
+    "t_svc_moms": "Momsredovisning",
+    "t_svc_budget": "Budgetrådgivning",
+    // PROCESS STEPS
+    "t_step1_title": "Kontakta oss",
+    "t_step1_desc": "Ring, mejla eller fyll i formuläret — vi svarar inom 24 timmar.",
+    "t_step2_title": "Kostnadsfritt möte",
+    "t_step2_desc": "Vi går igenom dina behov och ger ett tydligt prisförslag utan bindning.",
+    "t_step3_title": "Vi tar över",
+    "t_step3_desc": "Du delegerar — vi sköter allt. Du fokuserar på det du är bra på.",
+    "t_step4_title": "Full kontroll",
+    "t_step4_desc": "Du har alltid tillgång till din ekonomiska status och rapporter.",
+    // PRICES
+    "t_pkg_bas": "Bas",
+    "t_pkg_bas_who": "Enskild firma",
+    "t_pkg_std": "Standard",
+    "t_pkg_std_who": "Aktiebolag",
+    "t_pkg_std_popular": "⭐ POPULÄRAST",
+    "t_pkg_prem": "Premium",
+    "t_pkg_prem_who": "Växande företag",
+    "t_pkg_cta": "Kom igång →",
+    "t_pkg_bokslut": "Bokslut & årsredovisning",
+    "t_pkg_bokslut_info": "I Standard-paketet ingår vägledning så att du kan göra administrationen själv. Vill du att vi tar över hela arbetet?",
+    // FAQ
+    "t_faq1_q": "Vad kostar det?",
+    "t_faq1_a": "Bas-paketet börjar på 995 kr/mån exkl. moms. Första mötet är alltid kostnadsfritt.",
+    "t_faq2_q": "Vilka språk pratar ni?",
+    "t_faq2_a": "Vi pratar svenska, engelska och arabiska — du väljer vad som passar dig.",
+    "t_faq3_q": "Hur snabbt svarar ni?",
+    "t_faq3_a": "Vi svarar alltid inom 24 timmar på vardagar. Via WhatsApp ofta snabbare.",
+    "t_faq4_q": "Kan jag byta paket?",
+    "t_faq4_a": "Ja, du kan alltid uppgradera eller nedgradera. Inga bindningstider.",
+    "t_faq5_q": "Arbetar ni med privatpersoner?",
+    "t_faq5_a": "Ja! Vi hjälper både privatpersoner och företag med deklaration, budget och rådgivning.",
+    // CONTACT
+    "t_form_fname": "Förnamn",
+    "t_form_lname": "Efternamn",
+    "t_form_email": "E-post",
+    "t_form_phone": "Telefon",
+    "t_form_msg": "Meddelande",
+    "t_form_submit": "Skicka meddelande",
+    // FOOTER
+    "t_footer_org": "Org.nr: 559181-0568",
+    "t_footer_addr": "Istidsgatan 53, Umeå",
+    "t_footer_rights": "Alla rättigheter förbehållna",
+  },
+  en: {
+    "t_nav_tjanster": "Services",
+    "t_nav_om_oss": "About us",
+    "t_nav_kontakt": "Contact",
+    "t_nav_boka": "Book meeting",
+    "t_nav_lon": "Calculate salary after tax",
+    "t_nav_viktiga": "📅 Important dates",
+    "t_nav_radgivning": "🤝 Advisory",
+    "t_drop_tjanster": "Services",
+    "t_drop_kompletta": "Complete financial services",
+    "t_drop_kompletta_sub": "Accounting, payroll, tax & more",
+    "t_drop_radgivning": "Advisory & personal support",
+    "t_drop_radgivning_sub": "Personal finance, private & business leasing",
+    "t_drop_paket": "Simple & transparent packages",
+    "t_drop_paket_sub": "See our fixed prices",
+    "t_drop_hur": "How it works",
+    "t_drop_hur_sub": "4 simple steps",
+    "t_drop_datum": "Important dates",
+    "t_drop_datum_sub": "Tax deadlines 2026",
+    "t_drop_boka_fri": "Book a free consultation",
+    "t_drop_boka_fri_sub": "Fill in the contact form",
+    "t_drop_boka_dir": "Book directly",
+    "t_drop_boka_dir_sub": "Choose a time in the calendar",
+    "t_hero_welcome": "Welcome!",
+    "t_hero_tagline": "Your accounting firm in Umeå",
+    "t_hero_sub": "We help businesses and individuals with accounting, tax and financial advice — in Swedish, English and Arabic.",
+    "t_hero_cta1": "Book free consultation",
+    "t_hero_cta2": "Calculate your salary",
+    "t_hero_lang": "Choose your language",
+    "t_sec_services_label": "What we offer",
+    "t_sec_services_title": "Complete financial services",
+    "t_sec_process_label": "How it works",
+    "t_sec_process_title": "How it works",
+    "t_sec_about_label": "About us",
+    "t_sec_prices_label": "Pricing",
+    "t_sec_prices_title": "Simple & transparent packages",
+    "t_sec_prices_sub": "All prices excl. VAT. Contact us for a custom quote.",
+    "t_sec_reviews_label": "What customers say",
+    "t_sec_reviews_title": "Customer reviews",
+    "t_sec_faq_label": "FAQ",
+    "t_sec_faq_title": "Frequently asked questions",
+    "t_sec_tips_label": "Financial tips",
+    "t_sec_tips_title": "Financial tips for you",
+    "t_sec_book_title": "Book a free consultation",
+    "t_sec_book_sub": "Choose a time directly in our calendar.",
+    "t_sec_contact_title": "Contact us",
+    "t_sec_contact_sub": "Fill in the form and we'll get back to you within 24 hours.",
+    "t_svc_bokforing": "Bookkeeping",
+    "t_svc_lon": "Payroll management",
+    "t_svc_skatt": "Tax declaration",
+    "t_svc_arsredovisning": "Annual report",
+    "t_svc_radgivning": "Financial advisory",
+    "t_svc_trafik": "Traffic permits",
+    "t_svc_bokslut": "Year-end accounts",
+    "t_svc_moms": "VAT reporting",
+    "t_svc_budget": "Budget advisory",
+    "t_step1_title": "Contact us",
+    "t_step1_desc": "Call, email or fill in the form — we respond within 24 hours.",
+    "t_step2_title": "Free consultation",
+    "t_step2_desc": "We review your needs and give a clear quote with no commitment.",
+    "t_step3_title": "We take over",
+    "t_step3_desc": "You delegate — we handle everything. You focus on what you do best.",
+    "t_step4_title": "Full control",
+    "t_step4_desc": "You always have access to your financial status and reports.",
+    "t_pkg_bas": "Basic",
+    "t_pkg_bas_who": "Sole trader",
+    "t_pkg_std": "Standard",
+    "t_pkg_std_who": "Limited company",
+    "t_pkg_std_popular": "⭐ MOST POPULAR",
+    "t_pkg_prem": "Premium",
+    "t_pkg_prem_who": "Growing business",
+    "t_pkg_cta": "Get started →",
+    "t_pkg_bokslut": "Year-end & annual report",
+    "t_pkg_bokslut_info": "The Standard package includes guidance so you can handle the administration yourself. Want us to take over completely?",
+    "t_faq1_q": "What does it cost?",
+    "t_faq1_a": "The Basic package starts at 995 SEK/month excl. VAT. The first meeting is always free.",
+    "t_faq2_q": "What languages do you speak?",
+    "t_faq2_a": "We speak Swedish, English and Arabic — you choose what suits you.",
+    "t_faq3_q": "How quickly do you respond?",
+    "t_faq3_a": "We always respond within 24 hours on weekdays. Via WhatsApp often faster.",
+    "t_faq4_q": "Can I change package?",
+    "t_faq4_a": "Yes, you can always upgrade or downgrade. No lock-in periods.",
+    "t_faq5_q": "Do you work with private individuals?",
+    "t_faq5_a": "Yes! We help both individuals and businesses with tax returns, budgets and advice.",
+    "t_form_fname": "First name",
+    "t_form_lname": "Last name",
+    "t_form_email": "Email",
+    "t_form_phone": "Phone",
+    "t_form_msg": "Message",
+    "t_form_submit": "Send message",
+    "t_footer_org": "Org. no: 559181-0568",
+    "t_footer_addr": "Istidsgatan 53, Umeå",
+    "t_footer_rights": "All rights reserved",
+  },
+  ar: {
+    "t_nav_tjanster": "الخدمات",
+    "t_nav_om_oss": "من نحن",
+    "t_nav_kontakt": "اتصل بنا",
+    "t_nav_boka": "احجز اجتماعاً",
+    "t_nav_lon": "احسب الراتب بعد الضريبة",
+    "t_nav_viktiga": "📅 تواريخ مهمة",
+    "t_nav_radgivning": "🤝 الاستشارات",
+    "t_drop_tjanster": "الخدمات",
+    "t_drop_kompletta": "خدمات مالية متكاملة",
+    "t_drop_kompletta_sub": "محاسبة، رواتب، ضرائب والمزيد",
+    "t_drop_radgivning": "الاستشارات والدعم الشخصي",
+    "t_drop_radgivning_sub": "المالية الشخصية والتأجير",
+    "t_drop_paket": "حزم بسيطة وشفافة",
+    "t_drop_paket_sub": "انظر أسعارنا الثابتة",
+    "t_drop_hur": "كيف يعمل",
+    "t_drop_hur_sub": "4 خطوات بسيطة",
+    "t_drop_datum": "تواريخ مهمة",
+    "t_drop_datum_sub": "المواعيد الضريبية 2026",
+    "t_drop_boka_fri": "احجز استشارة مجانية",
+    "t_drop_boka_fri_sub": "املأ نموذج الاتصال",
+    "t_drop_boka_dir": "احجز مباشرة",
+    "t_drop_boka_dir_sub": "اختر وقتاً في التقويم",
+    "t_hero_welcome": "أهلاً وسهلاً!",
+    "t_hero_tagline": "مكتب المحاسبة الخاص بك في أوميو",
+    "t_hero_sub": "نساعد الشركات والأفراد في المحاسبة والضرائب والاستشارات المالية — بالسويدية والإنجليزية والعربية.",
+    "t_hero_cta1": "احجز استشارة مجانية",
+    "t_hero_cta2": "احسب راتبك",
+    "t_hero_lang": "اختر لغتك",
+    "t_sec_services_label": "ما نقدمه",
+    "t_sec_services_title": "خدمات مالية متكاملة",
+    "t_sec_process_label": "كيف يعمل",
+    "t_sec_process_title": "كيف يعمل",
+    "t_sec_about_label": "من نحن",
+    "t_sec_prices_label": "الأسعار",
+    "t_sec_prices_title": "حزم بسيطة وشفافة",
+    "t_sec_prices_sub": "جميع الأسعار بدون ضريبة القيمة المضافة. اتصل بنا للحصول على عرض مخصص.",
+    "t_sec_reviews_label": "ما يقوله العملاء",
+    "t_sec_reviews_title": "تقييمات العملاء",
+    "t_sec_faq_label": "الأسئلة الشائعة",
+    "t_sec_faq_title": "الأسئلة الشائعة والأجوبة",
+    "t_sec_tips_label": "نصائح مالية",
+    "t_sec_tips_title": "نصائح مالية لك",
+    "t_sec_book_title": "احجز استشارة مجانية",
+    "t_sec_book_sub": "اختر وقتاً مباشرة في تقويمنا.",
+    "t_sec_contact_title": "تواصل معنا",
+    "t_sec_contact_sub": "املأ النموذج وسنرد عليك خلال 24 ساعة.",
+    "t_svc_bokforing": "المحاسبة الجارية",
+    "t_svc_lon": "إدارة الرواتب",
+    "t_svc_skatt": "الإقرار الضريبي",
+    "t_svc_arsredovisning": "التقرير السنوي",
+    "t_svc_radgivning": "الاستشارات المالية",
+    "t_svc_trafik": "تصاريح النقل",
+    "t_svc_bokslut": "ختام السنة المالية",
+    "t_svc_moms": "تقرير ضريبة القيمة المضافة",
+    "t_svc_budget": "استشارات الميزانية",
+    "t_step1_title": "تواصل معنا",
+    "t_step1_desc": "اتصل أو راسل أو املأ النموذج — نرد خلال 24 ساعة.",
+    "t_step2_title": "استشارة مجانية",
+    "t_step2_desc": "نراجع احتياجاتك ونقدم عرضاً واضحاً بدون التزام.",
+    "t_step3_title": "نتولى الأمر",
+    "t_step3_desc": "أنت تفوض — نحن ندير كل شيء. أنت تركز على ما تجيده.",
+    "t_step4_title": "تحكم كامل",
+    "t_step4_desc": "لديك دائماً إمكانية الوصول إلى وضعك المالي والتقارير.",
+    "t_pkg_bas": "أساسي",
+    "t_pkg_bas_who": "ملكية فردية",
+    "t_pkg_std": "قياسي",
+    "t_pkg_std_who": "شركة مساهمة",
+    "t_pkg_std_popular": "⭐ الأكثر شعبية",
+    "t_pkg_prem": "بريميوم",
+    "t_pkg_prem_who": "شركة متنامية",
+    "t_pkg_cta": "ابدأ الآن →",
+    "t_pkg_bokslut": "ختام السنة والتقرير السنوي",
+    "t_pkg_bokslut_info": "يتضمن الباقة القياسية إرشادات لإدارة الأعمال الإدارية بنفسك. هل تريد منا تولي العمل بالكامل؟",
+    "t_faq1_q": "ما هي التكلفة؟",
+    "t_faq1_a": "الباقة الأساسية تبدأ من 995 كرون شهرياً بدون ضريبة القيمة المضافة. الاجتماع الأول مجاني دائماً.",
+    "t_faq2_q": "ما اللغات التي تتحدثونها؟",
+    "t_faq2_a": "نتحدث السويدية والإنجليزية والعربية — أنت تختار ما يناسبك.",
+    "t_faq3_q": "ما مدى سرعة ردكم؟",
+    "t_faq3_a": "نرد دائماً خلال 24 ساعة في أيام العمل. عبر WhatsApp في الغالب أسرع.",
+    "t_faq4_q": "هل يمكنني تغيير الباقة؟",
+    "t_faq4_a": "نعم، يمكنك دائماً الترقية أو التخفيض. لا توجد فترات إلزامية.",
+    "t_faq5_q": "هل تعملون مع الأفراد؟",
+    "t_faq5_a": "نعم! نساعد الأفراد والشركات في الإقرارات الضريبية والميزانيات والاستشارات.",
+    "t_form_fname": "الاسم الأول",
+    "t_form_lname": "اسم العائلة",
+    "t_form_email": "البريد الإلكتروني",
+    "t_form_phone": "الهاتف",
+    "t_form_msg": "الرسالة",
+    "t_form_submit": "إرسال الرسالة",
+    "t_footer_org": "رقم التسجيل: 559181-0568",
+    "t_footer_addr": "Istidsgatan 53, Umeå",
+    "t_footer_rights": "جميع الحقوق محفوظة",
+  },
+  fr: {
+    "t_nav_tjanster": "Services", "t_nav_om_oss": "À propos", "t_nav_kontakt": "Contact",
+    "t_nav_boka": "Prendre RDV", "t_nav_lon": "Calculer salaire net", "t_nav_viktiga": "📅 Dates importantes", "t_nav_radgivning": "🤝 Conseil",
+    "t_hero_welcome": "Bienvenue!", "t_hero_tagline": "Votre cabinet comptable à Umeå",
+    "t_hero_sub": "Nous aidons entreprises et particuliers en comptabilité, fiscalité et conseil financier.",
+    "t_hero_cta1": "Prendre RDV gratuit", "t_hero_cta2": "Calculer votre salaire", "t_hero_lang": "Choisir la langue",
+    "t_sec_services_title": "Services financiers complets", "t_sec_prices_title": "Forfaits simples & transparents",
+    "t_sec_reviews_title": "Avis clients", "t_sec_faq_title": "Questions fréquentes", "t_sec_tips_title": "Conseils financiers pour vous",
+    "t_pkg_bas": "Basique", "t_pkg_std": "Standard", "t_pkg_prem": "Premium", "t_pkg_cta": "Commencer →",
+    "t_form_submit": "Envoyer le message", "t_footer_rights": "Tous droits réservés",
+  },
+  de: {
+    "t_nav_tjanster": "Leistungen", "t_nav_om_oss": "Über uns", "t_nav_kontakt": "Kontakt",
+    "t_nav_boka": "Termin buchen", "t_nav_lon": "Nettolohn berechnen", "t_nav_viktiga": "📅 Wichtige Termine", "t_nav_radgivning": "🤝 Beratung",
+    "t_hero_welcome": "Willkommen!", "t_hero_tagline": "Ihre Steuerberatung in Umeå",
+    "t_hero_sub": "Wir helfen Unternehmen und Privatpersonen mit Buchhaltung, Steuern und Finanzberatung.",
+    "t_hero_cta1": "Kostenlosen Termin buchen", "t_hero_cta2": "Nettolohn berechnen", "t_hero_lang": "Sprache wählen",
+    "t_sec_services_title": "Vollständige Finanzdienstleistungen", "t_sec_prices_title": "Einfache & transparente Pakete",
+    "t_sec_reviews_title": "Kundenbewertungen", "t_sec_faq_title": "Häufige Fragen & Antworten", "t_sec_tips_title": "Finanztipps für Sie",
+    "t_pkg_bas": "Basis", "t_pkg_std": "Standard", "t_pkg_prem": "Premium", "t_pkg_cta": "Loslegen →",
+    "t_form_submit": "Nachricht senden", "t_footer_rights": "Alle Rechte vorbehalten",
+  },
+  es: {
+    "t_nav_tjanster": "Servicios", "t_nav_om_oss": "Nosotros", "t_nav_kontakt": "Contacto",
+    "t_nav_boka": "Reservar cita", "t_nav_lon": "Calcular salario neto", "t_nav_viktiga": "📅 Fechas importantes", "t_nav_radgivning": "🤝 Asesoramiento",
+    "t_hero_welcome": "¡Bienvenido!", "t_hero_tagline": "Tu asesoría contable en Umeå",
+    "t_hero_sub": "Ayudamos a empresas y particulares con contabilidad, impuestos y asesoría financiera.",
+    "t_hero_cta1": "Reservar consulta gratuita", "t_hero_cta2": "Calcular tu salario", "t_hero_lang": "Elige tu idioma",
+    "t_sec_services_title": "Servicios financieros completos", "t_sec_prices_title": "Paquetes simples & transparentes",
+    "t_sec_reviews_title": "Reseñas de clientes", "t_sec_faq_title": "Preguntas frecuentes", "t_sec_tips_title": "Consejos financieros para ti",
+    "t_pkg_bas": "Básico", "t_pkg_std": "Estándar", "t_pkg_prem": "Premium", "t_pkg_cta": "Empezar →",
+    "t_form_submit": "Enviar mensaje", "t_footer_rights": "Todos los derechos reservados",
+  },
+  so: {
+    "t_nav_tjanster": "Adeegyada", "t_nav_om_oss": "Naga", "t_nav_kontakt": "Xiriir",
+    "t_nav_boka": "Ballan", "t_nav_lon": "Xisaabi mushaarka", "t_nav_viktiga": "📅 Taariikhaha", "t_nav_radgivning": "🤝 Tallo",
+    "t_hero_welcome": "Ku soo dhawoow!", "t_hero_tagline": "Xafiiskiinna xisaabaadka Umeå",
+    "t_hero_sub": "Waxaan u caawinnaa ganacsatada iyo shakhsiyaadka xisaabaadka, cashuurta iyo talada maaliyadda.",
+    "t_hero_cta1": "Ballan bilaash ah", "t_hero_cta2": "Xisaabi mushaarkaaga", "t_hero_lang": "Dooro luqadaada",
+    "t_sec_services_title": "Adeegyada dhaqaalaha oo dhameys", "t_sec_prices_title": "Xulashooyin fudud & cad",
+    "t_sec_reviews_title": "Dib u eegiddada macaamiisha", "t_sec_faq_title": "Su'aalaha badanaa & jawaabaha", "t_sec_tips_title": "Talooyin dhaqaale kuugu ah",
+    "t_pkg_bas": "Aasaasi", "t_pkg_std": "Caadi", "t_pkg_prem": "Premium", "t_pkg_cta": "Bilow →",
+    "t_form_submit": "Dir fariinta", "t_footer_rights": "Xuquuqda oo dhan way dhowrsanyihiin",
+  }
+};
+
+function setLang(lang) {
+  if (!TRANSLATIONS[lang]) lang = 'sv';
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  
+  const t = TRANSLATIONS[lang];
+  const sv = TRANSLATIONS['sv'];
+  
+  // Update all elements with translation IDs
+  Object.keys(t).forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+        el.placeholder = t[id];
+      } else {
+        // Preserve child elements (svg, em, span.nav-arrow etc)
+        const children = Array.from(el.childNodes).filter(n => n.nodeType === 1);
+        if (children.length === 0) {
+          el.textContent = t[id];
+        } else {
+          // Only update text nodes
+          Array.from(el.childNodes).forEach(node => {
+            if (node.nodeType === 3 && node.textContent.trim()) {
+              node.textContent = t[id];
+            }
+          });
+        }
+      }
+    }
+  });
+  
+  // Also handle data-sv/data-en/data-ar elements (backwards compat)
+  document.querySelectorAll('[data-sv]').forEach(el => {
+    const val = el.getAttribute('data-' + lang) || el.getAttribute('data-sv');
+    if (val && !el.id.startsWith('t_')) {
+      if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+        el.placeholder = val;
+      } else if (!el.children.length || el.tagName === 'BUTTON') {
+        el.textContent = val;
+      }
+    }
+  });
+
+  try { localStorage.setItem('eulers_lang', lang); } catch(e) {}
+}
+// ════════════════════════════════════════
+</script>
+
 </body>
 </html>
