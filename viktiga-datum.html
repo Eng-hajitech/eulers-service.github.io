@@ -84,6 +84,15 @@ nav{background:var(--white);border-bottom:1px solid var(--pale);padding:0 24px;d
     </a>
   </div>
   <div class="nav-right">
+	<div class="lang-switcher">
+      <button class="lang-btn active" onclick="setLang('sv')">SV</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" onclick="setLang('ar')">AR</button>
+      <button class="lang-btn" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" onclick="setLang('de')">DE</button>
+      <button class="lang-btn" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" onclick="setLang('so')">SO</button>
+    </div>
     <button class="filter-btn" onclick="openModal()">
       <svg viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
       Anpassa
@@ -92,12 +101,6 @@ nav{background:var(--white);border-bottom:1px solid var(--pale);padding:0 24px;d
       <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
       Tillbaka
     </a>
-    <div class="lang-switcher-sub">
-    <div style="display:flex;gap:4px;align-items:center">
-      <button onclick="applyPageLang('sv')" style="padding:5px 10px;border:1.5px solid var(--pale);border-radius:999px;background:white;font-size:11px;font-weight:600;cursor:pointer;color:var(--navy)">SV</button>
-      <button onclick="applyPageLang('en')" style="padding:5px 10px;border:1.5px solid var(--pale);border-radius:999px;background:white;font-size:11px;font-weight:600;cursor:pointer;color:var(--navy)">EN</button>
-      <button onclick="applyPageLang('ar')" style="padding:5px 10px;border:1.5px solid var(--pale);border-radius:999px;background:white;font-size:11px;font-weight:600;cursor:pointer;color:var(--navy)">AR</button>
-    </div></div>
   </div>
 </nav>
 
@@ -109,19 +112,19 @@ nav{background:var(--white);border-bottom:1px solid var(--pale);padding:0 24px;d
 <div class="active-filters" id="activeFilters"></div>
 
 <div class="month-filter">
-  <button class="m-btn" onclick="filterMonth('alla')" data-sv="Alla" data-en="All" data-ar="الكل" data-so="Dhammaan">Alla</button>
-  <button class="m-btn" onclick="filterMonth('jan')" data-sv="Jan" data-en="Jan" data-ar="يناير" data-so="Jan">Jan</button>
-  <button class="m-btn" onclick="filterMonth('feb')" data-sv="Feb" data-en="Feb" data-ar="فبراير" data-so="Feb">Feb</button>
-  <button class="m-btn" onclick="filterMonth('mar')" data-sv="Mar" data-en="Mar" data-ar="مارس" data-so="Mar">Mar</button>
-  <button class="m-btn" onclick="filterMonth('apr')" data-sv="Apr" data-en="Apr" data-ar="أبريل" data-so="Apr">Apr</button>
-  <button class="m-btn" onclick="filterMonth('maj')" data-sv="Maj" data-en="May" data-ar="مايو" data-so="May">Maj</button>
-  <button class="m-btn" onclick="filterMonth('jun')" data-sv="Jun" data-en="Jun" data-ar="يونيو" data-so="Jun">Jun</button>
-  <button class="m-btn" onclick="filterMonth('jul')" data-sv="Jul" data-en="Jul" data-ar="يوليو" data-so="Jul">Jul</button>
-  <button class="m-btn" onclick="filterMonth('aug')" data-sv="Aug" data-en="Aug" data-ar="أغسطس" data-so="Aug">Aug</button>
-  <button class="m-btn" onclick="filterMonth('sep')" data-sv="Sep" data-en="Sep" data-ar="سبتمبر" data-so="Sep">Sep</button>
-  <button class="m-btn" onclick="filterMonth('okt')" data-sv="Okt" data-en="Oct" data-ar="أكتوبر" data-so="Oct">Okt</button>
-  <button class="m-btn" onclick="filterMonth('nov')" data-sv="Nov" data-en="Nov" data-ar="نوفمبر" data-so="Nov">Nov</button>
-  <button class="m-btn" onclick="filterMonth('dec')" data-sv="Dec" data-en="Dec" data-ar="ديسمبر" data-so="Dec">Dec</button>
+  <button class="m-btn" onclick="filterMonth('alla')">Alla</button>
+  <button class="m-btn" onclick="filterMonth('jan')">Jan</button>
+  <button class="m-btn" onclick="filterMonth('feb')">Feb</button>
+  <button class="m-btn" onclick="filterMonth('mar')">Mar</button>
+  <button class="m-btn" onclick="filterMonth('apr')">Apr</button>
+  <button class="m-btn" onclick="filterMonth('maj')">Maj</button>
+  <button class="m-btn" onclick="filterMonth('jun')">Jun</button>
+  <button class="m-btn" onclick="filterMonth('jul')">Jul</button>
+  <button class="m-btn" onclick="filterMonth('aug')">Aug</button>
+  <button class="m-btn" onclick="filterMonth('sep')">Sep</button>
+  <button class="m-btn" onclick="filterMonth('okt')">Okt</button>
+  <button class="m-btn" onclick="filterMonth('nov')">Nov</button>
+  <button class="m-btn" onclick="filterMonth('dec')">Dec</button>
 </div>
 
 <div class="content">
@@ -144,23 +147,23 @@ nav{background:var(--white);border-bottom:1px solid var(--pale);padding:0 24px;d
     </div>
     <div class="modal-body">
       <div class="modal-section">
-        <h3 data-sv="Företagsform" data-en="Business type" data-ar="شكل الشركة" data-so="Nooca ganacsiga">Företagsform</h3>
+        <h3>Företagsform</h3>
         <div class="modal-options">
-          <label class="modal-option"><label data-sv="Enskild firma (EF)" data-en="Sole trader (EF)" data-ar="ملكية فردية (EF)">Enskild firma (EF)</label><input type="radio" name="ff" value="ef" checked></label>
-          <label class="modal-option"><label data-sv="Aktiebolag (AB)" data-en="Limited company (AB)" data-ar="شركة مساهمة (AB)">Aktiebolag (AB)</label><input type="radio" name="ff" value="ab"></label>
-          <label class="modal-option"><label data-sv="Handels-/Kommanditbolag (HB)" data-en="Trading/Partnership (HB)" data-ar="شركة تضامن (HB)">Handels-/Kommanditbolag (HB)</label><input type="radio" name="ff" value="hb"></label>
+          <label class="modal-option"><label>Enskild firma (EF)</label><input type="radio" name="ff" value="ef" checked></label>
+          <label class="modal-option"><label>Aktiebolag (AB)</label><input type="radio" name="ff" value="ab"></label>
+          <label class="modal-option"><label>Handels-/Kommanditbolag (HB)</label><input type="radio" name="ff" value="hb"></label>
         </div>
       </div>
       <div class="modal-section">
-        <h3 data-sv="Momsdeklaration" data-en="VAT declaration" data-ar="إقرار ضريبة القيمة المضافة" data-so="Bayaanka VAT">Momsdeklaration</h3>
+        <h3>Momsdeklaration</h3>
         <div class="modal-options">
-          <label class="modal-option"><label data-sv="Årsvis (omsättning max 1 mkr)" data-en="Annual (turnover max 1M SEK)" data-ar="سنوي (حد أقصى 1 مليون)">Årsvis (omsättning max 1 mkr)</label><input type="radio" name="moms" value="ar"></label>
-          <label class="modal-option"><label data-sv="Kvartalsvis" data-en="Quarterly" data-ar="ربع سنوي">Kvartalsvis</label><input type="radio" name="moms" value="kvartal" checked></label>
-          <label class="modal-option"><label data-sv="Månadsvis (omsättning 1–40 mkr)" data-en="Monthly (turnover 1–40M SEK)" data-ar="شهري (1-40 مليون)">Månadsvis (omsättning 1–40 mkr)</label><input type="radio" name="moms" value="manad"></label>
+          <label class="modal-option"><label>Årsvis (omsättning max 1 mkr)</label><input type="radio" name="moms" value="ar"></label>
+          <label class="modal-option"><label>Kvartalsvis</label><input type="radio" name="moms" value="kvartal" checked></label>
+          <label class="modal-option"><label>Månadsvis (omsättning 1–40 mkr)</label><input type="radio" name="moms" value="manad"></label>
         </div>
       </div>
     </div>
-    <button class="modal-save" onclick="saveSettings()" data-sv="Spara inställningar" data-en="Save settings" data-ar="حفظ الإعدادات" data-so="Keydi xulashooyinka">Spara inställningar</button>
+    <button class="modal-save" onclick="saveSettings()">Spara inställningar</button>
   </div>
 </div>
 
@@ -440,26 +443,29 @@ const LANG_DATA = {
 };
 
 function applyPageLang(lang) {
-  if (!lang || lang === '') lang = 'sv';
+  const d = LANG_DATA[lang] || LANG_DATA.sv;
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-  document.querySelectorAll('[data-sv]').forEach(el => {
-    const val = el.getAttribute('data-' + lang) || el.getAttribute('data-sv');
+  // Update all data-lang elements
+  document.querySelectorAll('[data-' + lang + ']').forEach(el => {
+    const val = el.getAttribute('data-' + lang);
     if (val) el.textContent = val;
   });
+  // Update back button
   const backBtn = document.querySelector('.back-btn');
   if (backBtn) {
     const svg = backBtn.querySelector('svg');
-    const txt = lang === 'ar' ? 'رجوع' : lang === 'en' ? 'Back' : 'Tillbaka';
-    backBtn.textContent = txt;
+    backBtn.textContent = d.back;
     if (svg) backBtn.prepend(svg);
-    backBtn.style.flexDirection = lang === 'ar' ? 'row-reverse' : '';
+    if (lang === 'ar') backBtn.style.flexDirection = 'row-reverse';
   }
+  try { localStorage.setItem('eulers_lang', lang); } catch(e) {}
 }
 
 // Read saved language on page load
 document.addEventListener('DOMContentLoaded', function() {
-  applyPageLang('sv');
+  const lang = localStorage.getItem('eulers_lang') || 'sv';
+  if (lang !== 'sv') applyPageLang(lang);
 });
 // ────────────────────────────────────────────────────────────────
 </script>
